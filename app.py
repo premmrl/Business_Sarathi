@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# मोबाईल-फ्रेंडली कॉम्पॅक्ट आणि इन-लाइन ॲरो CSS
+# नंबर व सर्च बॉक्समध्येच बाण (➔) एकाच रेषेत बसवणारे CSS
 st.markdown("""
     <style>
         .block-container {
@@ -59,23 +59,56 @@ st.markdown("""
             font-weight: 600;
             border-radius: 8px;
         }
-        .stTextInput > label, .stTextArea > label {
-            font-size: 0.88rem !important;
-            font-weight: 600 !important;
-            margin-bottom: 3px !important;
+
+        /* बॉक्स आणि बाण एकाच ओळीत घट्ट बसवण्यासाठी */
+        div[data-testid="stHorizontalBlock"] {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: stretch !important;
+            gap: 6px !important;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 4px 6px;
+            margin-bottom: 10px;
         }
-        /* इन-लाइन लहान ॲरो बटणाची रचना */
-        div[data-testid="stForm"] div[data-testid="column"]:nth-child(2) button {
-            height: 44px !important;
-            margin-top: 0px !important;
-            font-size: 1.25rem !important;
+        div[data-testid="stHorizontalBlock"] > div:first-child {
+            flex: 1 1 auto !important;
+            min-width: 0 !important;
+        }
+        div[data-testid="stHorizontalBlock"] > div:last-child {
+            flex: 0 0 auto !important;
+            width: auto !important;
+        }
+        /* इनपुट बॉक्सची बॉर्डर काढून टाकणे जेणेकरून तो पूर्ण एकच बॉक्स वाटेल */
+        div[data-testid="stHorizontalBlock"] .stTextInput input {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            color: #ffffff !important;
+            padding: 8px 10px !important;
+            font-size: 0.95rem !important;
+        }
+        div[data-testid="stHorizontalBlock"] .stTextInput {
+            margin-bottom: 0 !important;
+        }
+        /* बाण (➔) चे आकर्षक बटण */
+        div[data-testid="stHorizontalBlock"] button {
+            background-color: #ef4444 !important;
+            color: #ffffff !important;
+            border: none !important;
+            border-radius: 8px !important;
+            padding: 6px 14px !important;
+            font-size: 1.2rem !important;
             font-weight: bold !important;
-            padding: 0 !important;
+            height: 100% !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            border-radius: 8px !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
         }
+
         .app-footer {
             text-align: center;
             color: #64748b;
@@ -247,9 +280,9 @@ LANG_DATA = {
         "pitch_title": "పిచ్ & స్టిమ్యులేషన్ జనరేటర్",
         "pitch_comp": "కంపెనీ:",
         "pitch_serv": "సేవలు:",
+        "pitch_ask": "అవసరం (Ask):",
         "pitch_stim": "ట్రిగ్గర్ (ఐచ్ఛికం):",
         "pitch_stim_hint": "ఉదా. 'బంగారం ధరలు పెరిగాయి'",
-        "pitch_ask": "అవసరం (Ask):",
         "pitch_btn": "సిద్ధం చేయండి ➔",
         "spinner_pitch": "తయారవుతోంది...",
         "about": "విఘ్నహర్త గోల్డ్ ఫౌండేషన్ వ్యాపారవేత్తలకు సాధికారత కల్పిస్తుంది.",
@@ -274,9 +307,9 @@ LANG_DATA = {
         "pitch_title": "ಪಿಚ್ & ಸ್ಟಿಮ್ಯುಲೇಶನ್ ರಚನೆ",
         "pitch_comp": "ಕಂಪನಿ:",
         "pitch_serv": "ಸೇವೆಗಳು:",
+        "pitch_ask": "ಅಗತ್ಯತೆ (Ask):",
         "pitch_stim": "ಟ್ರಿಗ್ಗರ್ (ಐಚ್ಛಿಕ):",
         "pitch_stim_hint": "ಉದಾ. 'ಚಿನ್ನದ ದರ ಏರಿಕೆ'",
-        "pitch_ask": "ಅಗತ್ಯತೆ (Ask):",
         "pitch_btn": "ರಚಿಸಿ ➔",
         "spinner_pitch": "ಸಿದ್ಧವಾಗುತ್ತಿದೆ...",
         "about": "ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್ ಉದ್ಯಮಿಗಳ ಬೆಂಬಲಕ್ಕಾಗಿ ಶ್ರಮಿಸುತ್ತದೆ.",
@@ -381,7 +414,7 @@ with st.sidebar:
     if not GEMINI_API_KEY:
         GEMINI_API_KEY = st.text_input("Enter Gemini API Key:", type="password")
 
-# Google Sheet लोड
+# Google Sheet डेटा
 SHEET_ID = "1WibJTWH8NeHrESLNF24im10uAoF1GR3uRgnUhFmZQFE"
 CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
 
@@ -442,19 +475,18 @@ tab1, tab2 = st.tabs([t["tab1"], t["tab2"]])
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = None
 
-# टॅब १: सर्च व लॉगिन (इन-लाइन बाण/Arrow बटणासह)
+# टॅब १: सर्च व लॉगिन (एकाच बॉक्समध्ये बाण ➔)
 with tab1:
-    st.write(f"**{t['auth_label']}**")
+    st.markdown(f"**{t['auth_label']}**")
     
-    # नंबर आणि बाण (➔) एकाच रेषेत बसवण्यासाठी फॉर्म व कॉलम्स
-    with st.form("login_inline_form", clear_on_submit=False):
-        col_in, col_btn = st.columns([5, 1])
-        with col_in:
-            user_contact = st.text_input(t["auth_label"], placeholder=t["input_placeholder"], label_visibility="collapsed")
-        with col_btn:
-            submit_login = st.form_submit_button("➔", type="primary")
+    # एकाच ओळीत इनपुट आणि बाण
+    c1, c2 = st.columns([5, 1])
+    with c1:
+        user_contact = st.text_input(t["auth_label"], placeholder=t["input_placeholder"], label_visibility="collapsed", key="user_contact_input")
+    with c2:
+        submit_login = st.button("➔", key="btn_login_arrow")
 
-    if submit_login and user_contact:
+    if (submit_login or user_contact) and user_contact:
         contact_str = str(user_contact).strip().lower()
         mask = df.apply(lambda row: row.astype(str).str.strip().str.lower().str.contains(contact_str, regex=False), axis=1)
         matches = df[mask.any(axis=1)]
@@ -467,21 +499,20 @@ with tab1:
             st.info(t["register_prompt"])
             st.link_button(t["register_btn"], FORM_LINK, type="primary")
 
-    # लॉगिन झाल्यावर सर्च बॉक्स आणि शेजारी बाण (➔)
+    # लॉगिन झाल्यावर शोध बॉक्स आणि त्यातच बाण (➔)
     if st.session_state.logged_in_user is not None:
         name_col = [c for c in df.columns if "नाव" in c or "Name" in c]
         user_name = st.session_state.logged_in_user[name_col[0]] if name_col else "Member"
         st.success(t["welcome"].format(name=user_name))
         
-        st.write(f"**{t['search_label']}**")
-        with st.form("search_inline_form", clear_on_submit=False):
-            col_sin, col_sbtn = st.columns([5, 1])
-            with col_sin:
-                query = st.text_input(t["search_label"], placeholder=t["search_placeholder"], label_visibility="collapsed")
-            with col_sbtn:
-                submit_search = st.form_submit_button("➔", type="primary")
+        st.markdown(f"**{t['search_label']}**")
+        sc1, sc2 = st.columns([5, 1])
+        with sc1:
+            query = st.text_input(t["search_label"], placeholder=t["search_placeholder"], label_visibility="collapsed", key="search_query_input")
+        with sc2:
+            submit_search = st.button("➔", key="btn_search_arrow")
             
-        if submit_search and query:
+        if (submit_search or query) and query:
             if not GEMINI_API_KEY:
                 st.error("API Key missing.")
             elif df.empty:
@@ -556,7 +587,7 @@ with tab2:
                 pitch_reply = call_gemini(pitch_prompt, GEMINI_API_KEY)
                 st.markdown(pitch_reply)
 
-# कॉम्पॅक्ट तळटीप (Footer)
+# तळटीप (Footer)
 st.markdown(f"""
     <div class="app-footer">
         {t['footer']} 
