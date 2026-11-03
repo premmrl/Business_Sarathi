@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# मोबाईल-फ्रेंडली कॉम्पॅक्ट CSS
+# मोबाईल-फ्रेंडली कॉम्पॅक्ट आणि इन-लाइन ॲरो CSS
 st.markdown("""
     <style>
         .block-container {
@@ -64,11 +64,17 @@ st.markdown("""
             font-weight: 600 !important;
             margin-bottom: 3px !important;
         }
-        .stButton > button {
-            width: 100%;
-            border-radius: 8px;
-            font-weight: 700;
-            padding: 0.55rem 1rem;
+        /* इन-लाइन लहान ॲरो बटणाची रचना */
+        div[data-testid="stForm"] div[data-testid="column"]:nth-child(2) button {
+            height: 44px !important;
+            margin-top: 0px !important;
+            font-size: 1.25rem !important;
+            font-weight: bold !important;
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border-radius: 8px !important;
         }
         .app-footer {
             text-align: center;
@@ -95,15 +101,13 @@ LANG_DATA = {
         "tab2": "📝 पिच व स्टिम्युलेशन",
         "auth_label": "नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल:",
         "input_placeholder": "उदा. 8087699949 किंवा email",
-        "btn_login": "लॉगिन करा ➔",
         "welcome": "✅ स्वागत आहे, **{name}**!",
         "not_registered": "⚠️ हा नंबर डिरेक्टरीमध्ये नोंदणीकृत नाही.",
         "register_prompt": "👉 संदर्भ शोधण्यासाठी कृपया आधी १ मिनिटाचा फॉर्म भरून नोंदणी करा:",
         "register_btn": "📝 येथे क्लिक करून नोंदणी करा (Google Form)",
         "search_label": "तुम्हाला कोणत्या व्यवसायाशी/सेवेशी जोडले जायचे आहे?",
-        "search_placeholder": "उदा. 'पुण्यात सोन्यात गुंतवणुकीसाठी संपर्क' किंवा 'बिल्डर्सशी कनेक्टेड कोण आहे?'",
-        "search_btn": "संदर्भ शोधा ➔",
-        "search_hint": "💡 संदर्भ शोधण्यासाठी वर तुमचा नोंदणीकृत मोबाईल नंबर टाकून 'लॉगिन करा ➔' दाबा.",
+        "search_placeholder": "उदा. 'पुण्यात सोन्यात गुंतवणुकीसाठी संपर्क'...",
+        "search_hint": "💡 संदर्भ शोधण्यासाठी वर नोंदणीकृत नंबर टाकून बाणावर (➔) क्लिक करा.",
         "spinner_search": "AI अचूक संदर्भ शोधत आहे...",
         "pitch_title": "३०-सेकंद पिच व स्टिम्युलेशन जनरेटर",
         "pitch_comp": "तुमची कंपनी / ब्रँड:",
@@ -124,15 +128,13 @@ LANG_DATA = {
         "tab2": "📝 पिच व स्टिम्युलेशन",
         "auth_label": "पंजीकृत 10 अंकों का मोबाइल नंबर या ईमेल:",
         "input_placeholder": "उदा. 8087699949 या email",
-        "btn_login": "लॉगिन करें ➔",
         "welcome": "✅ स्वागत है, **{name}**!",
         "not_registered": "⚠️ यह नंबर डायरेक्टरी में पंजीकृत नहीं है।",
         "register_prompt": "👉 रेफ़रल खोजने के लिए कृपया पहले 1 मिनट का फॉर्म भरें:",
         "register_btn": "📝 यहाँ क्लिक करके पंजीकरण करें (Google Form)",
         "search_label": "आप किस व्यवसाय या सेवा से जुड़ना चाहते हैं?",
-        "search_placeholder": "उदा. 'मुझे पुणे में सोने में निवेश के लिए किससे संपर्क करना चाहिए?'",
-        "search_btn": "रेफ़रल खोजें ➔",
-        "search_hint": "💡 रेफ़रल खोजने के लिए ऊपर अपना पंजीकृत नंबर डालकर 'लॉगिन करें ➔' दबाएं।",
+        "search_placeholder": "उदा. 'मुझे पुणे में सोने में निवेश के लिए संपर्क'...",
+        "search_hint": "💡 रेफ़रल खोजने के लिए ऊपर अपना पंजीकृत नंबर डालकर (➔) दबाएं।",
         "spinner_search": "AI उपयुक्त रेफ़रल खोज रहा है...",
         "pitch_title": "30-सेकंड पिच और स्टिम्युलेशन जनरेटर",
         "pitch_comp": "कंपनी / ब्रांड:",
@@ -153,15 +155,13 @@ LANG_DATA = {
         "tab2": "📝 Pitch & Stimulation",
         "auth_label": "Registered 10-digit mobile number or email:",
         "input_placeholder": "e.g. 8087699949 or email",
-        "btn_login": "Login ➔",
         "welcome": "✅ Welcome, **{name}**!",
         "not_registered": "⚠️ This contact is not registered in our directory.",
         "register_prompt": "👉 To access referrals, please register using the quick form:",
         "register_btn": "📝 Click here to register (Google Form)",
         "search_label": "Which business or service are you looking to connect with?",
-        "search_placeholder": "e.g. 'Looking for gold investment advisor' or 'Who connects with architects?'",
-        "search_btn": "Find Referral ➔",
-        "search_hint": "💡 Please enter your registered contact above and click 'Login ➔' to unlock search.",
+        "search_placeholder": "e.g. 'Looking for gold investment advisor'...",
+        "search_hint": "💡 Please enter your registered contact above and tap (➔) arrow.",
         "spinner_search": "AI is finding the best matches...",
         "pitch_title": "30-Sec Pitch & Stimulation Generator",
         "pitch_comp": "Company / Brand:",
@@ -182,15 +182,13 @@ LANG_DATA = {
         "tab2": "📝 પિચ અને સ્ટિમ્યુલેશન",
         "auth_label": "નોંધાયેલ 10 અંકનો મોબાઇલ નંબર અથવા ઇમેઇલ:",
         "input_placeholder": "દા.ત. 8087699949",
-        "btn_login": "લૉગિન કરો ➔",
         "welcome": "✅ સ્વાગત છે, **{name}**!",
         "not_registered": "⚠️ આ નંબર ડિરેક્ટરીમાં નોંધાયેલ નથી.",
         "register_prompt": "👉 રેફરલ્સ શોધવા માટે કૃપા કરીને પહેલા ફોર્મ ભરો:",
         "register_btn": "📝 નોંધણી કરવા અહીં ક્લિક કરો (Google Form)",
         "search_label": "તમે કયા વ્યવસાય સાથે જોડાવા માંગો છો?",
-        "search_placeholder": "દા.ત. 'પુણેમાં સોનામાં રોકાણ માટે સંપર્ક'",
-        "search_btn": "રેફરલ શોધો ➔",
-        "search_hint": "💡 શોધવા માટે ઉપર તમારો નંબર દાખલ કરીને લૉગિન કરો.",
+        "search_placeholder": "દા.ત. 'પુણેમાં સોનામાં રોકાણ માટે સંપર્ક'...",
+        "search_hint": "💡 શોધવા માટે ઉપર તમારો નંબર દાખલ કરીને બાણ (➔) દબાવો.",
         "spinner_search": "AI સંપર્કો શોધી રહ્યું છે...",
         "pitch_title": "30-સેકન્ડ પિચ અને સ્ટિમ્યુલેશન",
         "pitch_comp": "કંપની / બ્રાન્ડ:",
@@ -211,15 +209,13 @@ LANG_DATA = {
         "tab2": "📝 பிட்ச் & ஸ்டிமுலேஷன்",
         "auth_label": "பதிவுசெய்த மொபைல் எண் அல்லது மின்னஞ்சல்:",
         "input_placeholder": "எ.கா. 8087699949",
-        "btn_login": "உள்நுழைக ➔",
         "welcome": "✅ வரவேற்கிறோம், **{name}**!",
         "not_registered": "⚠️ எண் பட்டியலில் இல்லை.",
         "register_prompt": "👉 பதிவு செய்ய படிவத்தைப் பூர்த்தி செய்யவும்:",
         "register_btn": "📝 பதிவு செய்ய கிளிக் செய்யவும் (Google Form)",
         "search_label": "நீங்கள் எந்த தொழிலுடன் இணைய விரும்புகிறீர்கள்?",
-        "search_placeholder": "எ.கா. 'தங்க முதலீடு ஆலோசகர் தேவை'",
-        "search_btn": "பரிந்துரையைத் தேடு ➔",
-        "search_hint": "💡 தேடலுக்கு மேலே எண் உள்ளிட்டு உள்நுழையவும்.",
+        "search_placeholder": "எ.கா. 'தங்க முதலீடு ஆலோசகர் தேவை'...",
+        "search_hint": "💡 தேடலுக்கு மேலே எண் உள்ளிட்டு (➔) தொடவும்.",
         "spinner_search": "AI தேடுகிறது...",
         "pitch_title": "பிட்ச் & ஸ்டிமுலேஷன் உருவாக்குநர்",
         "pitch_comp": "நிறுவனம்:",
@@ -240,22 +236,20 @@ LANG_DATA = {
         "tab2": "📝 పిచ్ & స్టిమ్యులేషన్",
         "auth_label": "నమోదిత మొబైల్ నంబర్ లేదా ఇమెయిల్:",
         "input_placeholder": "ఉదా. 8087699949",
-        "btn_login": "లాగిన్ అవ్వండి ➔",
         "welcome": "✅ స్వాగతం, **{name}**!",
         "not_registered": "⚠️ నంబర్ డైరెక్టరీలో లేదు.",
         "register_prompt": "👉 నమోదు కొరకు ఫారమ్ నింపండి:",
         "register_btn": "📝 నమోదు చేయండి (Google Form)",
         "search_label": "ఏ వ్యాపారంతో కనెక్ట్ కావాలనుకుంటున్నారు?",
-        "search_placeholder": "ఉదా. 'బంగారు పెట్టుబడి సలహాదారు'",
-        "search_btn": "కనుగొనండి ➔",
-        "search_hint": "💡 సెర్చ్ చేయడానికి నంబర్ నమోదు చేసి లాగిన్ అవ్వండి.",
+        "search_placeholder": "ఉదా. 'బంగారు పెట్టుబడి సలహాదారు'...",
+        "search_hint": "💡 సెర్చ్ చేయడానికి నంబర్ నమోదు చేసి బాణం (➔) నొక్కండి.",
         "spinner_search": "AI శోధిస్తోంది...",
         "pitch_title": "పిచ్ & స్టిమ్యులేషన్ జనరేటర్",
         "pitch_comp": "కంపెనీ:",
         "pitch_serv": "సేవలు:",
-        "pitch_ask": "అవసరం (Ask):",
         "pitch_stim": "ట్రిగ్గర్ (ఐచ్ఛికం):",
         "pitch_stim_hint": "ఉదా. 'బంగారం ధరలు పెరిగాయి'",
+        "pitch_ask": "అవసరం (Ask):",
         "pitch_btn": "సిద్ధం చేయండి ➔",
         "spinner_pitch": "తయారవుతోంది...",
         "about": "విఘ్నహర్త గోల్డ్ ఫౌండేషన్ వ్యాపారవేత్తలకు సాధికారత కల్పిస్తుంది.",
@@ -269,15 +263,13 @@ LANG_DATA = {
         "tab2": "📝 ಪಿಚ್ & ಸ್ಟಿಮ್ಯುಲೇಶನ್",
         "auth_label": "ನೋಂದಾಯಿತ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಥವಾ ಇಮೇಲ್:",
         "input_placeholder": "ಉದಾ. 8087699949",
-        "btn_login": "ಲಾಗಿನ್ ಮಾಡಿ ➔",
         "welcome": "✅ ಸ್ವಾಗತ, **{name}**!",
         "not_registered": "⚠️ ಈ ಸಂಖ್ಯೆ ನೋಂದಣಿಯಾಗಿಲ್ಲ.",
         "register_prompt": "👉 ನೋಂದಾಯಿಸಲು ಫಾರ್ಮ್ ಭರ್ತಿ ಮಾಡಿ:",
         "register_btn": "📝 ನೋಂದಾಯಿಸಿ (Google Form)",
         "search_label": "ಯಾವ ವ್ಯವಹಾರದೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಲು ಬಯಸುತ್ತೀರಿ?",
-        "search_placeholder": "ಉದಾ. 'ಚಿನ್ನದ ಹೂಡಿಕೆ'",
-        "search_btn": "ಹುಡುಕಿ ➔",
-        "search_hint": "💡 ಹುಡುಕಲು ಸಂಖ್ಯೆ ನಮೂದಿಸಿ ಲಾಗಿನ್ ಮಾಡಿ.",
+        "search_placeholder": "ಉದಾ. 'ಚಿನ್ನದ ಹೂಡಿಕೆ'...",
+        "search_hint": "💡 ಹುಡುಕಲು ಸಂಖ್ಯೆ ನಮೂದಿಸಿ ಬಾಣದ ಗುರುತು (➔) ಒತ್ತಿರಿ.",
         "spinner_search": "AI ಹುಡುಕುತ್ತಿದೆ...",
         "pitch_title": "ಪಿಚ್ & ಸ್ಟಿಮ್ಯುಲೇಶನ್ ರಚನೆ",
         "pitch_comp": "ಕಂಪನಿ:",
@@ -298,15 +290,13 @@ LANG_DATA = {
         "tab2": "📝 പിച്ചും സ്റ്റിമുലേഷനും",
         "auth_label": "രജിസ്റ്റർ ചെയ്ത മൊബൈൽ നമ്പറോ ഇമെയിലോ:",
         "input_placeholder": "ഉദാ. 8087699949",
-        "btn_login": "ലോഗിൻ ➔",
         "welcome": "✅ സ്വാഗതം, **{name}**!",
         "not_registered": "⚠️ നമ്പർ ലഭ്യമല്ല.",
         "register_prompt": "👉 രജിസ്റ്റർ ചെയ്യാൻ ഫോം പൂരിപ്പിക്കുക:",
         "register_btn": "📝 രജിസ്റ്റർ ചെയ്യുക (Google Form)",
         "search_label": "ഏത് ബിസിനസ്സുമായാണ് ബന്ധപ്പെടേണ്ടത്?",
-        "search_placeholder": "ഉദാ. 'സ്വർണ്ണ നിക്ഷേപം'",
-        "search_btn": "കണ്ടെത്തുക ➔",
-        "search_hint": "💡 നമ്പർ നൽകി ലോഗിൻ ചെയ്യുക.",
+        "search_placeholder": "ഉദാ. 'സ്വർണ്ണ നിക്ഷേപം'...",
+        "search_hint": "💡 നമ്പർ നൽകി അമ്പടയാളത്തിൽ (➔) ക്ലിക്ക് ചെയ്യുക.",
         "spinner_search": "AI തിരയുന്നു...",
         "pitch_title": "പിച്ചും സ്റ്റിമുലേഷനും",
         "pitch_comp": "കമ്പനി:",
@@ -327,15 +317,13 @@ LANG_DATA = {
         "tab2": "📝 পিচ ও স্টিমুলেশন",
         "auth_label": "নিবন্ধিত মোবাইল নম্বর বা ইমেল:",
         "input_placeholder": "যেমন: 8087699949",
-        "btn_login": "লগইন করুন ➔",
         "welcome": "✅ স্বাগতম, **{name}**!",
         "not_registered": "⚠️ এই নম্বরটি নিবন্ধিত নেই।",
         "register_prompt": "👉 নিবন্ধন করতে ফর্ম পূরণ করুন:",
         "register_btn": "📝 নিবন্ধন করুন (Google Form)",
         "search_label": "কোন ব্যবসার সাথে যুক্ত হতে চান?",
-        "search_placeholder": "যেমন: 'স্বর্ণে বিনিয়োগ'",
-        "search_btn": "খুঁজুন ➔",
-        "search_hint": "💡 অনুসন্ধানের জন্য নম্বর লিখে লগইন করুন।",
+        "search_placeholder": "যেমন: 'স্বর্ণে বিনিয়োগ'...",
+        "search_hint": "💡 অনুসন্ধানের জন্য নম্বর লিখে তীর চিহ্নে (➔) ক্লিক করুন।",
         "spinner_search": "AI রেফারেল খুঁজছে...",
         "pitch_title": "পিচ এবং স্টিমুলেশন",
         "pitch_comp": "কোম্পানি:",
@@ -356,15 +344,13 @@ LANG_DATA = {
         "tab2": "📝 ਪਿੱਚ ਅਤੇ ਸਟਿਮੂਲੇਸ਼ਨ",
         "auth_label": "ਰਜਿਸਟਰਡ ਮੋਬਾਈਲ ਨੰਬਰ ਜਾਂ ਈਮੇਲ:",
         "input_placeholder": "ਜਿਵੇਂ: 8087699949",
-        "btn_login": "ਲਾਗਇਨ ਕਰੋ ➔",
         "welcome": "✅ ਜੀ ਆਇਆਂ ਨੂੰ, **{name}**!",
         "not_registered": "⚠️ ਨੰਬਰ ਦਰਜ ਨਹੀਂ ਹੈ।",
         "register_prompt": "👉 ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਫਾਰਮ ਭਰੋ:",
         "register_btn": "📝 ਰਜਿਸਟਰ ਕਰੋ (Google Form)",
         "search_label": "ਕਿਸ ਕਾਰੋਬਾਰ ਨਾਲ ਜੁੜਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
-        "search_placeholder": "ਜਿਵੇਂ: 'ਸੋਨੇ ਦਾ ਨਿਵੇਸ਼'",
-        "search_btn": "ਲੱਭੋ ➔",
-        "search_hint": "💡 ਖੋਜ ਕਰਨ ਲਈ ਨੰਬਰ ਦਰਜ ਕਰਕੇ ਲਾਗਇਨ ਕਰੋ।",
+        "search_placeholder": "ਜਿਵੇਂ: 'ਸੋਨੇ ਦਾ ਨਿਵੇਸ਼'...",
+        "search_hint": "💡 ਖੋਜ ਕਰਨ ਲਈ ਨੰਬਰ ਦਰਜ ਕਰਕੇ ਤੀਰ (➔) ਦਬਾਓ।",
         "spinner_search": "AI ਰੈਫਰਲ ਲੱਭ ਰਿਹਾ ਹੈ...",
         "pitch_title": "ਪਿੱਚ ਅਤੇ ਸਟਿਮੂਲੇਸ਼ਨ",
         "pitch_comp": "ਕੰਪਨੀ:",
@@ -379,7 +365,7 @@ LANG_DATA = {
     }
 }
 
-# साइडबार (Sidebar)
+# साइडबार
 with st.sidebar:
     st.markdown("### 🏛️ **विघ्नहर्ता गोल्ड फाउंडेशन**")
     st.caption("Empowering Entrepreneurs & Business Growth")
@@ -395,7 +381,7 @@ with st.sidebar:
     if not GEMINI_API_KEY:
         GEMINI_API_KEY = st.text_input("Enter Gemini API Key:", type="password")
 
-# Google Sheet डेटा लोड
+# Google Sheet लोड
 SHEET_ID = "1WibJTWH8NeHrESLNF24im10uAoF1GR3uRgnUhFmZQFE"
 CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
 
@@ -409,7 +395,7 @@ def load_data():
 
 df = load_data()
 
-# Gemini REST API फंक्शन
+# Gemini API कॉल
 def call_gemini(prompt_text, api_key):
     headers = {"Content-Type": "application/json"}
     payload = {"contents": [{"parts": [{"text": prompt_text}]}]}
@@ -456,12 +442,17 @@ tab1, tab2 = st.tabs([t["tab1"], t["tab2"]])
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = None
 
-# टॅब १: सर्च व लॉगिन (Enter/Arrow बटणासह)
+# टॅब १: सर्च व लॉगिन (इन-लाइन बाण/Arrow बटणासह)
 with tab1:
-    # Login Form (Enter दाबताच किंवा बटण दाबून पुढे जाण्यासाठी)
-    with st.form("login_form", clear_on_submit=False):
-        user_contact = st.text_input(t["auth_label"], placeholder=t["input_placeholder"])
-        submit_login = st.form_submit_button(t["btn_login"], type="primary")
+    st.write(f"**{t['auth_label']}**")
+    
+    # नंबर आणि बाण (➔) एकाच रेषेत बसवण्यासाठी फॉर्म व कॉलम्स
+    with st.form("login_inline_form", clear_on_submit=False):
+        col_in, col_btn = st.columns([5, 1])
+        with col_in:
+            user_contact = st.text_input(t["auth_label"], placeholder=t["input_placeholder"], label_visibility="collapsed")
+        with col_btn:
+            submit_login = st.form_submit_button("➔", type="primary")
 
     if submit_login and user_contact:
         contact_str = str(user_contact).strip().lower()
@@ -476,15 +467,19 @@ with tab1:
             st.info(t["register_prompt"])
             st.link_button(t["register_btn"], FORM_LINK, type="primary")
 
-    # जर सदस्य यशस्वी लॉगिन असेल
+    # लॉगिन झाल्यावर सर्च बॉक्स आणि शेजारी बाण (➔)
     if st.session_state.logged_in_user is not None:
         name_col = [c for c in df.columns if "नाव" in c or "Name" in c]
         user_name = st.session_state.logged_in_user[name_col[0]] if name_col else "Member"
         st.success(t["welcome"].format(name=user_name))
         
-        with st.form("search_form", clear_on_submit=False):
-            query = st.text_input(t["search_label"], placeholder=t["search_placeholder"])
-            submit_search = st.form_submit_button(t["search_btn"], type="primary")
+        st.write(f"**{t['search_label']}**")
+        with st.form("search_inline_form", clear_on_submit=False):
+            col_sin, col_sbtn = st.columns([5, 1])
+            with col_sin:
+                query = st.text_input(t["search_label"], placeholder=t["search_placeholder"], label_visibility="collapsed")
+            with col_sbtn:
+                submit_search = st.form_submit_button("➔", type="primary")
             
         if submit_search and query:
             if not GEMINI_API_KEY:
