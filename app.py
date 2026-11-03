@@ -1,0 +1,109 @@
+import streamlit as st
+import pandas as pd
+import google.generativeai as genai
+
+st.set_page_config(page_title="AI Business Sarathi", layout="wide", page_icon="🤝")
+
+# Gemini API Key कॉन्फिगरेशन
+GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
+
+if not GEMINI_API_KEY:
+    with st.sidebar:
+        st.subheader("⚙️ API Configuration")
+        GEMINI_API_KEY = st.text_input("Enter Gemini API Key:", type="password")
+
+if GEMINI_API_KEY:
+    genai.configure(api_key=GEMINI_API_KEY)
+
+# तुमच्या गुगल शीटची CSV Export लिंक
+SHEET_ID = "1WibJTWH8NeHrESLNF24im10uAoF1GR3uRgnUhFmZQFE"
+CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
+
+@st.cache_data(ttl=30)
+def load_data():
+    try:
+        df = pd.read_csv(CSV_URL)
+        return df.fillna("")
+    except Exception as e:
+        return pd.DataFrame()
+
+df = load_data()
+
+st.title("🤝 AI Business Sarathi")
+st.subheader("Universal Networking & Referral Matcher")
+st.caption("सर्व व्यावसायिक आणि नेटवर्किंग समूहांमधील सदस्यांना अचूक संदर्भ (Referrals) मिळवून देणारा डिजिटल साथीदार")
+
+tab1, tab2, tab3 = st.tabs(["🔍 स्मार्ट बिझनेस सर्च", "👥 सर्व सदस्य डिरेक्टरी", "📝 30-Sec Pitch Generator"])
+
+# टॅब १: AI सर्च
+with tab1:
+    st.write("### तुम्हाला कोणत्या व्यवसायाशी किंवा सेवेशी जोडले जायचे आहे?")
+    query = st.text_input("उदा. 'मला पुण्यात सोन्यात गुंतवणुकीसाठी कोणाशी संपर्क साधता येईल?' किंवा 'ज्वेलर्स आणि बिल्डर्सशी कनेक्टेड कोण आहे?'")
+    
+    col1, col2 = st.columns([1, 5])
+    with col1:
+        search_btn = st.button("संदर्भ शोधा", type="primary")
+        
+    if search_btn and query:
+        if not GEMINI_API_KEY:
+            st.error("कृपया डाव्या बाजूला Gemini API Key टाका.")
+        elif df.empty:
+            st.warning("अद्याप शीटमध्ये डेटा उपलब्ध नाही.")
+        else:
+            with st.spinner("AI डेटाबेसमधून योग्य संदर्भ तपासत आहे..."):
+                context_data = df.to_string(index=False)
+                prompt = f"""
+                तू 'AI Business Sarathi' आहेस - उद्योजकांसाठीचा नेटवर्किंग आणि संदर्भ मार्गदर्शक.
+                खालील व्यावसायिक डिरेक्टरीचा डेटा वापरून वापरकर्त्याच्या प्रश्नाचे अत्यंत उपयुक्त आणि सकारात्मक उत्तर दे:
+                
+                [डिरेक्टरी डेटा]:
+                {context_data}
+                
+                [वापरकर्त्याची गरज / शोध]:
+                {query}
+                
+                मार्गदर्शक सूचना:
+                1. संबंधित सदस्याचे नाव, कंपनीचे नाव, शहर, मुख्य सेवा आणि मोबाईल नंबर ठळकपणे दे.
+                2. दोघे एकत्र येऊन एकमेकांना कसा व्यवसाय/फायदा मिळवून देऊ शकतात (Synergy/Collaboration) हे सुचव.
+                3. माहिती अत्यंत व्यावसायिक, मराठीत आणि सुटसुटीत बुलेट पॉईंट्समध्ये दे.
+                """
+                model = genai.GenerativeModel("gemini-1.5-flash")
+                response = model.generate_content(prompt)
+                st.markdown(response.text)
+
+# टॅब २: सदस्य डिरेक्टरी
+with tab2:
+    st.write("### नोंदणीकृत उद्योजक व व्यावसायिक")
+    if not df.empty:
+        search_filter = st.text_input("नाव, शहर किंवा उद्योगानुसार शोधा:")
+        if search_filter:
+            filtered = df[df.apply(lambda row: search_filter.lower() in row.astype(str).str.lower().values, axis=1)]
+            st.dataframe(filtered, use_container_width=True)
+        else:
+            st.dataframe(df, use_container_width=True)
+    else:
+        st.info("अद्याप कोणतीही नोंद आढळली नाही.")
+
+# टॅब ३: 30-सेकंद पिच मेकर
+with tab3:
+    st.write("### नेटवर्किंग मिटिंगसाठी 30 किंवा 60 सेकंदांची व्यवसाय ओळख बनवा")
+    b_name = st.text_input("तुमची कंपनी / ब्रँड:")
+    b_serv = st.text_area("तुमची मुख्य उत्पादने किंवा सेवा:")
+    b_ask = st.text_input("या आठवड्यात तुम्हाला कोणाशी कनेक्ट व्हायचे आहे (Ask)?")
+    
+    if st.button("पिच तयार करा"):
+        if not GEMINI_API_KEY:
+            st.error("कृपया Gemini API Key टाका.")
+        elif b_name and b_serv:
+            with st.spinner("तुमचा प्रभावी पिच तयार होत आहे..."):
+                pitch_prompt = f"""
+                कंपनी: {b_name}
+                सेवा: {b_serv}
+                सध्याची आवश्यकता (Ask): {b_ask}
+                
+                या माहितीच्या आधारे नेटवर्किंग मिटींगसाठी (उदा. BNI / Rotary बिझनेस मीट) ३० सेकंदांचा प्रभावी, आत्मविश्वासू आणि व्यावसायिक मराठी पिच तयार कर.
+                शेवटी एक स्पष्ट Call-to-action असावा.
+                """
+                model = genai.GenerativeModel("gemini-1.5-flash")
+                resp = model.generate_content(pitch_prompt)
+                st.success(resp.text)
