@@ -11,74 +11,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# स्वच्छ आणि सुरक्षित मोबाईल CSS (इनपुट बॉक्स न दाबता नीट दिसण्यासाठी)
-st.markdown("""
-    <style>
-        .block-container {
-            padding-top: 3.2rem !important;
-            padding-bottom: 2rem !important;
-            padding-left: 0.9rem !important;
-            padding-right: 0.9rem !important;
-            max-width: 750px;
-        }
-        .app-header {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            border: 1px solid #d4af37;
-            padding: 14px;
-            border-radius: 14px;
-            margin-bottom: 14px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        .app-foundation {
-            font-size: 0.92rem;
-            color: #d4af37;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 3px;
-            line-height: 1.3;
-        }
-        .app-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin: 2px 0 3px 0;
-            line-height: 1.2;
-        }
-        .app-caption {
-            font-size: 0.78rem;
-            color: #94a3b8;
-            line-height: 1.3;
-        }
-        .stTabs [data-baseweb="tab-list"] {
-            gap: 8px;
-        }
-        .stTabs [data-baseweb="tab"] {
-            padding: 8px 12px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border-radius: 8px;
-        }
-        .stTextInput > label, .stTextArea > label {
-            font-size: 0.88rem !important;
-            font-weight: 600 !important;
-            margin-bottom: 3px !important;
-        }
-        .app-footer {
-            text-align: center;
-            color: #64748b;
-            font-size: 0.78rem;
-            margin-top: 25px;
-            padding-top: 12px;
-            border-top: 1px solid #334155;
-            line-height: 1.4;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-# Google Form नोंदणी लिंक
-FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSffLyVq9szubqpQaeVX2KH3u_QOfF7ra_LUr9-WT7wN8w4FBg/viewform?usp=sharing"
-
 # भारतातील प्रमुख १० भाषांची रचना
 LANG_DATA = {
     "मराठी": {
@@ -88,13 +20,13 @@ LANG_DATA = {
         "tab1": "🔍 स्मार्ट शोध",
         "tab2": "📝 पिच व स्टिम्युलेशन",
         "auth_label": "नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल:",
-        "input_placeholder": "उदा. 8087699949 किंवा email टाकून ➔ दाबा...",
+        "input_placeholder": "उदा. 8087699949 किंवा email",
         "welcome": "✅ स्वागत आहे, **{name}**!",
         "not_registered": "⚠️ हा नंबर डिरेक्टरीमध्ये नोंदणीकृत नाही.",
         "register_prompt": "👉 संदर्भ शोधण्यासाठी कृपया आधी १ मिनिटाचा फॉर्म भरून नोंदणी करा:",
         "register_btn": "📝 येथे क्लिक करून नोंदणी करा (Google Form)",
         "search_label": "तुम्हाला कोणत्या व्यवसायाशी/सेवेशी जोडले जायचे आहे?",
-        "search_placeholder": "उदा. 'पुण्यात सोन्यात गुंतवणुकीसाठी संपर्क' टाईप करून ➔ दाबा...",
+        "search_placeholder": "उदा. 'पुण्यात सोन्यात गुंतवणुकीसाठी संपर्क'...",
         "search_hint": "💡 संदर्भ शोधण्यासाठी वर नोंदणीकृत नंबर टाकून बाणावर (➔) दाबा.",
         "spinner_search": "AI अचूक संदर्भ शोधत आहे...",
         "pitch_title": "३०-सेकंद पिच व स्टिम्युलेशन जनरेटर",
@@ -115,7 +47,7 @@ LANG_DATA = {
         "tab1": "🔍 स्मार्ट सर्च",
         "tab2": "📝 पिच व स्टिम्युलेशन",
         "auth_label": "पंजीकृत 10 अंकों का मोबाइल नंबर या ईमेल:",
-        "input_placeholder": "उदा. 8087699949 या email दर्ज करके ➔ दबाएं...",
+        "input_placeholder": "उदा. 8087699949 या email",
         "welcome": "✅ स्वागत है, **{name}**!",
         "not_registered": "⚠️ यह नंबर डायरेक्टरी में पंजीकृत नहीं है।",
         "register_prompt": "👉 रेफ़रल खोजने के लिए कृपया पहले 1 मिनट का फॉर्म भरें:",
@@ -142,13 +74,13 @@ LANG_DATA = {
         "tab1": "🔍 Smart Search",
         "tab2": "📝 Pitch & Stimulation",
         "auth_label": "Registered 10-digit mobile number or email:",
-        "input_placeholder": "Enter mobile number or email and tap ➔...",
+        "input_placeholder": "e.g. 8087699949 or email",
         "welcome": "✅ Welcome, **{name}**!",
         "not_registered": "⚠️ This contact is not registered in our directory.",
         "register_prompt": "👉 To access referrals, please register using the quick form:",
         "register_btn": "📝 Click here to register (Google Form)",
         "search_label": "Which business or service are you looking to connect with?",
-        "search_placeholder": "Type your requirement and tap ➔...",
+        "search_placeholder": "e.g. 'Looking for gold investment advisor'...",
         "search_hint": "💡 Please enter your registered contact above and tap ➔ arrow.",
         "spinner_search": "AI is finding the best matches...",
         "pitch_title": "30-Sec Pitch & Stimulation Generator",
@@ -169,7 +101,7 @@ LANG_DATA = {
         "tab1": "🔍 સ્માર્ટ સર્ચ",
         "tab2": "📝 પિચ અને સ્ટિમ્યુલેશન",
         "auth_label": "નોંધાયેલ 10 અંકનો મોબાઇલ નંબર અથવા ઇમેઇલ:",
-        "input_placeholder": "દા.ત. 8087699949 લખીને ➔ દબાવો...",
+        "input_placeholder": "દા.ત. 8087699949",
         "welcome": "✅ સ્વાગત છે, **{name}**!",
         "not_registered": "⚠️ આ નંબર ડિરેક્ટરીમાં નોંધાયેલ નથી.",
         "register_prompt": "👉 રેફરલ્સ શોધવા માટે કૃપા કરીને પહેલા ફોર્મ ભરો:",
@@ -196,7 +128,7 @@ LANG_DATA = {
         "tab1": "🔍 ஸ்மார்ட் தேடல்",
         "tab2": "📝 பிட்ச் & ஸ்டிமுலேஷன்",
         "auth_label": "பதிவுசெய்த மொபைல் எண் அல்லது மின்னஞ்சல்:",
-        "input_placeholder": "எண் உள்ளிட்டு ➔ அழுத்தவும்...",
+        "input_placeholder": "எ.கா. 8087699949",
         "welcome": "✅ வரவேற்கிறோம், **{name}**!",
         "not_registered": "⚠️ எண் பட்டியலில் இல்லை.",
         "register_prompt": "👉 பதிவு செய்ய படிவத்தைப் பூர்த்தி செய்யவும்:",
@@ -223,7 +155,7 @@ LANG_DATA = {
         "tab1": "🔍 స్మార్ట్ సెర్చ్",
         "tab2": "📝 పిచ్ & స్టిమ్యులేషన్",
         "auth_label": "నమోదిత మొబైల్ నంబర్ లేదా ఇమెయిల్:",
-        "input_placeholder": "నంబర్ నమోదు చేసి ➔ నొక్కండి...",
+        "input_placeholder": "ఉదా. 8087699949",
         "welcome": "✅ స్వాగతం, **{name}**!",
         "not_registered": "⚠️ నంబర్ డైరెక్టరీలో లేదు.",
         "register_prompt": "👉 నమోదు కొరకు ఫారమ్ నింపండి:",
@@ -235,9 +167,9 @@ LANG_DATA = {
         "pitch_title": "పిచ్ & స్టిమ్యులేషన్ జనరేటర్",
         "pitch_comp": "కంపెనీ:",
         "pitch_serv": "సేవలు:",
-        "pitch_ask": "అవసరం (Ask):",
         "pitch_stim": "ట్రిగ్గర్ (ఐచ్ఛికం):",
         "pitch_stim_hint": "ఉదా. 'బంగారం ధరలు పెరిగాయి'",
+        "pitch_ask": "అవసరం (Ask):",
         "pitch_btn": "సిద్ధం చేయండి ➔",
         "spinner_pitch": "తయారవుతోంది...",
         "about": "విఘ్నహర్త గోల్డ్ ఫౌండేషన్ వ్యాపారవేత్తలకు సాధికారత కల్పిస్తుంది.",
@@ -250,7 +182,7 @@ LANG_DATA = {
         "tab1": "🔍 ಸ್ಮಾರ್ಟ್ ಹುಡುಕಾಟ",
         "tab2": "📝 ಪಿಚ್ & ಸ್ಟಿಮ್ಯುಲೇಶನ್",
         "auth_label": "ನೋಂದಾಯಿತ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಥವಾ ಇಮೇಲ್:",
-        "input_placeholder": "ಸಂಖ್ಯೆ ನಮೂದಿಸಿ ➔ ಒತ್ತಿರಿ...",
+        "input_placeholder": "ಉದಾ. 8087699949",
         "welcome": "✅ ಸ್ವಾಗತ, **{name}**!",
         "not_registered": "⚠️ ಈ ಸಂಖ್ಯೆ ನೋಂದಣಿಯಾಗಿಲ್ಲ.",
         "register_prompt": "👉 ನೋಂದಾಯಿಸಲು ಫಾರ್ಮ್ ಭರ್ತಿ ಮಾಡಿ:",
@@ -277,7 +209,7 @@ LANG_DATA = {
         "tab1": "🔍 സ്മാർട്ട് തിരയൽ",
         "tab2": "📝 പിച്ചും സ്റ്റിമുലേഷനും",
         "auth_label": "രജിസ്റ്റർ ചെയ്ത മൊബൈൽ നമ്പറോ ഇമെയിലോ:",
-        "input_placeholder": "നമ്പർ നൽകി ➔ ക്ലിക്ക് ചെയ്യുക...",
+        "input_placeholder": "ഉദാ. 8087699949",
         "welcome": "✅ സ്വാഗതം, **{name}**!",
         "not_registered": "⚠️ നമ്പർ ലഭ്യമല്ല.",
         "register_prompt": "👉 രജിസ്റ്റർ ചെയ്യാൻ ഫോം പൂരിപ്പിക്കുക:",
@@ -304,7 +236,7 @@ LANG_DATA = {
         "tab1": "🔍 স্মার্ট অনুসন্ধান",
         "tab2": "📝 পিচ ও স্টিমুলেশন",
         "auth_label": "নিবন্ধিত মোবাইল নম্বর বা ইমেল:",
-        "input_placeholder": "নম্বর লিখে ➔ চাপুন...",
+        "input_placeholder": "যেমন: 8087699949",
         "welcome": "✅ স্বাগতম, **{name}**!",
         "not_registered": "⚠️ এই নম্বরটি নিবন্ধিত নেই।",
         "register_prompt": "👉 নিবন্ধন করতে ফর্ম পূরণ করুন:",
@@ -331,7 +263,7 @@ LANG_DATA = {
         "tab1": "🔍 ਸਮਾਰਟ ਖੋਜ",
         "tab2": "📝 ਪਿੱਚ ਅਤੇ ਸਟਿਮੂਲੇਸ਼ਨ",
         "auth_label": "ਰਜਿਸਟਰਡ ਮੋਬਾਈਲ ਨੰਬਰ ਜਾਂ ਈਮੇਲ:",
-        "input_placeholder": "ਨੰਬਰ ਦਰਜ ਕਰਕੇ ➔ ਦਬਾਓ...",
+        "input_placeholder": "ਜਿਵੇਂ: 8087699949",
         "welcome": "✅ ਜੀ ਆਇਆਂ ਨੂੰ, **{name}**!",
         "not_registered": "⚠️ ਨੰਬਰ ਦਰਜ ਨਹੀਂ ਹੈ।",
         "register_prompt": "👉 ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਫਾਰਮ ਭਰੋ:",
@@ -353,23 +285,74 @@ LANG_DATA = {
     }
 }
 
-# साइडबार
-with st.sidebar:
-    st.markdown("### 🏛️ **विघ्नहर्ता गोल्ड फाउंडेशन**")
-    st.caption("Empowering Entrepreneurs & Business Growth")
-    st.markdown("---")
-    st.subheader("🌐 भाषा निवडा / Language")
-    languages = list(LANG_DATA.keys())
-    selected_lang = st.selectbox("Select Language:", options=languages, index=0)
-    t = LANG_DATA[selected_lang]
-    st.info(f"ℹ️ {t['about']}")
-    st.markdown("[🌐 www.vgold.co.in](https://www.vgold.co.in)")
-    st.markdown("---")
-    GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
-    if not GEMINI_API_KEY:
-        GEMINI_API_KEY = st.text_input("Enter Gemini API Key:", type="password")
+# CSS स्टायलिंग (मुख्य स्क्रीनवर भाषा निवड व इनपुट बॉक्स नीट ठेवण्यासाठी)
+st.markdown("""
+    <style>
+        .block-container {
+            padding-top: 2.2rem !important;
+            padding-bottom: 2rem !important;
+            padding-left: 0.9rem !important;
+            padding-right: 0.9rem !important;
+            max-width: 750px;
+        }
+        .app-header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid #d4af37;
+            padding: 14px;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .app-foundation {
+            font-size: 0.92rem;
+            color: #d4af37;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+        .app-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 2px 0;
+        }
+        .app-caption {
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 8px;
+        }
+        .stTabs [data-baseweb="tab"] {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+        .app-footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.78rem;
+            margin-top: 25px;
+            padding-top: 12px;
+            border-top: 1px solid #334155;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
-# Google Sheet डेटा
+# भाषा निवड थेट मुख्य स्क्रीनवर सर्वात वर
+languages = list(LANG_DATA.keys())
+col_lang1, col_lang2 = st.columns([6, 4], vertical_alignment="center")
+with col_lang2:
+    selected_lang = st.selectbox("🌐 भाषा / Language:", options=languages, index=0)
+
+t = LANG_DATA[selected_lang]
+
+# Google Form व API Configuration
+FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSffLyVq9szubqpQaeVX2KH3u_QOfF7ra_LUr9-WT7wN8w4FBg/viewform?usp=sharing"
+GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
+
+# Google Sheet लोड
 SHEET_ID = "1WibJTWH8NeHrESLNF24im10uAoF1GR3uRgnUhFmZQFE"
 CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
 
@@ -387,21 +370,7 @@ df = load_data()
 def call_gemini(prompt_text, api_key):
     headers = {"Content-Type": "application/json"}
     payload = {"contents": [{"parts": [{"text": prompt_text}]}]}
-    
-    available_models = []
-    try:
-        list_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
-        res = requests.get(list_url, timeout=10)
-        if res.status_code == 200:
-            for item in res.json().get("models", []):
-                if "generateContent" in item.get("supportedGenerationMethods", []):
-                    available_models.append(item.get("name", "").replace("models/", ""))
-    except Exception:
-        pass
-
-    if not available_models:
-        available_models = ["gemini-3.8-flash", "gemini-3.8-pro", "gemini-2.5-flash", "gemini-flash-latest"]
-
+    available_models = ["gemini-2.5-flash", "gemini-flash-latest"]
     for m in available_models:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={api_key}"
         try:
@@ -413,8 +382,7 @@ def call_gemini(prompt_text, api_key):
                 continue
         except Exception:
             continue
-
-    return "Server is busy. Please try again."
+    return "सर्व्हर सध्या व्यस्त आहे. कृपया पुन्हा प्रयत्न करा."
 
 # हेडर कार्ड
 st.markdown(f"""
@@ -434,17 +402,16 @@ if "logged_in_user" not in st.session_state:
 with tab1:
     st.markdown(f"**{t['auth_label']}**")
     
-    # मूळ इनपुट आणि शेजारी लहान ➔ बाण (मोबाईलवर न तुटणारा)
-    c1, c2 = st.columns([8, 2], vertical_alignment="bottom")
-    with c1:
+    col_in, col_btn = st.columns([8, 2], vertical_alignment="bottom")
+    with col_in:
         user_contact = st.text_input(
             label=t["auth_label"],
             placeholder=t["input_placeholder"],
             label_visibility="collapsed",
             key="user_contact_input"
         )
-    with c2:
-        submit_login = st.button("➔", key="btn_login_arrow", type="primary")
+    with col_btn:
+        submit_login = st.button("➔", key="btn_login_arrow", type="primary", use_container_width=True)
 
     if (submit_login or user_contact) and user_contact:
         contact_str = str(user_contact).strip().lower()
@@ -459,7 +426,6 @@ with tab1:
             st.info(t["register_prompt"])
             st.link_button(t["register_btn"], FORM_LINK, type="primary")
 
-    # लॉगिन झाल्यावर शोध बॉक्स आणि त्यातच बाण (➔)
     if st.session_state.logged_in_user is not None:
         name_col = [c for c in df.columns if "नाव" in c or "Name" in c]
         user_name = st.session_state.logged_in_user[name_col[0]] if name_col else "Member"
@@ -475,7 +441,7 @@ with tab1:
                 key="search_query_input"
             )
         with sc2:
-            submit_search = st.button("➔", key="btn_search_arrow", type="primary")
+            submit_search = st.button("➔", key="btn_search_arrow", type="primary", use_container_width=True)
             
         if (submit_search or query) and query:
             if not GEMINI_API_KEY:
