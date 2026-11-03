@@ -28,7 +28,7 @@ def load_data():
 
 df = load_data()
 
-# Gemini REST API कॉल फंक्शन (Retry आणि 503 ऑटो-हँडलिंगसह)
+# सक्रिय मॉडेल स्वयंचलित शोधून 503 लोड बायपास करणारे फंक्शन
 def call_gemini(prompt_text, api_key):
     headers = {"Content-Type": "application/json"}
     payload = {
@@ -39,31 +39,41 @@ def call_gemini(prompt_text, api_key):
         ]
     }
     
-    models = ["gemini-3.8-flash", "gemini-3.8-pro", "gemini-3.0-flash"]
-    last_error = ""
-    
-    for model_name in models:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
-        
-        # 503 लोड आल्यास २ वेळा रिट्राय करणे
-        for attempt in range(2):
-            try:
-                response = requests.post(url, headers=headers, json=payload, timeout=30)
-                if response.status_code == 200:
-                    data = response.json()
-                    return data["candidates"][0]["content"]["parts"][0]["text"]
-                elif response.status_code == 503:
-                    time.sleep(1.5)  # क्षणिक लोड असल्यास १.५ सेकंद थांबून पुन्हा प्रयत्न
-                    last_error = response.text
-                    continue
-                else:
-                    last_error = response.text
-                    break
-            except Exception as e:
-                last_error = str(e)
-                break
-                
-    return f"सर्व्हर व्यस्त आहे (503). कृपया १ सेकंदाने पुन्हा 'संदर्भ शोधा' बटण दाबा."
+    # १. गुगलकडून तुमच्या की साठी चालू असणाऱ्या सर्व मॉडेल्सची यादी मिळवणे
+    available_models = []
+    try:
+        list_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
+        res = requests.get(list_url, timeout=10)
+        if res.status_code == 200:
+            m_list = res.json().get("models", [])
+            for item in m_list:
+                if "generateContent" in item.get("supportedGenerationMethods", []):
+                    m_name = item.get("name", "")
+                    if m_name.startswith("models/"):
+                        m_name = m_name.replace("models/", "")
+                    available_models.append(m_name)
+    except Exception:
+        pass
+
+    # जर यादी मिळाली नाही, तर स्टँडर्ड मॉडेल्स
+    if not available_models:
+        available_models = ["gemini-3.8-flash", "gemini-3.8-pro", "gemini-2.5-flash", "gemini-flash-latest"]
+
+    # २. एका मॉडेलवर ५०३ लोड असेल तर लगेच दुसऱ्या मॉडेलकडून उत्तर घेणे
+    for m in available_models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={api_key}"
+        try:
+            r = requests.post(url, headers=headers, json=payload, timeout=25)
+            if r.status_code == 200:
+                data = r.json()
+                return data["candidates"][0]["content"]["parts"][0]["text"]
+            elif r.status_code == 503:
+                time.sleep(1)
+                continue
+        except Exception:
+            continue
+
+    return "सर्व्हर सध्या व्यस्त आहे. कृपया २ सेकंदांनंतर पुन्हा 'संदर्भ शोधा' बटण दाबा."
 
 st.title("🤝 AI Business Sarathi")
 st.subheader("Universal Networking & Referral Matcher")
@@ -78,7 +88,7 @@ with tab1:
     
     if st.button("संदर्भ शोधा", type="primary") and query:
         if not GEMINI_API_KEY:
-            st.error("कृपया डाव्या बाजूला किंवा Secrets मध्ये Gemini API Key प्रविष्ट करा.")
+            st.error("कृपया Gemini API Key प्रविष्ट करा.")
         elif df.empty:
             st.warning("अद्याप शीटमध्ये डेटा उपलब्ध नाही.")
         else:
@@ -124,7 +134,7 @@ with tab3:
     
     if st.button("पिच तयार करा"):
         if not GEMINI_API_KEY:
-            st.error("कृपया Gemini API Key प्रविष्ट करा.")
+            st.error("कृपया Gemini API Key टाका.")
         elif b_name and b_serv:
             with st.spinner("तुमचा प्रभावी पिच तयार होत आहे..."):
                 pitch_prompt = f"""
