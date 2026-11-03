@@ -27,9 +27,9 @@ def load_data():
 
 df = load_data()
 
-# Gemini REST API कॉल फंक्शन (AQ. आणि AIza दोन्ही की चालतात)
+# Gemini REST API कॉल फंक्शन
 def call_gemini(prompt_text, api_key):
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={api_key}"
     headers = {"Content-Type": "application/json"}
     payload = {
         "contents": [
@@ -47,7 +47,7 @@ def call_gemini(prompt_text, api_key):
             return "माहितीवर प्रक्रिया करताना त्रुटी आली."
     else:
         err_msg = response.text
-        return f"API त्रुटी ({response.status_code}): कृपया API Key तपासा. तपशील: {err_msg}"
+        return f"API त्रुटी ({response.status_code}): {err_msg}"
 
 st.title("🤝 AI Business Sarathi")
 st.subheader("Universal Networking & Referral Matcher")
