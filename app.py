@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# नंबर व सर्च बॉक्समध्येच बाण (➔) एकाच रेषेत बसवणारे CSS
+# स्वच्छ आणि सुरक्षित मोबाईल CSS (इनपुट बॉक्स न दाबता नीट दिसण्यासाठी)
 st.markdown("""
     <style>
         .block-container {
@@ -59,56 +59,11 @@ st.markdown("""
             font-weight: 600;
             border-radius: 8px;
         }
-
-        /* बॉक्स आणि बाण एकाच ओळीत घट्ट बसवण्यासाठी */
-        div[data-testid="stHorizontalBlock"] {
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: nowrap !important;
-            align-items: stretch !important;
-            gap: 6px !important;
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 10px;
-            padding: 4px 6px;
-            margin-bottom: 10px;
+        .stTextInput > label, .stTextArea > label {
+            font-size: 0.88rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 3px !important;
         }
-        div[data-testid="stHorizontalBlock"] > div:first-child {
-            flex: 1 1 auto !important;
-            min-width: 0 !important;
-        }
-        div[data-testid="stHorizontalBlock"] > div:last-child {
-            flex: 0 0 auto !important;
-            width: auto !important;
-        }
-        /* इनपुट बॉक्सची बॉर्डर काढून टाकणे जेणेकरून तो पूर्ण एकच बॉक्स वाटेल */
-        div[data-testid="stHorizontalBlock"] .stTextInput input {
-            background-color: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            color: #ffffff !important;
-            padding: 8px 10px !important;
-            font-size: 0.95rem !important;
-        }
-        div[data-testid="stHorizontalBlock"] .stTextInput {
-            margin-bottom: 0 !important;
-        }
-        /* बाण (➔) चे आकर्षक बटण */
-        div[data-testid="stHorizontalBlock"] button {
-            background-color: #ef4444 !important;
-            color: #ffffff !important;
-            border: none !important;
-            border-radius: 8px !important;
-            padding: 6px 14px !important;
-            font-size: 1.2rem !important;
-            font-weight: bold !important;
-            height: 100% !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
-        }
-
         .app-footer {
             text-align: center;
             color: #64748b;
@@ -133,14 +88,14 @@ LANG_DATA = {
         "tab1": "🔍 स्मार्ट शोध",
         "tab2": "📝 पिच व स्टिम्युलेशन",
         "auth_label": "नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल:",
-        "input_placeholder": "उदा. 8087699949 किंवा email",
+        "input_placeholder": "उदा. 8087699949 किंवा email टाकून ➔ दाबा...",
         "welcome": "✅ स्वागत आहे, **{name}**!",
         "not_registered": "⚠️ हा नंबर डिरेक्टरीमध्ये नोंदणीकृत नाही.",
         "register_prompt": "👉 संदर्भ शोधण्यासाठी कृपया आधी १ मिनिटाचा फॉर्म भरून नोंदणी करा:",
         "register_btn": "📝 येथे क्लिक करून नोंदणी करा (Google Form)",
         "search_label": "तुम्हाला कोणत्या व्यवसायाशी/सेवेशी जोडले जायचे आहे?",
-        "search_placeholder": "उदा. 'पुण्यात सोन्यात गुंतवणुकीसाठी संपर्क'...",
-        "search_hint": "💡 संदर्भ शोधण्यासाठी वर नोंदणीकृत नंबर टाकून बाणावर (➔) क्लिक करा.",
+        "search_placeholder": "उदा. 'पुण्यात सोन्यात गुंतवणुकीसाठी संपर्क' टाईप करून ➔ दाबा...",
+        "search_hint": "💡 संदर्भ शोधण्यासाठी वर नोंदणीकृत नंबर टाकून बाणावर (➔) दाबा.",
         "spinner_search": "AI अचूक संदर्भ शोधत आहे...",
         "pitch_title": "३०-सेकंद पिच व स्टिम्युलेशन जनरेटर",
         "pitch_comp": "तुमची कंपनी / ब्रँड:",
@@ -160,14 +115,14 @@ LANG_DATA = {
         "tab1": "🔍 स्मार्ट सर्च",
         "tab2": "📝 पिच व स्टिम्युलेशन",
         "auth_label": "पंजीकृत 10 अंकों का मोबाइल नंबर या ईमेल:",
-        "input_placeholder": "उदा. 8087699949 या email",
+        "input_placeholder": "उदा. 8087699949 या email दर्ज करके ➔ दबाएं...",
         "welcome": "✅ स्वागत है, **{name}**!",
         "not_registered": "⚠️ यह नंबर डायरेक्टरी में पंजीकृत नहीं है।",
         "register_prompt": "👉 रेफ़रल खोजने के लिए कृपया पहले 1 मिनट का फॉर्म भरें:",
         "register_btn": "📝 यहाँ क्लिक करके पंजीकरण करें (Google Form)",
         "search_label": "आप किस व्यवसाय या सेवा से जुड़ना चाहते हैं?",
         "search_placeholder": "उदा. 'मुझे पुणे में सोने में निवेश के लिए संपर्क'...",
-        "search_hint": "💡 रेफ़रल खोजने के लिए ऊपर अपना पंजीकृत नंबर डालकर (➔) दबाएं।",
+        "search_hint": "💡 रेफ़रल खोजने के लिए ऊपर अपना पंजीकृत नंबर डालकर ➔ दबाएं।",
         "spinner_search": "AI उपयुक्त रेफ़रल खोज रहा है...",
         "pitch_title": "30-सेकंड पिच और स्टिम्युलेशन जनरेटर",
         "pitch_comp": "कंपनी / ब्रांड:",
@@ -187,14 +142,14 @@ LANG_DATA = {
         "tab1": "🔍 Smart Search",
         "tab2": "📝 Pitch & Stimulation",
         "auth_label": "Registered 10-digit mobile number or email:",
-        "input_placeholder": "e.g. 8087699949 or email",
+        "input_placeholder": "Enter mobile number or email and tap ➔...",
         "welcome": "✅ Welcome, **{name}**!",
         "not_registered": "⚠️ This contact is not registered in our directory.",
         "register_prompt": "👉 To access referrals, please register using the quick form:",
         "register_btn": "📝 Click here to register (Google Form)",
         "search_label": "Which business or service are you looking to connect with?",
-        "search_placeholder": "e.g. 'Looking for gold investment advisor'...",
-        "search_hint": "💡 Please enter your registered contact above and tap (➔) arrow.",
+        "search_placeholder": "Type your requirement and tap ➔...",
+        "search_hint": "💡 Please enter your registered contact above and tap ➔ arrow.",
         "spinner_search": "AI is finding the best matches...",
         "pitch_title": "30-Sec Pitch & Stimulation Generator",
         "pitch_comp": "Company / Brand:",
@@ -214,13 +169,13 @@ LANG_DATA = {
         "tab1": "🔍 સ્માર્ટ સર્ચ",
         "tab2": "📝 પિચ અને સ્ટિમ્યુલેશન",
         "auth_label": "નોંધાયેલ 10 અંકનો મોબાઇલ નંબર અથવા ઇમેઇલ:",
-        "input_placeholder": "દા.ત. 8087699949",
+        "input_placeholder": "દા.ત. 8087699949 લખીને ➔ દબાવો...",
         "welcome": "✅ સ્વાગત છે, **{name}**!",
         "not_registered": "⚠️ આ નંબર ડિરેક્ટરીમાં નોંધાયેલ નથી.",
         "register_prompt": "👉 રેફરલ્સ શોધવા માટે કૃપા કરીને પહેલા ફોર્મ ભરો:",
         "register_btn": "📝 નોંધણી કરવા અહીં ક્લિક કરો (Google Form)",
         "search_label": "તમે કયા વ્યવસાય સાથે જોડાવા માંગો છો?",
-        "search_placeholder": "દા.ત. 'પુણેમાં સોનામાં રોકાણ માટે સંપર્ક'...",
+        "search_placeholder": "જરૂરિયાત લખીને ➔ દબાવો...",
         "search_hint": "💡 શોધવા માટે ઉપર તમારો નંબર દાખલ કરીને બાણ (➔) દબાવો.",
         "spinner_search": "AI સંપર્કો શોધી રહ્યું છે...",
         "pitch_title": "30-સેકન્ડ પિચ અને સ્ટિમ્યુલેશન",
@@ -241,13 +196,13 @@ LANG_DATA = {
         "tab1": "🔍 ஸ்மார்ட் தேடல்",
         "tab2": "📝 பிட்ச் & ஸ்டிமுலேஷன்",
         "auth_label": "பதிவுசெய்த மொபைல் எண் அல்லது மின்னஞ்சல்:",
-        "input_placeholder": "எ.கா. 8087699949",
+        "input_placeholder": "எண் உள்ளிட்டு ➔ அழுத்தவும்...",
         "welcome": "✅ வரவேற்கிறோம், **{name}**!",
         "not_registered": "⚠️ எண் பட்டியலில் இல்லை.",
         "register_prompt": "👉 பதிவு செய்ய படிவத்தைப் பூர்த்தி செய்யவும்:",
         "register_btn": "📝 பதிவு செய்ய கிளிக் செய்யவும் (Google Form)",
         "search_label": "நீங்கள் எந்த தொழிலுடன் இணைய விரும்புகிறீர்கள்?",
-        "search_placeholder": "எ.கா. 'தங்க முதலீடு ஆலோசகர் தேவை'...",
+        "search_placeholder": "தேவையை உள்ளிட்டு ➔ அழுத்தவும்...",
         "search_hint": "💡 தேடலுக்கு மேலே எண் உள்ளிட்டு (➔) தொடவும்.",
         "spinner_search": "AI தேடுகிறது...",
         "pitch_title": "பிட்ச் & ஸ்டிமுலேஷன் உருவாக்குநர்",
@@ -268,13 +223,13 @@ LANG_DATA = {
         "tab1": "🔍 స్మార్ట్ సెర్చ్",
         "tab2": "📝 పిచ్ & స్టిమ్యులేషన్",
         "auth_label": "నమోదిత మొబైల్ నంబర్ లేదా ఇమెయిల్:",
-        "input_placeholder": "ఉదా. 8087699949",
+        "input_placeholder": "నంబర్ నమోదు చేసి ➔ నొక్కండి...",
         "welcome": "✅ స్వాగతం, **{name}**!",
         "not_registered": "⚠️ నంబర్ డైరెక్టరీలో లేదు.",
         "register_prompt": "👉 నమోదు కొరకు ఫారమ్ నింపండి:",
         "register_btn": "📝 నమోదు చేయండి (Google Form)",
         "search_label": "ఏ వ్యాపారంతో కనెక్ట్ కావాలనుకుంటున్నారు?",
-        "search_placeholder": "ఉదా. 'బంగారు పెట్టుబడి సలహాదారు'...",
+        "search_placeholder": "అవసరం నమోదు చేసి ➔ నొక్కండి...",
         "search_hint": "💡 సెర్చ్ చేయడానికి నంబర్ నమోదు చేసి బాణం (➔) నొక్కండి.",
         "spinner_search": "AI శోధిస్తోంది...",
         "pitch_title": "పిచ్ & స్టిమ్యులేషన్ జనరేటర్",
@@ -295,21 +250,21 @@ LANG_DATA = {
         "tab1": "🔍 ಸ್ಮಾರ್ಟ್ ಹುಡುಕಾಟ",
         "tab2": "📝 ಪಿಚ್ & ಸ್ಟಿಮ್ಯುಲೇಶನ್",
         "auth_label": "ನೋಂದಾಯಿತ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಥವಾ ಇಮೇಲ್:",
-        "input_placeholder": "ಉದಾ. 8087699949",
+        "input_placeholder": "ಸಂಖ್ಯೆ ನಮೂದಿಸಿ ➔ ಒತ್ತಿರಿ...",
         "welcome": "✅ ಸ್ವಾಗತ, **{name}**!",
         "not_registered": "⚠️ ಈ ಸಂಖ್ಯೆ ನೋಂದಣಿಯಾಗಿಲ್ಲ.",
         "register_prompt": "👉 ನೋಂದಾಯಿಸಲು ಫಾರ್ಮ್ ಭರ್ತಿ ಮಾಡಿ:",
         "register_btn": "📝 ನೋಂದಾಯಿಸಿ (Google Form)",
         "search_label": "ಯಾವ ವ್ಯವಹಾರದೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಲು ಬಯಸುತ್ತೀರಿ?",
-        "search_placeholder": "ಉದಾ. 'ಚಿನ್ನದ ಹೂಡಿಕೆ'...",
+        "search_placeholder": "ಅಗತ್ಯತೆ ನಮೂದಿಸಿ ➔ ಒತ್ತಿರಿ...",
         "search_hint": "💡 ಹುಡುಕಲು ಸಂಖ್ಯೆ ನಮೂದಿಸಿ ಬಾಣದ ಗುರುತು (➔) ಒತ್ತಿರಿ.",
         "spinner_search": "AI ಹುಡುಕುತ್ತಿದೆ...",
         "pitch_title": "ಪಿಚ್ & ಸ್ಟಿಮ್ಯುಲೇಶನ್ ರಚನೆ",
         "pitch_comp": "ಕಂಪನಿ:",
         "pitch_serv": "ಸೇವೆಗಳು:",
-        "pitch_ask": "ಅಗತ್ಯತೆ (Ask):",
         "pitch_stim": "ಟ್ರಿಗ್ಗರ್ (ಐಚ್ಛಿಕ):",
         "pitch_stim_hint": "ಉದಾ. 'ಚಿನ್ನದ ದರ ಏರಿಕೆ'",
+        "pitch_ask": "ಅಗತ್ಯತೆ (Ask):",
         "pitch_btn": "ರಚಿಸಿ ➔",
         "spinner_pitch": "ಸಿದ್ಧವಾಗುತ್ತಿದೆ...",
         "about": "ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್ ಉದ್ಯಮಿಗಳ ಬೆಂಬಲಕ್ಕಾಗಿ ಶ್ರಮಿಸುತ್ತದೆ.",
@@ -322,13 +277,13 @@ LANG_DATA = {
         "tab1": "🔍 സ്മാർട്ട് തിരയൽ",
         "tab2": "📝 പിച്ചും സ്റ്റിമുലേഷനും",
         "auth_label": "രജിസ്റ്റർ ചെയ്ത മൊബൈൽ നമ്പറോ ഇമെയിലോ:",
-        "input_placeholder": "ഉദാ. 8087699949",
+        "input_placeholder": "നമ്പർ നൽകി ➔ ക്ലിക്ക് ചെയ്യുക...",
         "welcome": "✅ സ്വാഗതം, **{name}**!",
         "not_registered": "⚠️ നമ്പർ ലഭ്യമല്ല.",
         "register_prompt": "👉 രജിസ്റ്റർ ചെയ്യാൻ ഫോം പൂരിപ്പിക്കുക:",
         "register_btn": "📝 രജിസ്റ്റർ ചെയ്യുക (Google Form)",
         "search_label": "ഏത് ബിസിനസ്സുമായാണ് ബന്ധപ്പെടേണ്ടത്?",
-        "search_placeholder": "ഉദാ. 'സ്വർണ്ണ നിക്ഷേപം'...",
+        "search_placeholder": "ആവശ്യം നൽകി ➔ ക്ലിക്ക് ചെയ്യുക...",
         "search_hint": "💡 നമ്പർ നൽകി അമ്പടയാളത്തിൽ (➔) ക്ലിക്ക് ചെയ്യുക.",
         "spinner_search": "AI തിരയുന്നു...",
         "pitch_title": "പിച്ചും സ്റ്റിമുലേഷനും",
@@ -349,13 +304,13 @@ LANG_DATA = {
         "tab1": "🔍 স্মার্ট অনুসন্ধান",
         "tab2": "📝 পিচ ও স্টিমুলেশন",
         "auth_label": "নিবন্ধিত মোবাইল নম্বর বা ইমেল:",
-        "input_placeholder": "যেমন: 8087699949",
+        "input_placeholder": "নম্বর লিখে ➔ চাপুন...",
         "welcome": "✅ স্বাগতম, **{name}**!",
         "not_registered": "⚠️ এই নম্বরটি নিবন্ধিত নেই।",
         "register_prompt": "👉 নিবন্ধন করতে ফর্ম পূরণ করুন:",
         "register_btn": "📝 নিবন্ধন করুন (Google Form)",
         "search_label": "কোন ব্যবসার সাথে যুক্ত হতে চান?",
-        "search_placeholder": "যেমন: 'স্বর্ণে বিনিয়োগ'...",
+        "search_placeholder": "প্রয়োজন লিখে ➔ চাপুন...",
         "search_hint": "💡 অনুসন্ধানের জন্য নম্বর লিখে তীর চিহ্নে (➔) ক্লিক করুন।",
         "spinner_search": "AI রেফারেল খুঁজছে...",
         "pitch_title": "পিচ এবং স্টিমুলেশন",
@@ -376,13 +331,13 @@ LANG_DATA = {
         "tab1": "🔍 ਸਮਾਰਟ ਖੋਜ",
         "tab2": "📝 ਪਿੱਚ ਅਤੇ ਸਟਿਮੂਲੇਸ਼ਨ",
         "auth_label": "ਰਜਿਸਟਰਡ ਮੋਬਾਈਲ ਨੰਬਰ ਜਾਂ ਈਮੇਲ:",
-        "input_placeholder": "ਜਿਵੇਂ: 8087699949",
+        "input_placeholder": "ਨੰਬਰ ਦਰਜ ਕਰਕੇ ➔ ਦਬਾਓ...",
         "welcome": "✅ ਜੀ ਆਇਆਂ ਨੂੰ, **{name}**!",
         "not_registered": "⚠️ ਨੰਬਰ ਦਰਜ ਨਹੀਂ ਹੈ।",
         "register_prompt": "👉 ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਫਾਰਮ ਭਰੋ:",
         "register_btn": "📝 ਰਜਿਸਟਰ ਕਰੋ (Google Form)",
         "search_label": "ਕਿਸ ਕਾਰੋਬਾਰ ਨਾਲ ਜੁੜਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
-        "search_placeholder": "ਜਿਵੇਂ: 'ਸੋਨੇ ਦਾ ਨਿਵੇਸ਼'...",
+        "search_placeholder": "ਲੋੜ ਦਰਜ ਕਰਕੇ ➔ ਦਬਾਓ...",
         "search_hint": "💡 ਖੋਜ ਕਰਨ ਲਈ ਨੰਬਰ ਦਰਜ ਕਰਕੇ ਤੀਰ (➔) ਦਬਾਓ।",
         "spinner_search": "AI ਰੈਫਰਲ ਲੱਭ ਰਿਹਾ ਹੈ...",
         "pitch_title": "ਪਿੱਚ ਅਤੇ ਸਟਿਮੂਲੇਸ਼ਨ",
@@ -475,16 +430,21 @@ tab1, tab2 = st.tabs([t["tab1"], t["tab2"]])
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = None
 
-# टॅब १: सर्च व लॉगिन (एकाच बॉक्समध्ये बाण ➔)
+# टॅब १: सर्च व लॉगिन
 with tab1:
     st.markdown(f"**{t['auth_label']}**")
     
-    # एकाच ओळीत इनपुट आणि बाण
-    c1, c2 = st.columns([5, 1])
+    # मूळ इनपुट आणि शेजारी लहान ➔ बाण (मोबाईलवर न तुटणारा)
+    c1, c2 = st.columns([8, 2], vertical_alignment="bottom")
     with c1:
-        user_contact = st.text_input(t["auth_label"], placeholder=t["input_placeholder"], label_visibility="collapsed", key="user_contact_input")
+        user_contact = st.text_input(
+            label=t["auth_label"],
+            placeholder=t["input_placeholder"],
+            label_visibility="collapsed",
+            key="user_contact_input"
+        )
     with c2:
-        submit_login = st.button("➔", key="btn_login_arrow")
+        submit_login = st.button("➔", key="btn_login_arrow", type="primary")
 
     if (submit_login or user_contact) and user_contact:
         contact_str = str(user_contact).strip().lower()
@@ -506,11 +466,16 @@ with tab1:
         st.success(t["welcome"].format(name=user_name))
         
         st.markdown(f"**{t['search_label']}**")
-        sc1, sc2 = st.columns([5, 1])
+        sc1, sc2 = st.columns([8, 2], vertical_alignment="bottom")
         with sc1:
-            query = st.text_input(t["search_label"], placeholder=t["search_placeholder"], label_visibility="collapsed", key="search_query_input")
+            query = st.text_input(
+                label=t["search_label"],
+                placeholder=t["search_placeholder"],
+                label_visibility="collapsed",
+                key="search_query_input"
+            )
         with sc2:
-            submit_search = st.button("➔", key="btn_search_arrow")
+            submit_search = st.button("➔", key="btn_search_arrow", type="primary")
             
         if (submit_search or query) and query:
             if not GEMINI_API_KEY:
