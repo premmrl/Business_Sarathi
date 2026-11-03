@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# गुगल फॉर्म सबमिशन लिंक
+# गुगल फॉर्म लिंक्स
 FORM_SUBMIT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSffLyVq9szubqpQaeVX2KH3u_QOfF7ra_LUr9-WT7wN8w4FBg/formResponse"
 FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSffLyVq9szubqpQaeVX2KH3u_QOfF7ra_LUr9-WT7wN8w4FBg/viewform?usp=sharing"
 
@@ -21,12 +21,14 @@ LANG_DATA = {
         "foundation": "🏛️ विघ्नहर्ता गोल्ड फाउंडेशनचा उपक्रम",
         "title": "🤝 AI Business Sarathi",
         "caption": "उद्योजकांना अचूक संदर्भ व व्यावसायिक सहकार्य मिळवून देणारा डिजिटल साथीदार",
-        "menu_opt": ["🔍 स्मार्ट शोध", "📝 नवीन नोंदणी", "🎙️ पिच व स्टिम्युलेशन"],
+        "btn_opt1": "🔍 स्मार्ट शोध",
+        "btn_opt2": "📝 नवीन नोंदणी",
+        "btn_opt3": "🎙️ पिच व स्टिम्युलेशन",
         "auth_label": "नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल:",
         "input_placeholder": "उदा. 8087699949 किंवा email",
         "welcome": "✅ स्वागत आहे, **{name}**!",
         "not_registered": "⚠️ हा नंबर डिरेक्टरीमध्ये नोंदणीकृत नाही.",
-        "register_prompt": "👉 संदर्भ शोधण्यासाठी आधी तुमची नोंदणी पूर्ण करा:",
+        "register_prompt": "👉 संदर्भ शोधण्यासाठी आधी 'नवीन नोंदणी' बटणावर क्लिक करून नोंदणी पूर्ण करा:",
         "register_btn_text": "📝 येथे क्लिक करून १ मिनिटात नोंदणी करा",
         "search_label": "तुम्हाला कोणत्या व्यवसायाशी/सेवेशी जोडले जायचे आहे?",
         "search_placeholder": "उदा. 'पुण्यात सोन्यात गुंतवणुकीसाठी संपर्क'...",
@@ -40,7 +42,7 @@ LANG_DATA = {
         "reg_city": "शहर (City / Location):",
         "reg_serv": "मुख्य उत्पादने किंवा सेवा (Products / Services):",
         "reg_btn": "नोंदणी पूर्ण करा ➔",
-        "reg_success": "🎉 अभिनंदन! तुमची नोंदणी यशस्वी झाली आहे. आता '🔍 स्मार्ट शोध' मेनू निवडून संदर्भ शोधा.",
+        "reg_success": "🎉 अभिनंदन! तुमची नोंदणी यशस्वी झाली आहे. आता '🔍 स्मार्ट शोध' बटणावर क्लिक करून संदर्भ शोधा.",
         "pitch_title": "३०-सेकंद पिच व स्टिम्युलेशन जनरेटर",
         "pitch_comp": "तुमची कंपनी / ब्रँड:",
         "pitch_serv": "मुख्य उत्पादने किंवा सेवा:",
@@ -56,13 +58,15 @@ LANG_DATA = {
         "foundation": "🏛️ विघ्नहर्ता गोल्ड फाउंडेशन की पहल",
         "title": "🤝 AI Business Sarathi",
         "caption": "उद्यमियों को सटीक रेफ़रल व व्यावसायिक सहयोग दिलाने वाला डिजिटल साथी",
-        "menu_opt": ["🔍 स्मार्ट सर्च", "📝 नया पंजीकरण", "🎙️ पिच व स्टिम्युलेशन"],
+        "btn_opt1": "🔍 स्मार्ट सर्च",
+        "btn_opt2": "📝 नया पंजीकरण",
+        "btn_opt3": "🎙️ पिच व स्टिम्युलेशन",
         "auth_label": "पंजीकृत 10 अंकों का मोबाइल नंबर या ईमेल:",
         "input_placeholder": "उदा. 8087699949 या email",
         "welcome": "✅ स्वागत है, **{name}**!",
         "not_registered": "⚠️ यह नंबर डायरेक्टरी में पंजीकृत नहीं है।",
-        "register_prompt": "👉 रेफ़रल खोजने के लिए पहले अपना पंजीकरण पूरा करें:",
-        "register_btn_text": "📝 यहाँ क्लिक करके 1 मिनट में पंजीकरण करें",
+        "register_prompt": "👉 रेफ़रल खोजने के लिए पहले 'नया पंजीकरण' बटन दबाकर पंजीकरण करें:",
+        "register_btn_text": "📝 यहाँ क्लिक करके पंजीकरण करें",
         "search_label": "आप किस व्यवसाय या सेवा से जुड़ना चाहते हैं?",
         "search_placeholder": "उदा. 'मुझे पुणे में सोने में निवेश के लिए संपर्क'...",
         "search_hint": "💡 रेफ़रल खोजने के लिए ऊपर अपना पंजीकृत नंबर डालकर ➔ दबाएं।",
@@ -91,13 +95,15 @@ LANG_DATA = {
         "foundation": "🏛️ An Initiative by Vighnaharta Gold Foundation",
         "title": "🤝 AI Business Sarathi",
         "caption": "Connecting entrepreneurs with precise referrals and business collaborations",
-        "menu_opt": ["🔍 Smart Search", "📝 New Registration", "🎙️ Pitch & Stimulation"],
+        "btn_opt1": "🔍 Smart Search",
+        "btn_opt2": "📝 Registration",
+        "btn_opt3": "🎙️ Pitch & Triggers",
         "auth_label": "Registered 10-digit mobile number or email:",
         "input_placeholder": "e.g. 8087699949 or email",
         "welcome": "✅ Welcome, **{name}**!",
         "not_registered": "⚠️ This contact is not registered in our directory.",
         "register_prompt": "👉 To access referrals, please complete your registration first:",
-        "register_btn_text": "📝 Click here to register in 1 minute",
+        "register_btn_text": "📝 Click here to register",
         "search_label": "Which business or service are you looking to connect with?",
         "search_placeholder": "e.g. 'Looking for gold investment advisor'...",
         "search_hint": "💡 Please enter your registered contact above and tap ➔ arrow.",
@@ -124,16 +130,15 @@ LANG_DATA = {
     }
 }
 
-# मराठी, हिंदी, इंग्रजीव्यतिरिक्त उर्वरित भाषांसाठी डिफॉल्ट इंग्लिश मॅपिंग
 for l_key in ["ગુજરાતી", "தமிழ்", "తెలుగు", "ಕನ್ನಡ", "മലയാളം", "বাংলা", "ਪੰਜਾਬੀ"]:
     if l_key not in LANG_DATA:
         LANG_DATA[l_key] = LANG_DATA["English"]
 
-# CSS स्टायलिंग
+# हाय-कॉन्ट्रास्ट व स्वच्छ रंगसंगती CSS
 st.markdown("""
     <style>
         .block-container {
-            padding-top: 2.2rem !important;
+            padding-top: 1.8rem !important;
             padding-bottom: 2rem !important;
             padding-left: 0.9rem !important;
             padding-right: 0.9rem !important;
@@ -144,47 +149,34 @@ st.markdown("""
             border: 1px solid #d4af37;
             padding: 14px;
             border-radius: 14px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         }
         .app-foundation {
             font-size: 0.92rem;
-            color: #d4af37;
+            color: #fbbf24;
             font-weight: 700;
             margin-bottom: 3px;
         }
         .app-title {
-            font-size: 1.4rem;
+            font-size: 1.45rem;
             font-weight: 800;
             color: #ffffff;
             margin: 2px 0;
         }
         .app-caption {
-            font-size: 0.78rem;
-            color: #94a3b8;
+            font-size: 0.8rem;
+            color: #cbd5e1;
         }
-        /* नेव्हिगेशन मेनू अधिक स्पष्ट व मोबाईलवर सोपा करणे */
-        div[role="radiogroup"] {
-            display: flex !important;
-            flex-direction: row !important;
-            justify-content: space-around !important;
-            background: #1e293b !important;
-            padding: 8px !important;
-            border-radius: 10px !important;
-            border: 1px solid #334155 !important;
-            margin-bottom: 15px !important;
-        }
-        div[role="radiogroup"] label {
-            background: transparent !important;
-            padding: 6px 10px !important;
-            border-radius: 6px !important;
-            font-size: 0.88rem !important;
-            font-weight: 600 !important;
+        /* इनपुट बॉक्सची अक्षरे पूर्ण पांढरी आणि स्पष्ट */
+        .stTextInput input, .stTextArea textarea {
+            color: #ffffff !important;
+            font-size: 0.95rem !important;
         }
         .app-footer {
             text-align: center;
-            color: #64748b;
+            color: #94a3b8;
             font-size: 0.78rem;
             margin-top: 25px;
             padding-top: 12px;
@@ -202,7 +194,7 @@ with c_l2:
 t = LANG_DATA[selected_lang]
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
 
-# Google Sheet लोड
+# Google Sheet डेटा लोड
 SHEET_ID = "1WibJTWH8NeHrESLNF24im10uAoF1GR3uRgnUhFmZQFE"
 CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
 
@@ -243,27 +235,37 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
-# स्टेट मॅनेजमेंट
+# स्टेट व्यवस्थापन
+if "current_view" not in st.session_state:
+    st.session_state.current_view = "search"
+
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = None
 
-if "active_nav" not in st.session_state:
-    st.session_state.active_nav = t["menu_opt"][0]
+# स्पष्ट आणि हाय-कॉन्ट्रास्ट ३ नेव्हिगेशन बटणे
+nav_c1, nav_c2, nav_c3 = st.columns(3)
+with nav_c1:
+    btn_type1 = "primary" if st.session_state.current_view == "search" else "secondary"
+    if st.button(t["btn_opt1"], key="nav_btn_1", type=btn_type1, use_container_width=True):
+        st.session_state.current_view = "search"
+        st.rerun()
 
-# नेव्हिगेशन मेनू (टॅब अडकण्याची समस्या कायमस्वरूपी बंद)
-active_page = st.radio(
-    "Navigation",
-    options=t["menu_opt"],
-    index=t["menu_opt"].index(st.session_state.active_nav) if st.session_state.active_nav in t["menu_opt"] else 0,
-    horizontal=True,
-    label_visibility="collapsed"
-)
-st.session_state.active_nav = active_page
+with nav_c2:
+    btn_type2 = "primary" if st.session_state.current_view == "register" else "secondary"
+    if st.button(t["btn_opt2"], key="nav_btn_2", type=btn_type2, use_container_width=True):
+        st.session_state.current_view = "register"
+        st.rerun()
 
-st.markdown("---")
+with nav_c3:
+    btn_type3 = "primary" if st.session_state.current_view == "pitch" else "secondary"
+    if st.button(t["btn_opt3"], key="nav_btn_3", type=btn_type3, use_container_width=True):
+        st.session_state.current_view = "pitch"
+        st.rerun()
 
-# १. स्मार्ट शोध
-if active_page == t["menu_opt"][0]:
+st.markdown("<hr style='margin: 8px 0 16px 0; border: 0.5px solid #334155;'>", unsafe_allow_html=True)
+
+# १. स्मार्ट शोध विभाग
+if st.session_state.current_view == "search":
     st.markdown(f"**{t['auth_label']}**")
     
     col_in, col_btn = st.columns([8, 2], vertical_alignment="bottom")
@@ -289,7 +291,7 @@ if active_page == t["menu_opt"][0]:
             st.warning(t["not_registered"])
             st.info(t["register_prompt"])
             if st.button(t["register_btn_text"], type="secondary", use_container_width=True):
-                st.session_state.active_nav = t["menu_opt"][1]
+                st.session_state.current_view = "register"
                 st.rerun()
 
     if st.session_state.logged_in_user is not None:
@@ -342,8 +344,8 @@ if active_page == t["menu_opt"][0]:
         if not user_contact:
             st.info(t["search_hint"])
 
-# २. नवीन नोंदणी फॉर्म
-elif active_page == t["menu_opt"][1]:
+# २. नवीन नोंदणी विभाग
+elif st.session_state.current_view == "register":
     st.write(f"### {t['reg_title']}")
     
     with st.form("in_app_reg_form", clear_on_submit=False):
@@ -378,8 +380,8 @@ elif active_page == t["menu_opt"][1]:
                 st.balloons()
                 st.cache_data.clear()
 
-# ३. पिच व स्टिम्युलेशन
-elif active_page == t["menu_opt"][2]:
+# ३. पिच व स्टिम्युलेशन विभाग
+elif st.session_state.current_view == "pitch":
     st.markdown(f"##### {t['pitch_title']}")
     with st.form("pitch_form", clear_on_submit=False):
         b_name = st.text_input(t["pitch_comp"])
@@ -418,7 +420,7 @@ elif active_page == t["menu_opt"][2]:
 st.markdown(f"""
     <div class="app-footer">
         {t['footer']} 
-        <a href='https://www.vgold.co.in' target='_blank' style='color: #d4af37; font-weight: 700; text-decoration: none;'>
+        <a href='https://www.vgold.co.in' target='_blank' style='color: #fbbf24; font-weight: 700; text-decoration: none;'>
             www.vgold.co.in
         </a>
     </div>
