@@ -11,49 +11,45 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# मोबाईल-फ्रेंडली परिपूर्ण CSS (ब्रँडिंग कट न होता स्पष्ट दिसण्यासाठी)
+# मोबाईल-फ्रेंडली कॉम्पॅक्ट CSS
 st.markdown("""
     <style>
-        /* वर पुरेशी जागा ठेवणे जेणेकरून हेडर कट होणार नाही */
         .block-container {
-            padding-top: 3.5rem !important;
+            padding-top: 3.2rem !important;
             padding-bottom: 2rem !important;
             padding-left: 0.9rem !important;
             padding-right: 0.9rem !important;
             max-width: 750px;
         }
-        /* हेडर आणि ब्रँडिंग कार्ड */
         .app-header {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             border: 1px solid #d4af37;
-            padding: 16px 14px;
+            padding: 14px;
             border-radius: 14px;
             margin-bottom: 14px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         .app-foundation {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: #d4af37;
             font-weight: 700;
             letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             line-height: 1.3;
         }
         .app-title {
-            font-size: 1.45rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: #ffffff;
-            margin: 2px 0 4px 0;
+            margin: 2px 0 3px 0;
             line-height: 1.2;
         }
         .app-caption {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #94a3b8;
-            margin-top: 2px;
             line-height: 1.3;
         }
-        /* टॅब्स स्टाईल */
         .stTabs [data-baseweb="tab-list"] {
             gap: 8px;
         }
@@ -63,7 +59,6 @@ st.markdown("""
             font-weight: 600;
             border-radius: 8px;
         }
-        /* इनपुट लेबल्स */
         .stTextInput > label, .stTextArea > label {
             font-size: 0.88rem !important;
             font-weight: 600 !important;
@@ -75,7 +70,6 @@ st.markdown("""
             font-weight: 700;
             padding: 0.55rem 1rem;
         }
-        /* फुटर */
         .app-footer {
             text-align: center;
             color: #64748b;
@@ -101,14 +95,15 @@ LANG_DATA = {
         "tab2": "📝 पिच व स्टिम्युलेशन",
         "auth_label": "नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल:",
         "input_placeholder": "उदा. 8087699949 किंवा email",
+        "btn_login": "लॉगिन करा ➔",
         "welcome": "✅ स्वागत आहे, **{name}**!",
         "not_registered": "⚠️ हा नंबर डिरेक्टरीमध्ये नोंदणीकृत नाही.",
         "register_prompt": "👉 संदर्भ शोधण्यासाठी कृपया आधी १ मिनिटाचा फॉर्म भरून नोंदणी करा:",
         "register_btn": "📝 येथे क्लिक करून नोंदणी करा (Google Form)",
         "search_label": "तुम्हाला कोणत्या व्यवसायाशी/सेवेशी जोडले जायचे आहे?",
         "search_placeholder": "उदा. 'पुण्यात सोन्यात गुंतवणुकीसाठी संपर्क' किंवा 'बिल्डर्सशी कनेक्टेड कोण आहे?'",
-        "search_btn": "संदर्भ शोधा",
-        "search_hint": "💡 संदर्भ शोधण्यासाठी वर तुमचा नोंदणीकृत मोबाईल नंबर टाका.",
+        "search_btn": "संदर्भ शोधा ➔",
+        "search_hint": "💡 संदर्भ शोधण्यासाठी वर तुमचा नोंदणीकृत मोबाईल नंबर टाकून 'लॉगिन करा ➔' दाबा.",
         "spinner_search": "AI अचूक संदर्भ शोधत आहे...",
         "pitch_title": "३०-सेकंद पिच व स्टिम्युलेशन जनरेटर",
         "pitch_comp": "तुमची कंपनी / ब्रँड:",
@@ -116,7 +111,7 @@ LANG_DATA = {
         "pitch_stim": "स्टिम्युलेशन / ट्रिगर थीम (ऐच्छिक):",
         "pitch_stim_hint": "उदा. 'सोने महाग झाले आहे', 'मुलीच्या लग्नासाठी सोन्याचे नियोजन'",
         "pitch_ask": "या आठवड्यात कोणाशी कनेक्ट व्हायचे आहे (Ask)?",
-        "pitch_btn": "प्रभावी पिच व स्टिम्युलेशन बनवा",
+        "pitch_btn": "प्रभावी पिच व स्टिम्युलेशन बनवा ➔",
         "spinner_pitch": "पिच तयार होत आहे...",
         "about": "विघ्नहर्ता गोल्ड फाउंडेशन उद्योजकांच्या सशक्तीकरणासाठी व नेटवर्किंगसाठी कार्यरत आहे.",
         "footer": "संकल्पना व निर्मिती: विघ्नहर्ता गोल्ड फाउंडेशन | अधिक माहितीसाठी:"
@@ -129,14 +124,15 @@ LANG_DATA = {
         "tab2": "📝 पिच व स्टिम्युलेशन",
         "auth_label": "पंजीकृत 10 अंकों का मोबाइल नंबर या ईमेल:",
         "input_placeholder": "उदा. 8087699949 या email",
+        "btn_login": "लॉगिन करें ➔",
         "welcome": "✅ स्वागत है, **{name}**!",
         "not_registered": "⚠️ यह नंबर डायरेक्टरी में पंजीकृत नहीं है।",
         "register_prompt": "👉 रेफ़रल खोजने के लिए कृपया पहले 1 मिनट का फॉर्म भरें:",
         "register_btn": "📝 यहाँ क्लिक करके पंजीकरण करें (Google Form)",
         "search_label": "आप किस व्यवसाय या सेवा से जुड़ना चाहते हैं?",
         "search_placeholder": "उदा. 'मुझे पुणे में सोने में निवेश के लिए किससे संपर्क करना चाहिए?'",
-        "search_btn": "रेफ़रल खोजें",
-        "search_hint": "💡 रेफ़रल खोजने के लिए ऊपर अपना पंजीकृत नंबर दर्ज करें।",
+        "search_btn": "रेफ़रल खोजें ➔",
+        "search_hint": "💡 रेफ़रल खोजने के लिए ऊपर अपना पंजीकृत नंबर डालकर 'लॉगिन करें ➔' दबाएं।",
         "spinner_search": "AI उपयुक्त रेफ़रल खोज रहा है...",
         "pitch_title": "30-सेकंड पिच और स्टिम्युलेशन जनरेटर",
         "pitch_comp": "कंपनी / ब्रांड:",
@@ -144,7 +140,7 @@ LANG_DATA = {
         "pitch_stim": "स्टिम्युलेशन / ट्रिगर थीम (वैकल्पिक):",
         "pitch_stim_hint": "उदा. 'सोना महंगा हो गया है'",
         "pitch_ask": "इस सप्ताह आपकी क्या आवश्यकता है (Ask)?",
-        "pitch_btn": "पिच और स्टिम्युलेशन तैयार करें",
+        "pitch_btn": "पिच और स्टिम्युलेशन तैयार करें ➔",
         "spinner_pitch": "पिच तैयार हो रही है...",
         "about": "विघ्नहर्ता गोल्ड फाउंडेशन उद्यमियों के सशक्तिकरण और नेटवर्किंग के लिए समर्पित है।",
         "footer": "संकल्पना एवं निर्माण: विघ्नहर्ता गोल्ड फाउंडेशन | वेबसाइट:"
@@ -157,14 +153,15 @@ LANG_DATA = {
         "tab2": "📝 Pitch & Stimulation",
         "auth_label": "Registered 10-digit mobile number or email:",
         "input_placeholder": "e.g. 8087699949 or email",
+        "btn_login": "Login ➔",
         "welcome": "✅ Welcome, **{name}**!",
         "not_registered": "⚠️ This contact is not registered in our directory.",
         "register_prompt": "👉 To access referrals, please register using the quick form:",
         "register_btn": "📝 Click here to register (Google Form)",
         "search_label": "Which business or service are you looking to connect with?",
         "search_placeholder": "e.g. 'Looking for gold investment advisor' or 'Who connects with architects?'",
-        "search_btn": "Find Referral",
-        "search_hint": "💡 Please enter your registered contact above to unlock search.",
+        "search_btn": "Find Referral ➔",
+        "search_hint": "💡 Please enter your registered contact above and click 'Login ➔' to unlock search.",
         "spinner_search": "AI is finding the best matches...",
         "pitch_title": "30-Sec Pitch & Stimulation Generator",
         "pitch_comp": "Company / Brand:",
@@ -172,7 +169,7 @@ LANG_DATA = {
         "pitch_stim": "Stimulation / Trigger Theme (Optional):",
         "pitch_stim_hint": "e.g. 'Gold price rise', 'Retirement savings'",
         "pitch_ask": "Who do you want to connect with this week (Ask)?",
-        "pitch_btn": "Generate Pitch & Stimulation",
+        "pitch_btn": "Generate Pitch & Stimulation ➔",
         "spinner_pitch": "Crafting pitch...",
         "about": "Vighnaharta Gold Foundation empowers businesses through financial literacy and networking.",
         "footer": "Conceptualized & Developed by Vighnaharta Gold Foundation | Visit:"
@@ -185,14 +182,15 @@ LANG_DATA = {
         "tab2": "📝 પિચ અને સ્ટિમ્યુલેશન",
         "auth_label": "નોંધાયેલ 10 અંકનો મોબાઇલ નંબર અથવા ઇમેઇલ:",
         "input_placeholder": "દા.ત. 8087699949",
+        "btn_login": "લૉગિન કરો ➔",
         "welcome": "✅ સ્વાગત છે, **{name}**!",
         "not_registered": "⚠️ આ નંબર ડિરેક્ટરીમાં નોંધાયેલ નથી.",
         "register_prompt": "👉 રેફરલ્સ શોધવા માટે કૃપા કરીને પહેલા ફોર્મ ભરો:",
         "register_btn": "📝 નોંધણી કરવા અહીં ક્લિક કરો (Google Form)",
         "search_label": "તમે કયા વ્યવસાય સાથે જોડાવા માંગો છો?",
         "search_placeholder": "દા.ત. 'પુણેમાં સોનામાં રોકાણ માટે સંપર્ક'",
-        "search_btn": "રેફરલ શોધો",
-        "search_hint": "💡 શોધવા માટે ઉપર તમારો નંબર દાખલ કરો.",
+        "search_btn": "રેફરલ શોધો ➔",
+        "search_hint": "💡 શોધવા માટે ઉપર તમારો નંબર દાખલ કરીને લૉગિન કરો.",
         "spinner_search": "AI સંપર્કો શોધી રહ્યું છે...",
         "pitch_title": "30-સેકન્ડ પિચ અને સ્ટિમ્યુલેશન",
         "pitch_comp": "કંપની / બ્રાન્ડ:",
@@ -200,7 +198,7 @@ LANG_DATA = {
         "pitch_stim": "સ્ટિમ્યુલેશન / ટ્રિગર (વૈકલ્પિક):",
         "pitch_stim_hint": "દા.ત. 'સોનાના ભાવ વધ્યા છે'",
         "pitch_ask": "તમારી જરૂરિયાત (Ask):",
-        "pitch_btn": "પિચ બનાવો",
+        "pitch_btn": "પિચ બનાવો ➔",
         "spinner_pitch": "પિચ તૈયાર થઈ રહી છે...",
         "about": "વિઘ્નહર્તા ગોલ્ડ ફાઉન્ડેશન ઉદ્યોગસાહસિકોના વિકાસ માટે કાર્યરત છે.",
         "footer": "સંકલ્પના: વિઘ્નહર્તા ગોલ્ડ ફાઉન્ડેશન | વેબસાઇટ:"
@@ -213,14 +211,15 @@ LANG_DATA = {
         "tab2": "📝 பிட்ச் & ஸ்டிமுலேஷன்",
         "auth_label": "பதிவுசெய்த மொபைல் எண் அல்லது மின்னஞ்சல்:",
         "input_placeholder": "எ.கா. 8087699949",
+        "btn_login": "உள்நுழைக ➔",
         "welcome": "✅ வரவேற்கிறோம், **{name}**!",
         "not_registered": "⚠️ எண் பட்டியலில் இல்லை.",
         "register_prompt": "👉 பதிவு செய்ய படிவத்தைப் பூர்த்தி செய்யவும்:",
         "register_btn": "📝 பதிவு செய்ய கிளிக் செய்யவும் (Google Form)",
         "search_label": "நீங்கள் எந்த தொழிலுடன் இணைய விரும்புகிறீர்கள்?",
         "search_placeholder": "எ.கா. 'தங்க முதலீடு ஆலோசகர் தேவை'",
-        "search_btn": "பரிந்துரையைத் தேடு",
-        "search_hint": "💡 தேடலுக்கு மேலே எண் உள்ளிடவும்.",
+        "search_btn": "பரிந்துரையைத் தேடு ➔",
+        "search_hint": "💡 தேடலுக்கு மேலே எண் உள்ளிட்டு உள்நுழையவும்.",
         "spinner_search": "AI தேடுகிறது...",
         "pitch_title": "பிட்ச் & ஸ்டிமுலேஷன் உருவாக்குநர்",
         "pitch_comp": "நிறுவனம்:",
@@ -228,7 +227,7 @@ LANG_DATA = {
         "pitch_stim": "தூண்டுதல் (விருப்பத்தேர்வு):",
         "pitch_stim_hint": "எ.கா. 'தங்கம் விலை உயர்வு'",
         "pitch_ask": "தேவை (Ask):",
-        "pitch_btn": "உருவாக்கு",
+        "pitch_btn": "உருவாக்கு ➔",
         "spinner_pitch": "தயாராகிறது...",
         "about": "விக்னஹர்தா கோல்ட் அறக்கட்டளை தொழில்முனைவோரை மேம்படுத்துகிறது.",
         "footer": "வடிவமைப்பு: விக்னஹர்தா கோல்ட் அறக்கட்டளை"
@@ -241,22 +240,23 @@ LANG_DATA = {
         "tab2": "📝 పిచ్ & స్టిమ్యులేషన్",
         "auth_label": "నమోదిత మొబైల్ నంబర్ లేదా ఇమెయిల్:",
         "input_placeholder": "ఉదా. 8087699949",
+        "btn_login": "లాగిన్ అవ్వండి ➔",
         "welcome": "✅ స్వాగతం, **{name}**!",
         "not_registered": "⚠️ నంబర్ డైరెక్టరీలో లేదు.",
         "register_prompt": "👉 నమోదు కొరకు ఫారమ్ నింపండి:",
         "register_btn": "📝 నమోదు చేయండి (Google Form)",
         "search_label": "ఏ వ్యాపారంతో కనెక్ట్ కావాలనుకుంటున్నారు?",
         "search_placeholder": "ఉదా. 'బంగారు పెట్టుబడి సలహాదారు'",
-        "search_btn": "కనుగొనండి",
-        "search_hint": "💡 సెర్చ్ చేయడానికి నంబర్ నమోదు చేయండి.",
+        "search_btn": "కనుగొనండి ➔",
+        "search_hint": "💡 సెర్చ్ చేయడానికి నంబర్ నమోదు చేసి లాగిన్ అవ్వండి.",
         "spinner_search": "AI శోధిస్తోంది...",
         "pitch_title": "పిచ్ & స్టిమ్యులేషన్ జనరేటర్",
         "pitch_comp": "కంపెనీ:",
         "pitch_serv": "సేవలు:",
+        "pitch_ask": "అవసరం (Ask):",
         "pitch_stim": "ట్రిగ్గర్ (ఐచ్ఛికం):",
         "pitch_stim_hint": "ఉదా. 'బంగారం ధరలు పెరిగాయి'",
-        "pitch_ask": "అవసరం (Ask):",
-        "pitch_btn": "సిద్ధం చేయండి",
+        "pitch_btn": "సిద్ధం చేయండి ➔",
         "spinner_pitch": "తయారవుతోంది...",
         "about": "విఘ్నహర్త గోల్డ్ ఫౌండేషన్ వ్యాపారవేత్తలకు సాధికారత కల్పిస్తుంది.",
         "footer": "రూపకల్పన: విఘ్నహర్త గోల్డ్ ఫౌండేషన్"
@@ -269,14 +269,15 @@ LANG_DATA = {
         "tab2": "📝 ಪಿಚ್ & ಸ್ಟಿಮ್ಯುಲೇಶನ್",
         "auth_label": "ನೋಂದಾಯಿತ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಥವಾ ಇಮೇಲ್:",
         "input_placeholder": "ಉದಾ. 8087699949",
+        "btn_login": "ಲಾಗಿನ್ ಮಾಡಿ ➔",
         "welcome": "✅ ಸ್ವಾಗತ, **{name}**!",
         "not_registered": "⚠️ ಈ ಸಂಖ್ಯೆ ನೋಂದಣಿಯಾಗಿಲ್ಲ.",
         "register_prompt": "👉 ನೋಂದಾಯಿಸಲು ಫಾರ್ಮ್ ಭರ್ತಿ ಮಾಡಿ:",
         "register_btn": "📝 ನೋಂದಾಯಿಸಿ (Google Form)",
         "search_label": "ಯಾವ ವ್ಯವಹಾರದೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಲು ಬಯಸುತ್ತೀರಿ?",
         "search_placeholder": "ಉದಾ. 'ಚಿನ್ನದ ಹೂಡಿಕೆ'",
-        "search_btn": "ಹುಡುಕಿ",
-        "search_hint": "💡 ಹುಡುಕಲು ಸಂಖ್ಯೆ ನಮೂದಿಸಿ.",
+        "search_btn": "ಹುಡುಕಿ ➔",
+        "search_hint": "💡 ಹುಡುಕಲು ಸಂಖ್ಯೆ ನಮೂದಿಸಿ ಲಾಗಿನ್ ಮಾಡಿ.",
         "spinner_search": "AI ಹುಡುಕುತ್ತಿದೆ...",
         "pitch_title": "ಪಿಚ್ & ಸ್ಟಿಮ್ಯುಲೇಶನ್ ರಚನೆ",
         "pitch_comp": "ಕಂಪನಿ:",
@@ -284,7 +285,7 @@ LANG_DATA = {
         "pitch_stim": "ಟ್ರಿಗ್ಗರ್ (ಐಚ್ಛಿಕ):",
         "pitch_stim_hint": "ಉದಾ. 'ಚಿನ್ನದ ದರ ಏರಿಕೆ'",
         "pitch_ask": "ಅಗತ್ಯತೆ (Ask):",
-        "pitch_btn": "ರಚಿಸಿ",
+        "pitch_btn": "ರಚಿಸಿ ➔",
         "spinner_pitch": "ಸಿದ್ಧವಾಗುತ್ತಿದೆ...",
         "about": "ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್ ಉದ್ಯಮಿಗಳ ಬೆಂಬಲಕ್ಕಾಗಿ ಶ್ರಮಿಸುತ್ತದೆ.",
         "footer": "ವಿನ್ಯಾಸ: ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್"
@@ -297,14 +298,15 @@ LANG_DATA = {
         "tab2": "📝 പിച്ചും സ്റ്റിമുലേഷനും",
         "auth_label": "രജിസ്റ്റർ ചെയ്ത മൊബൈൽ നമ്പറോ ഇമെയിലോ:",
         "input_placeholder": "ഉദാ. 8087699949",
+        "btn_login": "ലോഗിൻ ➔",
         "welcome": "✅ സ്വാഗതം, **{name}**!",
         "not_registered": "⚠️ നമ്പർ ലഭ്യമല്ല.",
         "register_prompt": "👉 രജിസ്റ്റർ ചെയ്യാൻ ഫോം പൂരിപ്പിക്കുക:",
         "register_btn": "📝 രജിസ്റ്റർ ചെയ്യുക (Google Form)",
         "search_label": "ഏത് ബിസിനസ്സുമായാണ് ബന്ധപ്പെടേണ്ടത്?",
         "search_placeholder": "ഉദാ. 'സ്വർണ്ണ നിക്ഷേപം'",
-        "search_btn": "കണ്ടെത്തുക",
-        "search_hint": "💡 നമ്പർ നൽകുക.",
+        "search_btn": "കണ്ടെത്തുക ➔",
+        "search_hint": "💡 നമ്പർ നൽകി ലോഗിൻ ചെയ്യുക.",
         "spinner_search": "AI തിരയുന്നു...",
         "pitch_title": "പിച്ചും സ്റ്റിമുലേഷനും",
         "pitch_comp": "കമ്പനി:",
@@ -312,7 +314,7 @@ LANG_DATA = {
         "pitch_stim": "ട്രിഗർ (ഓപ്ഷണൽ):",
         "pitch_stim_hint": "ഉദാ. 'സ്വർണ്ണവില വർദ്ധനവ്'",
         "pitch_ask": "ആവശ്യം (Ask):",
-        "pitch_btn": "തയ്യാറാക്കുക",
+        "pitch_btn": "തയ്യാറാക്കുക ➔",
         "spinner_pitch": "തയ്യാറാകുന്നു...",
         "about": "വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷൻ സംരംഭകരുടെ വളർച്ചയ്ക്കായി നിലകൊള്ളുന്നു.",
         "footer": "രൂപകൽപ്പന: വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷൻ"
@@ -325,14 +327,15 @@ LANG_DATA = {
         "tab2": "📝 পিচ ও স্টিমুলেশন",
         "auth_label": "নিবন্ধিত মোবাইল নম্বর বা ইমেল:",
         "input_placeholder": "যেমন: 8087699949",
+        "btn_login": "লগইন করুন ➔",
         "welcome": "✅ স্বাগতম, **{name}**!",
         "not_registered": "⚠️ এই নম্বরটি নিবন্ধিত নেই।",
         "register_prompt": "👉 নিবন্ধন করতে ফর্ম পূরণ করুন:",
         "register_btn": "📝 নিবন্ধন করুন (Google Form)",
         "search_label": "কোন ব্যবসার সাথে যুক্ত হতে চান?",
         "search_placeholder": "যেমন: 'স্বর্ণে বিনিয়োগ'",
-        "search_btn": "খুঁজুন",
-        "search_hint": "💡 অনুসন্ধানের জন্য নম্বর লিখুন।",
+        "search_btn": "খুঁজুন ➔",
+        "search_hint": "💡 অনুসন্ধানের জন্য নম্বর লিখে লগইন করুন।",
         "spinner_search": "AI রেফারেল খুঁজছে...",
         "pitch_title": "পিচ এবং স্টিমুলেশন",
         "pitch_comp": "কোম্পানি:",
@@ -340,7 +343,7 @@ LANG_DATA = {
         "pitch_stim": "রেফারেল ট্রিগার (ঐচ্ছিক):",
         "pitch_stim_hint": "যেমন: 'সোনার দাম বেড়েছে'",
         "pitch_ask": "চাহিদা (Ask):",
-        "pitch_btn": "তৈরি করুন",
+        "pitch_btn": "তৈরি করুন ➔",
         "spinner_pitch": "তৈরি হচ্ছে...",
         "about": "বিঘ্নহর্তা গোল্ড ফাউন্ডেশন ব্যবসায়ীদের জন্য কাজ করে।",
         "footer": "পরিকল্পনা: বিঘ্নহর্তা গোল্ড ফাউন্ডেশন"
@@ -353,14 +356,15 @@ LANG_DATA = {
         "tab2": "📝 ਪਿੱਚ ਅਤੇ ਸਟਿਮੂਲੇਸ਼ਨ",
         "auth_label": "ਰਜਿਸਟਰਡ ਮੋਬਾਈਲ ਨੰਬਰ ਜਾਂ ਈਮੇਲ:",
         "input_placeholder": "ਜਿਵੇਂ: 8087699949",
+        "btn_login": "ਲਾਗਇਨ ਕਰੋ ➔",
         "welcome": "✅ ਜੀ ਆਇਆਂ ਨੂੰ, **{name}**!",
         "not_registered": "⚠️ ਨੰਬਰ ਦਰਜ ਨਹੀਂ ਹੈ।",
         "register_prompt": "👉 ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਫਾਰਮ ਭਰੋ:",
         "register_btn": "📝 ਰਜਿਸਟਰ ਕਰੋ (Google Form)",
         "search_label": "ਕਿਸ ਕਾਰੋਬਾਰ ਨਾਲ ਜੁੜਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
         "search_placeholder": "ਜਿਵੇਂ: 'ਸੋਨੇ ਦਾ ਨਿਵੇਸ਼'",
-        "search_btn": "ਲੱਭੋ",
-        "search_hint": "💡 ਖੋਜ ਕਰਨ ਲਈ ਨੰਬਰ ਦਰਜ ਕਰੋ।",
+        "search_btn": "ਲੱਭੋ ➔",
+        "search_hint": "💡 ਖੋਜ ਕਰਨ ਲਈ ਨੰਬਰ ਦਰਜ ਕਰਕੇ ਲਾਗਇਨ ਕਰੋ।",
         "spinner_search": "AI ਰੈਫਰਲ ਲੱਭ ਰਿਹਾ ਹੈ...",
         "pitch_title": "ਪਿੱਚ ਅਤੇ ਸਟਿਮੂਲੇਸ਼ਨ",
         "pitch_comp": "ਕੰਪਨੀ:",
@@ -368,7 +372,7 @@ LANG_DATA = {
         "pitch_stim": "ਟ੍ਰਿਗਰ (ਵਿਕਲਪਿਕ):",
         "pitch_stim_hint": "ਜਿਵੇਂ: 'ਸੋਨੇ ਦੇ ਭਾਅ ਵਧੇ ਹਨ'",
         "pitch_ask": "ਲੋੜ (Ask):",
-        "pitch_btn": "ਤਿਆਰ ਕਰੋ",
+        "pitch_btn": "ਤਿਆਰ ਕਰੋ ➔",
         "spinner_pitch": "ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ...",
         "about": "ਵਿਘਨਹਰਤਾ ਗੋਲਡ ਫਾਊਂਡੇਸ਼ਨ ਕਾਰੋਬਾਰਾਂ ਦੇ ਵਿਕਾਸ ਲਈ ਕੰਮ ਕਰਦੀ ਹੈ।",
         "footer": "ਨਿਰਮਾਣ: ਵਿਘਨਹਰਤਾ ਗੋਲਡ ਫਾਊਂਡੇਸ਼ਨ"
@@ -405,7 +409,7 @@ def load_data():
 
 df = load_data()
 
-# Gemini REST API कॉल
+# Gemini REST API फंक्शन
 def call_gemini(prompt_text, api_key):
     headers = {"Content-Type": "application/json"}
     payload = {"contents": [{"parts": [{"text": prompt_text}]}]}
@@ -438,7 +442,7 @@ def call_gemini(prompt_text, api_key):
 
     return "Server is busy. Please try again."
 
-# सुस्पष्ट आणि आकर्षक हेडर कार्ड
+# हेडर कार्ड
 st.markdown(f"""
     <div class="app-header">
         <div class="app-foundation">{t['foundation']}</div>
@@ -452,30 +456,37 @@ tab1, tab2 = st.tabs([t["tab1"], t["tab2"]])
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = None
 
-# टॅब १: सर्च व लॉगिन
+# टॅब १: सर्च व लॉगिन (Enter/Arrow बटणासह)
 with tab1:
-    user_contact = st.text_input(t["auth_label"], placeholder=t["input_placeholder"])
-    
-    if user_contact:
+    # Login Form (Enter दाबताच किंवा बटण दाबून पुढे जाण्यासाठी)
+    with st.form("login_form", clear_on_submit=False):
+        user_contact = st.text_input(t["auth_label"], placeholder=t["input_placeholder"])
+        submit_login = st.form_submit_button(t["btn_login"], type="primary")
+
+    if submit_login and user_contact:
         contact_str = str(user_contact).strip().lower()
         mask = df.apply(lambda row: row.astype(str).str.strip().str.lower().str.contains(contact_str, regex=False), axis=1)
         matches = df[mask.any(axis=1)]
         
         if not matches.empty:
             st.session_state.logged_in_user = matches.iloc[0]
-            name_col = [c for c in df.columns if "नाव" in c or "Name" in c]
-            user_name = st.session_state.logged_in_user[name_col[0]] if name_col else "Member"
-            st.success(t["welcome"].format(name=user_name))
         else:
             st.session_state.logged_in_user = None
             st.warning(t["not_registered"])
             st.info(t["register_prompt"])
             st.link_button(t["register_btn"], FORM_LINK, type="primary")
 
+    # जर सदस्य यशस्वी लॉगिन असेल
     if st.session_state.logged_in_user is not None:
-        query = st.text_input(t["search_label"], placeholder=t["search_placeholder"])
+        name_col = [c for c in df.columns if "नाव" in c or "Name" in c]
+        user_name = st.session_state.logged_in_user[name_col[0]] if name_col else "Member"
+        st.success(t["welcome"].format(name=user_name))
         
-        if st.button(t["search_btn"], type="primary") and query:
+        with st.form("search_form", clear_on_submit=False):
+            query = st.text_input(t["search_label"], placeholder=t["search_placeholder"])
+            submit_search = st.form_submit_button(t["search_btn"], type="primary")
+            
+        if submit_search and query:
             if not GEMINI_API_KEY:
                 st.error("API Key missing.")
             elif df.empty:
@@ -511,12 +522,14 @@ with tab1:
 # टॅब २: पिच व स्टिम्युलेशन
 with tab2:
     st.markdown(f"##### {t['pitch_title']}")
-    b_name = st.text_input(t["pitch_comp"])
-    b_serv = st.text_area(t["pitch_serv"], height=70)
-    b_stim = st.text_input(t["pitch_stim"], placeholder=t["pitch_stim_hint"])
-    b_ask = st.text_input(t["pitch_ask"])
+    with st.form("pitch_form", clear_on_submit=False):
+        b_name = st.text_input(t["pitch_comp"])
+        b_serv = st.text_area(t["pitch_serv"], height=70)
+        b_stim = st.text_input(t["pitch_stim"], placeholder=t["pitch_stim_hint"])
+        b_ask = st.text_input(t["pitch_ask"])
+        submit_pitch = st.form_submit_button(t["pitch_btn"], type="primary")
     
-    if st.button(t["pitch_btn"]):
+    if submit_pitch:
         if not GEMINI_API_KEY:
             st.error("API Key missing.")
         elif b_name and b_serv:
