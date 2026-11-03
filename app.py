@@ -4,14 +4,19 @@ import requests
 import json
 import time
 
-st.set_page_config(page_title="AI Business Sarathi", layout="wide", page_icon="🤝")
+st.set_page_config(
+    page_title="AI Business Sarathi | Vighnaharta Gold Foundation",
+    layout="wide",
+    page_icon="🤝"
+)
 
 # Google Form नोंदणी लिंक
 FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSffLyVq9szubqpQaeVX2KH3u_QOfF7ra_LUr9-WT7wN8w4FBg/viewform?usp=sharing"
 
-# भाषांची शब्दकोश रचना (Translations)
+# बहुभाषिक शब्दकोश (Translations with Branding)
 TRANSLATIONS = {
     "मराठी": {
+        "initiative": "🌟 विघ्नहर्ता गोल्ड फाउंडेशनचा एक सामाजिक व व्यावसायिक उपक्रम",
         "title": "🤝 AI Business Sarathi",
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "सर्व व्यावसायिक आणि नेटवर्किंग समूहांमधील सदस्यांना अचूक संदर्भ (Referrals) मिळवून देणारा डिजिटल साथीदार",
@@ -42,9 +47,12 @@ TRANSLATIONS = {
         "spinner_pitch": "तुमचा प्रभावी पिच तयार होत आहे...",
         "empty_sheet": "अद्याप शीटमध्ये डेटा उपलब्ध नाही.",
         "no_key": "कृपया Gemini API Key प्रविष्ट करा.",
-        "lang_name": "मराठी"
+        "lang_name": "मराठी",
+        "about_foundation": "विघ्नहर्ता गोल्ड फाउंडेशन हे उद्योजकांच्या सशक्तीकरणासाठी, आर्थिक साक्षरतेसाठी आणि व्यवसाय नेटवर्किंगसाठी कार्यरत आहे.",
+        "footer_text": "संकल्पना व निर्मिती: विघ्नहर्ता गोल्ड फाउंडेशन | अधिक माहितीसाठी भेट द्या:"
     },
     "हिंदी": {
+        "initiative": "🌟 विघ्नहर्ता गोल्ड फाउंडेशन की एक सामाजिक व व्यावसायिक पहल",
         "title": "🤝 AI Business Sarathi",
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "सभी व्यावसायिक और नेटवर्किंग समूहों के सदस्यों को सटीक रेफ़रल दिलाने वाला डिजिटल साथी",
@@ -75,9 +83,12 @@ TRANSLATIONS = {
         "spinner_pitch": "आपकी प्रभावशाली पिच तैयार हो रही है...",
         "empty_sheet": "शीट में डेटा उपलब्ध नहीं है।",
         "no_key": "कृपया Gemini API Key दर्ज करें।",
-        "lang_name": "हिंदी"
+        "lang_name": "हिंदी",
+        "about_foundation": "विघ्नहर्ता गोल्ड फाउंडेशन उद्यमियों के सशक्तिकरण, वित्तीय साक्षरता और व्यापार नेटवर्किंग के लिए समर्पित है।",
+        "footer_text": "संकल्पना एवं निर्माण: विघ्नहर्ता गोल्ड फाउंडेशन | अधिक जानकारी के लिए देखें:"
     },
     "English": {
+        "initiative": "🌟 An Initiative by Vighnaharta Gold Foundation",
         "title": "🤝 AI Business Sarathi",
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "Your AI digital companion connecting entrepreneurs and networking members with precise referrals",
@@ -108,19 +119,29 @@ TRANSLATIONS = {
         "spinner_pitch": "Generating your high-impact pitch...",
         "empty_sheet": "Directory data is not yet available in the sheet.",
         "no_key": "Please provide a valid Gemini API Key.",
-        "lang_name": "English"
+        "lang_name": "English",
+        "about_foundation": "Vighnaharta Gold Foundation is dedicated to empowering entrepreneurs, fostering financial literacy, and building business networks.",
+        "footer_text": "Conceptualized & Developed by Vighnaharta Gold Foundation | Visit:"
     }
 }
 
-# साइडबार - भाषा निवड व API Key
+# साइडबार - भाषा निवड आणि ब्रँडिंग
 with st.sidebar:
-    st.subheader("🌐 भाषा निवडा / Choose Language")
+    st.image("https://www.vgold.co.in/images/logo.png", width=180, output_format="PNG") if False else None
+    st.markdown("### 🏛️ **विघ्नहर्ता गोल्ड फाउंडेशन**")
+    st.caption("Empowering Entrepreneurs & Business Growth")
+    
+    st.markdown("---")
+    st.subheader("🌐 भाषा निवडा / Language")
     selected_lang = st.selectbox(
-        "Select Language:",
+        "Choose Language / भाषा निवडा:",
         options=["मराठी", "हिंदी", "English"],
         index=0
     )
     t = TRANSLATIONS[selected_lang]
+    
+    st.info(f"ℹ️ {t['about_foundation']}")
+    st.markdown("[🌐 www.vgold.co.in](https://www.vgold.co.in)")
     
     st.markdown("---")
     GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
@@ -182,8 +203,10 @@ def call_gemini(prompt_text, api_key):
         except Exception:
             continue
 
-    return "Server is busy right now. Please try again in a few moments."
+    return "सर्व्हर व्यस्त आहे. कृपया पुन्हा प्रयत्न करा."
 
+# मुख्य हेडर व ब्रँडिंग
+st.markdown(f"**{t['initiative']}**")
 st.title(t["title"])
 st.subheader(t["subtitle"])
 st.caption(t["caption"])
@@ -231,7 +254,8 @@ with tab1:
                 with st.spinner(t["spinner_search"]):
                     context_data = df.to_string(index=False)
                     prompt = f"""
-                    You are 'AI Business Sarathi' - a professional networking and business referral guide.
+                    You are 'AI Business Sarathi', developed under the initiative of Vighnaharta Gold Foundation.
+                    You are a professional networking and business referral guide.
                     Using the business directory data below, provide an exceptionally helpful and structured referral recommendation in {t['lang_name']} language.
                     
                     [Directory Data]:
@@ -255,7 +279,7 @@ with tab1:
         if not user_contact:
             st.info(t["search_hint"])
 
-# टॅब २: सदस्य डिरेक्टरी
+# टॅब २: डिरेक्टरी
 with tab2:
     st.write(f"### {t['dir_title']}")
     if not df.empty:
@@ -291,3 +315,17 @@ with tab3:
                 """
                 pitch_reply = call_gemini(pitch_prompt, GEMINI_API_KEY)
                 st.success(pitch_reply)
+
+# अधिकृत तळटीप ब्रँडिंग (Footer)
+st.markdown("---")
+st.markdown(
+    f"""
+    <div style='text-align: center; color: #666; font-size: 0.9rem; padding: 15px;'>
+        {t['footer_text']} 
+        <a href='https://www.vgold.co.in' target='_blank' style='color: #d4af37; font-weight: bold; text-decoration: none;'>
+            www.vgold.co.in
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
