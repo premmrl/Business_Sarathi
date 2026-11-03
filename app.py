@@ -5,7 +5,7 @@ import json
 
 st.set_page_config(page_title="AI Business Sarathi", layout="wide", page_icon="🤝")
 
-# Gemini API Key मिळवणे (Secrets किंवा थेट इनपुट)
+# Gemini API Key मिळवणे
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
 
 if not GEMINI_API_KEY:
@@ -13,7 +13,7 @@ if not GEMINI_API_KEY:
         st.subheader("⚙️ API Configuration")
         GEMINI_API_KEY = st.text_input("Enter Gemini API Key:", type="password")
 
-# Google Sheet CSV दुवा
+# Google Sheet CSV लिंक
 SHEET_ID = "1WibJTWH8NeHrESLNF24im10uAoF1GR3uRgnUhFmZQFE"
 CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
 
@@ -27,9 +27,8 @@ def load_data():
 
 df = load_data()
 
-# Gemini REST API कॉल (Fallback पर्यायांसह)
+# सक्रिय मॉडेल शोधून कॉल करणारे डायनॅमिक फंक्शन (AI-Sarathi प्रमाणे)
 def call_gemini(prompt_text, api_key):
-    models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-flash-latest", "gemini-1.5-flash"]
     headers = {"Content-Type": "application/json"}
     payload = {
         "contents": [
@@ -39,20 +38,47 @@ def call_gemini(prompt_text, api_key):
         ]
     }
     
-    last_error = ""
-    for model_name in models:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
-        try:
-            response = requests.post(url, headers=headers, json=payload, timeout=30)
-            if response.status_code == 200:
-                data = response.json()
-                return data["candidates"][0]["content"]["parts"][0]["text"]
-            else:
-                last_error = response.text
-        except Exception as e:
-            last_error = str(e)
+    # १. आधी खात्यात उपलब्ध असलेले सक्रिय मॉडेल शोधणे
+    list_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
+    try:
+        list_resp = requests.get(list_url, timeout=15)
+        if list_resp.status_code == 200:
+            models_data = list_resp.json().get("models", [])
+            # generateContent सपोर्ट करणारे flash मॉडेल शोधणे
+            target_model = None
+            for m in models_data:
+                methods = m.get("supportedGenerationMethods", [])
+                name = m.get("name", "")
+                if "generateContent" in methods:
+                    if "flash" in name.lower():
+                        target_model = name
+                        break
+                    elif not target_model:
+                        target_model = name
             
-    return f"API त्रुटी: {last_error}"
+            if target_model:
+                call_url = f"https://generativelanguage.googleapis.com/v1beta/{target_model}:generateContent?key={api_key}"
+                resp = requests.post(call_url, headers=headers, json=payload, timeout=30)
+                if resp.status_code == 200:
+                    res_json = resp.json()
+                    return res_json["candidates"][0]["content"]["parts"][0]["text"]
+                else:
+                    return f"API त्रुटी ({resp.status_code}): {resp.text}"
+    except Exception as e:
+        pass
+
+    # २. बॅकअप पर्याय
+    fallback_models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-flash-latest"]
+    for fb in fallback_models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{fb}:generateContent?key={api_key}"
+        try:
+            r = requests.post(url, headers=headers, json=payload, timeout=20)
+            if r.status_code == 200:
+                return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+        except Exception:
+            continue
+
+    return "AI सर्व्हरकडून प्रतिसाद मिळू शकला नाही. कृपया API Key तपासा."
 
 st.title("🤝 AI Business Sarathi")
 st.subheader("Universal Networking & Referral Matcher")
@@ -67,7 +93,7 @@ with tab1:
     
     if st.button("संदर्भ शोधा", type="primary") and query:
         if not GEMINI_API_KEY:
-            st.error("कृपया डाव्या बाजूला किंवा Secrets मध्ये Gemini API Key प्रविष्ट करा.")
+            st.error("कृपया डाव्या बाजूला किंवा Secrets मध्ये Gemini API Key टाका.")
         elif df.empty:
             st.warning("अद्याप शीटमध्ये डेटा उपलब्ध नाही.")
         else:
@@ -113,7 +139,7 @@ with tab3:
     
     if st.button("पिच तयार करा"):
         if not GEMINI_API_KEY:
-            st.error("कृपया Gemini API Key प्रविष्ट करा.")
+            st.error("कृपया Gemini API Key टाका.")
         elif b_name and b_serv:
             with st.spinner("तुमचा प्रभावी पिच तयार होत आहे..."):
                 pitch_prompt = f"""
