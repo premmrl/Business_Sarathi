@@ -6,8 +6,8 @@ import time
 
 st.set_page_config(page_title="AI Business Sarathi", layout="wide", page_icon="🤝")
 
-# Google Form ची लिंक (येथे तुमची फॉर्म लिंक पेस्ट करा)
-FORM_LINK = "https://docs.google.com/forms/d/1hnpUYKjmHuG2kqhWgPldUggED5OZQ8sdmbaDPb_04Kc/viewform"
+# तुमची Google Form नोंदणी लिंक
+FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSffLyVq9szubqpQaeVX2KH3u_QOfF7ra_LUr9-WT7wN8w4FBg/viewform?usp=sharing"
 
 # Gemini API Key मिळवणे
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
@@ -31,7 +31,7 @@ def load_data():
 
 df = load_data()
 
-# Gemini REST API कॉल फंक्शन
+# सक्रिय मॉडेल स्वयंचलित शोधून 503 लोड बायपास करणारे फंक्शन
 def call_gemini(prompt_text, api_key):
     headers = {"Content-Type": "application/json"}
     payload = {
@@ -42,6 +42,7 @@ def call_gemini(prompt_text, api_key):
         ]
     }
     
+    # १. खात्यातील उपलब्ध मॉडेल्स तपासणे
     available_models = []
     try:
         list_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
@@ -58,6 +59,7 @@ def call_gemini(prompt_text, api_key):
     if not available_models:
         available_models = ["gemini-3.8-flash", "gemini-3.8-pro", "gemini-2.5-flash", "gemini-flash-latest"]
 
+    # २. मॉडेलकडून उत्तर मिळवणे
     for m in available_models:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={api_key}"
         try:
@@ -71,7 +73,7 @@ def call_gemini(prompt_text, api_key):
         except Exception:
             continue
 
-    return "सर्व्हर सध्या व्यस्त आहे. कृपया पुन्हा प्रयत्न करा."
+    return "सर्व्हर सध्या व्यस्त आहे. कृपया २ सेकंदांनी पुन्हा 'संदर्भ शोधा' बटण दाबा."
 
 st.title("🤝 AI Business Sarathi")
 st.subheader("Universal Networking & Referral Matcher")
@@ -82,36 +84,36 @@ tab1, tab2, tab3 = st.tabs(["🔍 स्मार्ट बिझनेस स�
 # टॅब १: AI सर्च (Gated Access सह)
 with tab1:
     st.write("### 🔐 सदस्य लॉगिन व पडताळणी")
-    st.caption("नेटवर्किंगचा लाभ घेण्यासाठी आणि संदर्भ शोधण्यासाठी तुमची नोंदणी असणे आवश्यक आहे.")
+    st.caption("नेटवर्किंगचा लाभ घेण्यासाठी आणि अचूक संदर्भ शोधण्यासाठी तुमची डिरेक्टरीमध्ये नोंदणी असणे आवश्यक आहे.")
     
-    user_contact = st.text_input("तुमचा नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल टाका:", placeholder="उदा. 98XXXXXXXX किंवा name@gmail.com")
+    user_contact = st.text_input("तुमचा नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल टाका:", placeholder="उदा. 8087699949 किंवा name@gmail.com")
     
     is_registered = False
     user_details = None
     
     if user_contact:
-        # शीटमधील मोबाईल नंबर किंवा ईमेल कॉलममध्ये तपासणे
         contact_str = str(user_contact).strip().lower()
         
-        # शीटमधील सर्व सेल तपासून शोधणे
+        # गुगल शीटमधील सर्व सेल तपासून पडताळणी करणे
         mask = df.apply(lambda row: row.astype(str).str.strip().str.lower().str.contains(contact_str, regex=False), axis=1)
         matches = df[mask.any(axis=1)]
         
         if not matches.empty:
             is_registered = True
             user_details = matches.iloc[0]
-            # नाव शोधणे
+            
+            # सदस्याचे नाव शोधणे
             name_col = [c for c in df.columns if "नाव" in c or "Name" in c]
             user_name = user_details[name_col[0]] if name_col else "उद्योजक मित्र"
             st.success(f"✅ स्वागत आहे, **{user_name}**! तुमची नोंदणी सक्रिय आहे.")
         else:
             st.warning("⚠️ हा मोबाईल नंबर किंवा ईमेल आमच्या डिरेक्टरीमध्ये नोंदणीकृत नाही.")
-            st.info(f"👉 नेटवर्किंग समूहाचा लाभ घेण्यासाठी आणि शोध घेण्यासाठी कृपया खालील लिंकवरून आधी नोंदणी करा:")
+            st.info("👉 नेटवर्किंग समूहाचा लाभ घेण्यासाठी आणि इतरांचे संदर्भ मिळवण्यासाठी कृपया आधी खालील १ मिनिटाचा फॉर्म भरून नोंदणी करा:")
             st.link_button("📝 येथे क्लिक करून १ मिनिटात नोंदणी करा (Google Form)", FORM_LINK, type="primary")
 
     st.markdown("---")
     
-    # नोंदणीकृत असल्यासच सर्च बॉक्स दिसेल
+    # नोंदणीकृत सदस्यांसाठी सर्च विंडो
     if is_registered:
         st.write("### तुम्हाला कोणत्या व्यवसायाशी किंवा सेवेशी जोडले जायचे आहे?")
         query = st.text_input("उदा. 'मला पुण्यात सोन्यात गुंतवणुकीसाठी कोणाशी संपर्क साधता येईल?' किंवा 'ज्वेलर्स आणि बिल्डर्सशी कनेक्टेड कोण आहे?'")
