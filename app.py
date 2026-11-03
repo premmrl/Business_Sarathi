@@ -11,80 +11,79 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# मोबाईल-फ्रेंडली कॉम्पॅक्ट CSS (एकाच स्क्रीनमध्ये आकर्षक बसवण्यासाठी)
+# मोबाईल-फ्रेंडली परिपूर्ण CSS (ब्रँडिंग कट न होता स्पष्ट दिसण्यासाठी)
 st.markdown("""
     <style>
-        /* वरची अतिरिक्त रिकामी जागा काढणे */
+        /* वर पुरेशी जागा ठेवणे जेणेकरून हेडर कट होणार नाही */
         .block-container {
-            padding-top: 1rem !important;
+            padding-top: 3.5rem !important;
             padding-bottom: 2rem !important;
-            padding-left: 0.8rem !important;
-            padding-right: 0.8rem !important;
-            max-width: 800px;
+            padding-left: 0.9rem !important;
+            padding-right: 0.9rem !important;
+            max-width: 750px;
         }
-        /* हेडरचा आकार मोबाईलसाठी कॉम्पॅक्ट करणे */
+        /* हेडर आणि ब्रँडिंग कार्ड */
         .app-header {
             background: linear-gradient(135deg, #1e293b, #0f172a);
-            border: 1px solid #334155;
-            padding: 12px 14px;
-            border-radius: 12px;
-            margin-bottom: 12px;
+            border: 1px solid #d4af37;
+            padding: 16px 14px;
+            border-radius: 14px;
+            margin-bottom: 14px;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
-        .app-initiative {
-            font-size: 0.75rem;
-            color: #f59e0b;
-            font-weight: 600;
+        .app-foundation {
+            font-size: 0.95rem;
+            color: #d4af37;
+            font-weight: 700;
             letter-spacing: 0.5px;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
+            line-height: 1.3;
         }
         .app-title {
-            font-size: 1.35rem;
+            font-size: 1.45rem;
             font-weight: 800;
             color: #ffffff;
-            margin: 0;
+            margin: 2px 0 4px 0;
             line-height: 1.2;
         }
         .app-caption {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #94a3b8;
-            margin-top: 3px;
-            line-height: 1.2;
+            margin-top: 2px;
+            line-height: 1.3;
         }
-        /* टॅब्स कॉम्पॅक्ट करणे */
+        /* टॅब्स स्टाईल */
         .stTabs [data-baseweb="tab-list"] {
-            gap: 6px;
+            gap: 8px;
         }
         .stTabs [data-baseweb="tab"] {
-            padding: 6px 10px;
-            font-size: 0.85rem;
-            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
         }
-        /* इनपुट लेबल्स आणि गॅप लहान करणे */
+        /* इनपुट लेबल्स */
         .stTextInput > label, .stTextArea > label {
-            font-size: 0.85rem !important;
+            font-size: 0.88rem !important;
             font-weight: 600 !important;
-            margin-bottom: 2px !important;
+            margin-bottom: 3px !important;
         }
-        .stTextInput, .stTextArea {
-            margin-bottom: 8px !important;
-        }
-        /* बटणे आकर्षक आणि टच-फ्रेंडली */
         .stButton > button {
             width: 100%;
             border-radius: 8px;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
+            font-weight: 700;
+            padding: 0.55rem 1rem;
         }
-        /* फुटर कॉम्पॅक्ट */
+        /* फुटर */
         .app-footer {
             text-align: center;
             color: #64748b;
-            font-size: 0.75rem;
-            margin-top: 20px;
-            padding-top: 10px;
+            font-size: 0.78rem;
+            margin-top: 25px;
+            padding-top: 12px;
             border-top: 1px solid #334155;
+            line-height: 1.4;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -95,7 +94,7 @@ FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSffLyVq9szubqpQaeVX2KH3u_Q
 # भारतातील प्रमुख १० भाषांची रचना
 LANG_DATA = {
     "मराठी": {
-        "initiative": "🌟 विघ्नहर्ता गोल्ड फाउंडेशनचा सामाजिक व व्यावसायिक उपक्रम",
+        "foundation": "🏛️ विघ्नहर्ता गोल्ड फाउंडेशनचा उपक्रम",
         "title": "🤝 AI Business Sarathi",
         "caption": "उद्योजकांना अचूक संदर्भ व व्यावसायिक सहकार्य मिळवून देणारा डिजिटल साथीदार",
         "tab1": "🔍 स्मार्ट शोध",
@@ -123,7 +122,7 @@ LANG_DATA = {
         "footer": "संकल्पना व निर्मिती: विघ्नहर्ता गोल्ड फाउंडेशन | अधिक माहितीसाठी:"
     },
     "हिंदी": {
-        "initiative": "🌟 विघ्नहर्ता गोल्ड फाउंडेशन की व्यावसायिक पहल",
+        "foundation": "🏛️ विघ्नहर्ता गोल्ड फाउंडेशन की पहल",
         "title": "🤝 AI Business Sarathi",
         "caption": "उद्यमियों को सटीक रेफ़रल व व्यावसायिक सहयोग दिलाने वाला डिजिटल साथी",
         "tab1": "🔍 स्मार्ट सर्च",
@@ -151,9 +150,9 @@ LANG_DATA = {
         "footer": "संकल्पना एवं निर्माण: विघ्नहर्ता गोल्ड फाउंडेशन | वेबसाइट:"
     },
     "English": {
-        "initiative": "🌟 An Initiative by Vighnaharta Gold Foundation",
+        "foundation": "🏛️ An Initiative by Vighnaharta Gold Foundation",
         "title": "🤝 AI Business Sarathi",
-        "caption": "Connecting entrepreneurs with precise referrals and collaborative synergies",
+        "caption": "Connecting entrepreneurs with precise referrals and business collaborations",
         "tab1": "🔍 Smart Search",
         "tab2": "📝 Pitch & Stimulation",
         "auth_label": "Registered 10-digit mobile number or email:",
@@ -179,7 +178,7 @@ LANG_DATA = {
         "footer": "Conceptualized & Developed by Vighnaharta Gold Foundation | Visit:"
     },
     "ગુજરાતી": {
-        "initiative": "🌟 વિઘ્નહર્તા ગોલ્ડ ફાઉન્ડેશનની એક પહેલ",
+        "foundation": "🏛️ વિઘ્નહર્તા ગોલ્ડ ફાઉન્ડેશનની પહેલ",
         "title": "🤝 AI Business Sarathi",
         "caption": "વ્યવસાયિકોને સચોટ રેફરલ્સ મેળવવામાં મદદ કરતો ડિજિટલ સાથી",
         "tab1": "🔍 સ્માર્ટ સર્ચ",
@@ -207,7 +206,7 @@ LANG_DATA = {
         "footer": "સંકલ્પના: વિઘ્નહર્તા ગોલ્ડ ફાઉન્ડેશન | વેબસાઇટ:"
     },
     "தமிழ்": {
-        "initiative": "🌟 விக்னஹர்தா கோல்ட் அறக்கட்டளையின் முயற்சி",
+        "foundation": "🏛️ விக்னஹர்தா கோல்ட் அறக்கட்டளையின் முயற்சி",
         "title": "🤝 AI Business Sarathi",
         "caption": "தொழில்முனைவோருக்கு துல்லியமான பரிந்துரைகளை வழங்கும் டிஜிட்டல் உதவியாளர்",
         "tab1": "🔍 ஸ்மார்ட் தேடல்",
@@ -235,7 +234,7 @@ LANG_DATA = {
         "footer": "வடிவமைப்பு: விக்னஹர்தா கோல்ட் அறக்கட்டளை"
     },
     "తెలుగు": {
-        "initiative": "🌟 విఘ్నహర్త గోల్డ్ ఫౌండేషన్ చొరవ",
+        "foundation": "🏛️ విఘ్నహర్త గోల్డ్ ఫౌండేషన్ చొరవ",
         "title": "🤝 AI Business Sarathi",
         "caption": "వ్యాపారవేత్తలకు ఖచ్చితమైన రిఫరల్స్ అందించే డిజిటల్ సహచరుడు",
         "tab1": "🔍 స్మార్ట్ సెర్చ్",
@@ -263,7 +262,7 @@ LANG_DATA = {
         "footer": "రూపకల్పన: విఘ్నహర్త గోల్డ్ ఫౌండేషన్"
     },
     "ಕನ್ನಡ": {
-        "initiative": "🌟 ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್ ಉಪಕ್ರಮ",
+        "foundation": "🏛️ ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್ ಉಪಕ್ರಮ",
         "title": "🤝 AI Business Sarathi",
         "caption": "ಉದ್ಯಮಿಗಳಿಗೆ ನಿಖರವಾದ ಉಲ್ಲೇಖಗಳನ್ನು ಒದಗಿಸುವ ಡಿಜಿಟಲ್ ಸಹಾಯಕ",
         "tab1": "🔍 ಸ್ಮಾರ್ಟ್ ಹುಡುಕಾಟ",
@@ -291,7 +290,7 @@ LANG_DATA = {
         "footer": "ವಿನ್ಯಾಸ: ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್"
     },
     "മലയാളം": {
-        "initiative": "🌟 വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷൻ സംരംഭം",
+        "foundation": "🏛️ വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷൻ സംരംഭം",
         "title": "🤝 AI Business Sarathi",
         "caption": "ബിസിനസ് റഫറലുകൾ നൽകുന്ന ഡിജിറ്റൽ സഹായി",
         "tab1": "🔍 സ്മാർട്ട് തിരയൽ",
@@ -319,7 +318,7 @@ LANG_DATA = {
         "footer": "രൂപകൽപ്പന: വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷൻ"
     },
     "বাংলা": {
-        "initiative": "🌟 বিঘ্নহর্তা গোল্ড ফাউন্ডেশনের উদ্যোগ",
+        "foundation": "🏛️ বিঘ্নহর্তা গোল্ড ফাউন্ডেশনের উদ্যোগ",
         "title": "🤝 AI Business Sarathi",
         "caption": "ব্যবসায়ীদের সঠিক রেফারেল খুঁজে দেওয়ার ডিজিটাল সাথী",
         "tab1": "🔍 স্মার্ট অনুসন্ধান",
@@ -347,7 +346,7 @@ LANG_DATA = {
         "footer": "পরিকল্পনা: বিঘ্নহর্তা গোল্ড ফাউন্ডেশন"
     },
     "ਪੰਜਾਬੀ": {
-        "initiative": "🌟 ਵਿਘਨਹਰਤਾ ਗੋਲਡ ਫਾਊਂਡੇਸ਼ਨ ਦਾ ਉਪਰਾਲਾ",
+        "foundation": "🏛️ ਵਿਘਨਹਰਤਾ ਗੋਲਡ ਫਾਊਂਡੇਸ਼ਨ ਦਾ ਉਪਰਾਲਾ",
         "title": "🤝 AI Business Sarathi",
         "caption": "ਕਾਰੋਬਾਰੀਆਂ ਨੂੰ ਸਹੀ ਰੈਫਰਲ ਦਿਵਾਉਣ ਵਾਲਾ ਡਿਜੀਟਲ ਸਾਥੀ",
         "tab1": "🔍 ਸਮਾਰਟ ਖੋਜ",
@@ -406,7 +405,7 @@ def load_data():
 
 df = load_data()
 
-# Gemini REST API फंक्शन
+# Gemini REST API कॉल
 def call_gemini(prompt_text, api_key):
     headers = {"Content-Type": "application/json"}
     payload = {"contents": [{"parts": [{"text": prompt_text}]}]}
@@ -439,10 +438,10 @@ def call_gemini(prompt_text, api_key):
 
     return "Server is busy. Please try again."
 
-# कॉम्पॅक्ट हिरो कार्ड (One-Screen Header)
+# सुस्पष्ट आणि आकर्षक हेडर कार्ड
 st.markdown(f"""
     <div class="app-header">
-        <div class="app-initiative">{t['initiative']}</div>
+        <div class="app-foundation">{t['foundation']}</div>
         <div class="app-title">{t['title']}</div>
         <div class="app-caption">{t['caption']}</div>
     </div>
@@ -553,7 +552,7 @@ with tab2:
 st.markdown(f"""
     <div class="app-footer">
         {t['footer']} 
-        <a href='https://www.vgold.co.in' target='_blank' style='color: #f59e0b; font-weight: 700; text-decoration: none;'>
+        <a href='https://www.vgold.co.in' target='_blank' style='color: #d4af37; font-weight: 700; text-decoration: none;'>
             www.vgold.co.in
         </a>
     </div>
