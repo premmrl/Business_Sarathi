@@ -137,7 +137,7 @@ for l_key in ["ગુજરાતી", "தமிழ்", "తెలుగు", 
     if l_key not in LANG_DATA:
         LANG_DATA[l_key] = LANG_DATA["English"]
 
-# हाय-कॉन्ट्रास्ट स्वच्छ CSS
+# हाय-कॉन्ट्रास्ट व सुस्पष्ट CSS (लाईट व डार्क मोड दोन्हीमध्ये नंबर स्पष्ट दिसण्यासाठी)
 st.markdown("""
     <style>
         .block-container {
@@ -172,10 +172,23 @@ st.markdown("""
             font-size: 0.8rem;
             color: #cbd5e1;
         }
+
+        /* इनपुट बॉक्सची अक्षरे सर्व प्रकारच्या फोनवर ठळक काळी व पार्श्वभूमी उजळ ठेवणे */
         .stTextInput input, .stTextArea textarea {
-            color: #ffffff !important;
-            font-size: 0.95rem !important;
+            color: #0f172a !important;
+            -webkit-text-fill-color: #0f172a !important;
+            background-color: #f8fafc !important;
+            border: 1.5px solid #94a3b8 !important;
+            font-size: 1.05rem !important;
+            font-weight: 700 !important;
+            border-radius: 8px !important;
         }
+        .stTextInput input::placeholder, .stTextArea textarea::placeholder {
+            color: #64748b !important;
+            -webkit-text-fill-color: #64748b !important;
+            font-weight: normal !important;
+        }
+
         .app-footer {
             text-align: center;
             color: #94a3b8;
@@ -210,9 +223,7 @@ def load_data():
         phone_cols = [c for c in df.columns if "मोबाईल" in c or "Mobile" in c or "Phone" in c or "WhatsApp" in c]
         if phone_cols:
             p_col = phone_cols[0]
-            # नंबरमधील मोकळी जागा व नको असलेले कॅरेक्टर काढून एकसारखे करणे
             df[p_col] = df[p_col].astype(str).str.strip()
-            # ज्या नोंदी रिक्त नाहीत, त्यातील सर्वात शेवटची नोंद सक्रिय ठेवणे
             df = df.drop_duplicates(subset=[p_col], keep='last')
             
         return df
@@ -255,7 +266,7 @@ if "current_view" not in st.session_state:
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = None
 
-# हाय-कॉन्ट्रास्ट ३ नेव्हिगेशन बटणे
+# ३ स्पष्ट नेव्हिगेशन बटणे
 nav_c1, nav_c2, nav_c3 = st.columns(3)
 with nav_c1:
     btn_type1 = "primary" if st.session_state.current_view == "search" else "secondary"
@@ -275,7 +286,7 @@ with nav_c3:
         st.session_state.current_view = "pitch"
         st.rerun()
 
-st.markdown("<hr style='margin: 8px 0 16px 0; border: 0.5px solid #334155;'>", unsafe_allow_html=True)
+st.markdown("<hr style='margin: 8px 0 16px 0; border: 0.5px solid #cbd5e1;'>", unsafe_allow_html=True)
 
 # १. स्मार्ट शोध विभाग
 if st.session_state.current_view == "search":
@@ -298,7 +309,6 @@ if st.session_state.current_view == "search":
         matches = df[mask.any(axis=1)]
         
         if not matches.empty:
-            # सर्वात शेवटी आलेली नोंद घेणे
             st.session_state.logged_in_user = matches.iloc[-1]
         else:
             st.session_state.logged_in_user = None
@@ -435,7 +445,7 @@ elif st.session_state.current_view == "pitch":
 st.markdown(f"""
     <div class="app-footer">
         {t['footer']} 
-        <a href='https://www.vgold.co.in' target='_blank' style='color: #fbbf24; font-weight: 700; text-decoration: none;'>
+        <a href='https://www.vgold.co.in' target='_blank' style='color: #d97706; font-weight: 700; text-decoration: none;'>
             www.vgold.co.in
         </a>
     </div>
