@@ -137,7 +137,7 @@ for l_key in ["ગુજરાતી", "தமிழ்", "తెలుగు", 
     if l_key not in LANG_DATA:
         LANG_DATA[l_key] = LANG_DATA["English"]
 
-# हाय-कॉन्ट्रास्ट व सुस्पष्ट CSS (लाईट व डार्क मोड दोन्हीमध्ये नंबर स्पष्ट दिसण्यासाठी)
+# हाय-कॉन्ट्रास्ट व सुस्पष्ट CSS
 st.markdown("""
     <style>
         .block-container {
@@ -172,8 +172,6 @@ st.markdown("""
             font-size: 0.8rem;
             color: #cbd5e1;
         }
-
-        /* इनपुट बॉक्सची अक्षरे सर्व प्रकारच्या फोनवर ठळक काळी व पार्श्वभूमी उजळ ठेवणे */
         .stTextInput input, .stTextArea textarea {
             color: #0f172a !important;
             -webkit-text-fill-color: #0f172a !important;
@@ -188,7 +186,6 @@ st.markdown("""
             -webkit-text-fill-color: #64748b !important;
             font-weight: normal !important;
         }
-
         .app-footer {
             text-align: center;
             color: #94a3b8;
@@ -218,37 +215,64 @@ def load_data():
     try:
         df = pd.read_csv(CSV_URL)
         df = df.fillna("")
-        
-        # मोबाईल नंबर कॉलम शोधून डुप्लिकेट्समधून सर्वात शेवटची (Latest) नोंद ठेवणे
         phone_cols = [c for c in df.columns if "मोबाईल" in c or "Mobile" in c or "Phone" in c or "WhatsApp" in c]
         if phone_cols:
             p_col = phone_cols[0]
             df[p_col] = df[p_col].astype(str).str.strip()
             df = df.drop_duplicates(subset=[p_col], keep='last')
-            
         return df
     except Exception:
         return pd.DataFrame()
 
 df = load_data()
 
-# Gemini API कॉल
+# अचूक व सुरक्षित Gemini REST API कॉल
 def call_gemini(prompt_text, api_key):
+    if not api_key:
+        return "⚠️ Gemini API Key सापडली नाही. कृपया Secrets मध्ये Key तपासा."
+        
     headers = {"Content-Type": "application/json"}
     payload = {"contents": [{"parts": [{"text": prompt_text}]}]}
-    available_models = ["gemini-2.5-flash", "gemini-flash-latest"]
-    for m in available_models:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={api_key}"
+    
+    # थेट उपलब्ध मॉडेल्सची चाचणी (क्रमवारीनुसार)
+    candidate_models = [
+        "gemini-2.0-flash",
+        "gemini-1.5-flash",
+        "gemini-1.5-flash-latest",
+        "gemini-1.5-pro",
+        "gemini-flash-latest"
+    ]
+    
+    # API कडून ॲक्टिव्ह मॉडेल लिस्ट घेणे
+    try:
+        list_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
+        res = requests.get(list_url, timeout=6)
+        if res.status_code == 200:
+            active_m = [
+                m["name"].replace("models/", "")
+                for m in res.json().get("models", [])
+                if "generateContent" in m.get("supportedGenerationMethods", [])
+            ]
+            if active_m:
+                candidate_models = active_m + candidate_models
+    except Exception:
+        pass
+
+    last_error = ""
+    for model_name in candidate_models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
         try:
             r = requests.post(url, headers=headers, json=payload, timeout=25)
             if r.status_code == 200:
-                return r.json()["candidates"][0]["content"]["parts"][0]["text"]
-            elif r.status_code == 503:
-                time.sleep(1)
-                continue
-        except Exception:
+                data = r.json()
+                return data["candidates"][0]["content"]["parts"][0]["text"]
+            else:
+                last_error = f"API Status: {r.status_code} ({r.text[:100]})"
+        except Exception as e:
+            last_error = str(e)
             continue
-    return "सर्व्हर सध्या व्यस्त आहे. कृपया पुन्हा प्रयत्न करा."
+
+    return f"⚠️ संपर्क साधण्यात अडचण आली: {last_error}"
 
 # हेडर कार्ड
 st.markdown(f"""
@@ -266,7 +290,7 @@ if "current_view" not in st.session_state:
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = None
 
-# ३ स्पष्ट नेव्हिगेशन बटणे
+# ३ नेव्हिगेशन बटणे
 nav_c1, nav_c2, nav_c3 = st.columns(3)
 with nav_c1:
     btn_type1 = "primary" if st.session_state.current_view == "search" else "secondary"
