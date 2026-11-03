@@ -6,6 +6,9 @@ import time
 
 st.set_page_config(page_title="AI Business Sarathi", layout="wide", page_icon="🤝")
 
+# Google Form ची लिंक (येथे तुमची फॉर्म लिंक पेस्ट करा)
+FORM_LINK = "https://docs.google.com/forms/d/1hnpUYKjmHuG2kqhWgPldUggED5OZQ8sdmbaDPb_04Kc/viewform"
+
 # Gemini API Key मिळवणे
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
 
@@ -18,7 +21,7 @@ if not GEMINI_API_KEY:
 SHEET_ID = "1WibJTWH8NeHrESLNF24im10uAoF1GR3uRgnUhFmZQFE"
 CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
 
-@st.cache_data(ttl=30)
+@st.cache_data(ttl=20)
 def load_data():
     try:
         df = pd.read_csv(CSV_URL)
@@ -28,7 +31,7 @@ def load_data():
 
 df = load_data()
 
-# सक्रिय मॉडेल स्वयंचलित शोधून 503 लोड बायपास करणारे फंक्शन
+# Gemini REST API कॉल फंक्शन
 def call_gemini(prompt_text, api_key):
     headers = {"Content-Type": "application/json"}
     payload = {
@@ -39,7 +42,6 @@ def call_gemini(prompt_text, api_key):
         ]
     }
     
-    # १. गुगलकडून तुमच्या की साठी चालू असणाऱ्या सर्व मॉडेल्सची यादी मिळवणे
     available_models = []
     try:
         list_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
@@ -48,18 +50,14 @@ def call_gemini(prompt_text, api_key):
             m_list = res.json().get("models", [])
             for item in m_list:
                 if "generateContent" in item.get("supportedGenerationMethods", []):
-                    m_name = item.get("name", "")
-                    if m_name.startswith("models/"):
-                        m_name = m_name.replace("models/", "")
+                    m_name = item.get("name", "").replace("models/", "")
                     available_models.append(m_name)
     except Exception:
         pass
 
-    # जर यादी मिळाली नाही, तर स्टँडर्ड मॉडेल्स
     if not available_models:
         available_models = ["gemini-3.8-flash", "gemini-3.8-pro", "gemini-2.5-flash", "gemini-flash-latest"]
 
-    # २. एका मॉडेलवर ५०३ लोड असेल तर लगेच दुसऱ्या मॉडेलकडून उत्तर घेणे
     for m in available_models:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={api_key}"
         try:
@@ -73,7 +71,7 @@ def call_gemini(prompt_text, api_key):
         except Exception:
             continue
 
-    return "सर्व्हर सध्या व्यस्त आहे. कृपया २ सेकंदांनंतर पुन्हा 'संदर्भ शोधा' बटण दाबा."
+    return "सर्व्हर सध्या व्यस्त आहे. कृपया पुन्हा प्रयत्न करा."
 
 st.title("🤝 AI Business Sarathi")
 st.subheader("Universal Networking & Referral Matcher")
@@ -81,36 +79,74 @@ st.caption("सर्व व्यावसायिक आणि नेटव�
 
 tab1, tab2, tab3 = st.tabs(["🔍 स्मार्ट बिझनेस सर्च", "👥 सर्व सदस्य डिरेक्टरी", "📝 30-Sec Pitch Generator"])
 
-# टॅब १: AI सर्च
+# टॅब १: AI सर्च (Gated Access सह)
 with tab1:
-    st.write("### तुम्हाला कोणत्या व्यवसायाशी किंवा सेवेशी जोडले जायचे आहे?")
-    query = st.text_input("उदा. 'मला पुण्यात सोन्यात गुंतवणुकीसाठी कोणाशी संपर्क साधता येईल?' किंवा 'ज्वेलर्स आणि बिल्डर्सशी कनेक्टेड कोण आहे?'")
+    st.write("### 🔐 सदस्य लॉगिन व पडताळणी")
+    st.caption("नेटवर्किंगचा लाभ घेण्यासाठी आणि संदर्भ शोधण्यासाठी तुमची नोंदणी असणे आवश्यक आहे.")
     
-    if st.button("संदर्भ शोधा", type="primary") and query:
-        if not GEMINI_API_KEY:
-            st.error("कृपया Gemini API Key प्रविष्ट करा.")
-        elif df.empty:
-            st.warning("अद्याप शीटमध्ये डेटा उपलब्ध नाही.")
+    user_contact = st.text_input("तुमचा नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल टाका:", placeholder="उदा. 98XXXXXXXX किंवा name@gmail.com")
+    
+    is_registered = False
+    user_details = None
+    
+    if user_contact:
+        # शीटमधील मोबाईल नंबर किंवा ईमेल कॉलममध्ये तपासणे
+        contact_str = str(user_contact).strip().lower()
+        
+        # शीटमधील सर्व सेल तपासून शोधणे
+        mask = df.apply(lambda row: row.astype(str).str.strip().str.lower().str.contains(contact_str, regex=False), axis=1)
+        matches = df[mask.any(axis=1)]
+        
+        if not matches.empty:
+            is_registered = True
+            user_details = matches.iloc[0]
+            # नाव शोधणे
+            name_col = [c for c in df.columns if "नाव" in c or "Name" in c]
+            user_name = user_details[name_col[0]] if name_col else "उद्योजक मित्र"
+            st.success(f"✅ स्वागत आहे, **{user_name}**! तुमची नोंदणी सक्रिय आहे.")
         else:
-            with st.spinner("AI डेटाबेसमधून योग्य संदर्भ तपासत आहे..."):
-                context_data = df.to_string(index=False)
-                prompt = f"""
-                तू 'AI Business Sarathi' आहेस - उद्योजकांसाठीचा नेटवर्किंग आणि संदर्भ मार्गदर्शक.
-                खालील व्यावसायिक डिरेक्टरीचा डेटा वापरून वापरकर्त्याच्या प्रश्नाचे अत्यंत उपयुक्त आणि सकारात्मक उत्तर दे:
-                
-                [डिरेक्टरी डेटा]:
-                {context_data}
-                
-                [वापरकर्त्याची गरज / शोध]:
-                {query}
-                
-                मार्गदर्शक सूचना:
-                1. संबंधित सदस्याचे नाव, कंपनीचे नाव, शहर, मुख्य सेवा आणि मोबाईल नंबर ठळकपणे दे.
-                2. दोघे एकत्र येऊन एकमेकांना कसा व्यवसाय/फायदा मिळवून देऊ शकतात (Synergy/Collaboration) हे सुचव.
-                3. माहिती अत्यंत व्यावसायिक, मराठीत आणि सुटसुटीत बुलेट पॉईंट्समध्ये दे.
-                """
-                reply = call_gemini(prompt, GEMINI_API_KEY)
-                st.markdown(reply)
+            st.warning("⚠️ हा मोबाईल नंबर किंवा ईमेल आमच्या डिरेक्टरीमध्ये नोंदणीकृत नाही.")
+            st.info(f"👉 नेटवर्किंग समूहाचा लाभ घेण्यासाठी आणि शोध घेण्यासाठी कृपया खालील लिंकवरून आधी नोंदणी करा:")
+            st.link_button("📝 येथे क्लिक करून १ मिनिटात नोंदणी करा (Google Form)", FORM_LINK, type="primary")
+
+    st.markdown("---")
+    
+    # नोंदणीकृत असल्यासच सर्च बॉक्स दिसेल
+    if is_registered:
+        st.write("### तुम्हाला कोणत्या व्यवसायाशी किंवा सेवेशी जोडले जायचे आहे?")
+        query = st.text_input("उदा. 'मला पुण्यात सोन्यात गुंतवणुकीसाठी कोणाशी संपर्क साधता येईल?' किंवा 'ज्वेलर्स आणि बिल्डर्सशी कनेक्टेड कोण आहे?'")
+        
+        if st.button("संदर्भ शोधा", type="primary") and query:
+            if not GEMINI_API_KEY:
+                st.error("कृपया Gemini API Key प्रविष्ट करा.")
+            elif df.empty:
+                st.warning("अद्याप शीटमध्ये डेटा उपलब्ध नाही.")
+            else:
+                with st.spinner("AI डेटाबेसमधून योग्य संदर्भ तपासत आहे..."):
+                    context_data = df.to_string(index=False)
+                    prompt = f"""
+                    तू 'AI Business Sarathi' आहेस - उद्योजकांसाठीचा नेटवर्किंग आणि संदर्भ मार्गदर्शक.
+                    खालील व्यावसायिक डिरेक्टरीचा डेटा वापरून वापरकर्त्याच्या प्रश्नाचे अत्यंत उपयुक्त आणि सकारात्मक उत्तर दे:
+                    
+                    [डिरेक्टरी डेटा]:
+                    {context_data}
+                    
+                    [शोध घेणारा सदस्य]:
+                    {user_details.to_dict() if user_details is not None else ""}
+                    
+                    [वापरकर्त्याची गरज / शोध]:
+                    {query}
+                    
+                    मार्गदर्शक सूचना:
+                    1. संबंधित सदस्याचे नाव, कंपनीचे नाव, शहर, मुख्य सेवा आणि मोबाईल नंबर ठळकपणे दे.
+                    2. दोघे एकत्र येऊन एकमेकांना कसा व्यवसाय/फायदा मिळवून देऊ शकतात (Synergy/Collaboration) हे सुचव.
+                    3. माहिती अत्यंत व्यावसायिक, मराठीत आणि सुटसुटीत बुलेट पॉईंट्समध्ये दे.
+                    """
+                    reply = call_gemini(prompt, GEMINI_API_KEY)
+                    st.markdown(reply)
+    else:
+        if not user_contact:
+            st.info("💡 संदर्भ शोधण्यासाठी कृपया वर तुमचा नोंदणीकृत मोबाईल नंबर किंवा ईमेल टाका.")
 
 # टॅब २: सदस्य डिरेक्टरी
 with tab2:
