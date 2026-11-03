@@ -13,12 +13,6 @@ st.set_page_config(
 # Google Form नोंदणी लिंक
 FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSffLyVq9szubqpQaeVX2KH3u_QOfF7ra_LUr9-WT7wN8w4FBg/viewform?usp=sharing"
 
-# ॲडमिन सिक्युरिटी पासकोड (हा कोड फक्त अधिकृत सदस्यांना द्यायचा)
-ADMIN_PASSCODE = st.secrets.get("ADMIN_PASSCODE", "VGOLD2026")
-
-# ॲडमिन संपर्क (परवानगी मागण्यासाठी व्हॉट्सॲप)
-ADMIN_WHATSAPP = "918087699949"
-
 # भारतातील प्रमुख १० भाषांची रचना
 LANG_DATA = {
     "मराठी": {
@@ -27,8 +21,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "सर्व व्यावसायिक आणि नेटवर्किंग समूहांमधील सदस्यांना अचूक संदर्भ मिळवून देणारा डिजिटल साथीदार",
         "tab1": "🔍 स्मार्ट बिझनेस सर्च",
-        "tab2": "👥 सदस्य डिरेक्टरी (ॲडमिन संरक्षित)",
-        "tab3": "📝 30-Sec Pitch Generator",
+        "tab2": "📝 30-Sec Pitch Generator",
         "auth_title": "🔐 सदस्य लॉगिन व पडताळणी",
         "auth_caption": "नेटवर्किंगचा लाभ घेण्यासाठी आणि संदर्भ शोधण्यासाठी तुमची नोंदणी असणे आवश्यक आहे.",
         "input_label": "तुमचा नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल टाका:",
@@ -42,13 +35,6 @@ LANG_DATA = {
         "search_btn": "संदर्भ शोधा",
         "search_hint": "💡 संदर्भ शोधण्यासाठी कृपया वर तुमचा नोंदणीकृत मोबाईल नंबर किंवा ईमेल टाका.",
         "spinner_search": "AI डेटाबेसमधून योग्य संदर्भ तपासत आहे...",
-        "dir_locked_title": "🔒 डिरेक्टरी ॲडमिनद्वारे संरक्षित आहे",
-        "dir_locked_desc": "सदस्यांच्या गोपनीयतेसाठी आणि डेटा सुरक्षेसाठी संपूर्ण डिरेक्टरी उघडी ठेवली जात नाही. केवळ अधिकृत सदस्यांना ॲडमिनच्या परवानगीनेच ही यादी उपलब्ध होते.",
-        "dir_pass_label": "ॲडमिन सिक्युरिटी पासकोड प्रविष्ट करा:",
-        "dir_unlock_btn": "डिरेक्टरी अनलॉक करा",
-        "dir_request_btn": "💬 ॲडमिनकडे डिरेक्टरी ॲक्सेसची मागणी करा (WhatsApp)",
-        "dir_title": "नोंदणीकृत उद्योजक व व्यावसायिक डिरेक्टरी",
-        "filter_placeholder": "नाव, शहर किंवा उद्योगानुसार शोधा:",
         "pitch_title": "नेटवर्किंग मिटिंगसाठी व्यवसाय ओळख (Pitch) बनवा",
         "pitch_comp": "तुमची कंपनी / ब्रँड:",
         "pitch_serv": "तुमची मुख्य उत्पादने किंवा सेवा:",
@@ -64,8 +50,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "सभी व्यावसायिक और नेटवर्किंग समूहों के सदस्यों को सटीक रेफ़रल दिलाने वाला डिजिटल साथी",
         "tab1": "🔍 स्मार्ट बिज़नेस सर्च",
-        "tab2": "👥 सदस्य डायरेक्टरी (एडमिन सुरक्षित)",
-        "tab3": "📝 30-Sec Pitch Generator",
+        "tab2": "📝 30-Sec Pitch Generator",
         "auth_title": "🔐 सदस्य लॉगिन व सत्यापन",
         "auth_caption": "नेटवर्किंग का लाभ उठाने और संदर्भ खोजने के लिए डायरेक्टरी में पंजीकरण आवश्यक है।",
         "input_label": "अपना पंजीकृत 10 अंकों का मोबाइल नंबर या ईमेल दर्ज करें:",
@@ -79,13 +64,6 @@ LANG_DATA = {
         "search_btn": "रेफ़रल खोजें",
         "search_hint": "💡 रेफ़रल खोजने के लिए कृपया ऊपर पंजीकृत मोबाइल नंबर दर्ज करें।",
         "spinner_search": "AI उपयुक्त रेफ़रल खोज रहा है...",
-        "dir_locked_title": "🔒 डायरेक्टरी एडमिन द्वारा सुरक्षित है",
-        "dir_locked_desc": "डेटा सुरक्षा और सदस्यों की गोपनीयता हेतु पूरी सूची केवल एडमिन की अनुमति से ही देखी जा सकती है।",
-        "dir_pass_label": "एडमिन सुरक्षा पासकोड दर्ज करें:",
-        "dir_unlock_btn": "डायरेक्टरी अनलॉक करें",
-        "dir_request_btn": "💬 एडमिन से एक्सेस का अनुरोध करें (WhatsApp)",
-        "dir_title": "पंजीकृत उद्यमी व पेशेवर डायरेक्टरी",
-        "filter_placeholder": "नाम, शहर या उद्योग अनुसार खोजें:",
         "pitch_title": "नेटवर्किंग मीटिंग के लिए व्यावसायिक परिचय (Pitch) बनाएं",
         "pitch_comp": "आपकी कंपनी / ब्रांड:",
         "pitch_serv": "मुख्य उत्पाद या सेवाएं:",
@@ -101,8 +79,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "Your AI digital companion connecting entrepreneurs with high-trust referrals",
         "tab1": "🔍 Smart Business Search",
-        "tab2": "👥 Member Directory (Admin Protected)",
-        "tab3": "📝 30-Sec Pitch Generator",
+        "tab2": "📝 30-Sec Pitch Generator",
         "auth_title": "🔐 Member Login & Verification",
         "auth_caption": "To search referrals and access the network, your business must be registered.",
         "input_label": "Enter your registered 10-digit mobile number or email:",
@@ -116,13 +93,6 @@ LANG_DATA = {
         "search_btn": "Find Referral",
         "search_hint": "💡 Please enter your registered contact above to unlock referral search.",
         "spinner_search": "AI is matching the best referral contacts...",
-        "dir_locked_title": "🔒 Directory is Protected by Admin",
-        "dir_locked_desc": "To prevent data scraping and protect member privacy, the full directory is strictly accessible only with Admin clearance.",
-        "dir_pass_label": "Enter Admin Clearance Passcode:",
-        "dir_unlock_btn": "Unlock Directory",
-        "dir_request_btn": "💬 Request Access from Admin (WhatsApp)",
-        "dir_title": "Registered Member Directory",
-        "filter_placeholder": "Search by name, city, or category:",
         "pitch_title": "Create a 30 to 60-Second Business Introduction Pitch",
         "pitch_comp": "Your Company / Brand:",
         "pitch_serv": "Core Products or Services:",
@@ -138,8 +108,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "વ્યવસાયિકોને સચોટ રેફરલ્સ મેળવવામાં મદદ કરતો ડિજિટલ સાથી",
         "tab1": "🔍 સ્માર્ટ બિઝનેસ સર્ચ",
-        "tab2": "👥 સભ્ય ડિરેક્ટરી (એડમિન સુરક્ષિત)",
-        "tab3": "📝 30-સેકન્ડ પિચ જનરેટર",
+        "tab2": "📝 30-સેકન્ડ પિચ જનરેટર",
         "auth_title": "🔐 સભ્ય લૉગિન અને ચકાસણી",
         "auth_caption": "રેફરલ્સ શોધવા માટે તમારી નોંધણી હોવી જરૂરી છે.",
         "input_label": "તમારો નોંધાયેલ 10 અંકનો મોબાઇલ નંબર અથવા ઇમેઇલ દાખલ કરો:",
@@ -153,13 +122,6 @@ LANG_DATA = {
         "search_btn": "રેફરલ શોધો",
         "search_hint": "💡 શોધવા માટે કૃપા કરીને ઉપર તમારો નંબર દાખલ કરો.",
         "spinner_search": "AI શ્રેષ્ઠ સંપર્કો શોધી રહ્યું છે...",
-        "dir_locked_title": "🔒 ડિરેક્ટરી એડમિન દ્વારા સુરક્ષિત છે",
-        "dir_locked_desc": "સભ્યોની ગોપનીયતા માટે સંપૂર્ણ ડિરેક્ટરી એડમિન પરવાનગી પછી જ ઉપલબ્ધ છે.",
-        "dir_pass_label": "એડમિન પાસકોડ દાખલ કરો:",
-        "dir_unlock_btn": "અનલૉક કરો",
-        "dir_request_btn": "💬 એડમિન પાસેથી ઍક્સેસ મેળવો (WhatsApp)",
-        "dir_title": "નોંધાયેલ સભ્યોની ડિરેક્ટરી",
-        "filter_placeholder": "નામ અથવા શહેર દ્વારા શોધો:",
         "pitch_title": "મીટિંગ માટે 30 સેકન્ડની પિચ બનાવો",
         "pitch_comp": "કંપની / બ્રાન્ડ:",
         "pitch_serv": "મુખ્ય સેવાઓ:",
@@ -175,8 +137,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "தொழில்முனைவோருக்கு துல்லியமான பரிந்துரைகளை வழங்கும் டிஜிட்டல் உதவியாளர்",
         "tab1": "🔍 ஸ்மார்ட் பிசினஸ் தேடல்",
-        "tab2": "👥 உறுப்பினர் பட்டியல் (பாதுகாக்கப்பட்டது)",
-        "tab3": "📝 30-வினாடி பிட்ச்",
+        "tab2": "📝 30-வினாடி பிட்ச்",
         "auth_title": "🔐 உறுப்பினர் உள்நுழைவு",
         "auth_caption": "பரிந்துரைகளைத் தேட பதிவு அவசியம்.",
         "input_label": "பதிவுசெய்த மொபைல் எண் உள்ளிடவும்:",
@@ -190,13 +151,6 @@ LANG_DATA = {
         "search_btn": "பரிந்துரையைத் தேடு",
         "search_hint": "💡 தேடலுக்கு மேலே எண் உள்ளிடவும்.",
         "spinner_search": "AI தேடுகிறது...",
-        "dir_locked_title": "🔒 பட்டியல் நிர்வாகியால் பாதுகாக்கப்படுகிறது",
-        "dir_locked_desc": "உறுப்பினர்களின் தகவல்களைப் பாதுகாக்க நிர்வாகி அனுமதி தேவை.",
-        "dir_pass_label": "நிர்வாக பாஸ்கோடு உள்ளிடவும்:",
-        "dir_unlock_btn": "திறக்கவும்",
-        "dir_request_btn": "💬 நிர்வாகியிடம் அனுமதி கோரவும் (WhatsApp)",
-        "dir_title": "உறுப்பினர்கள் பட்டியல்",
-        "filter_placeholder": "தேடவும்:",
         "pitch_title": "பிட்ச் உருவாக்கவும்",
         "pitch_comp": "நிறுவனம்:",
         "pitch_serv": "சேவைகள்:",
@@ -212,8 +166,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "వ్యాపారవేత్తలకు ఖచ్చితమైన రిఫరల్స్ అందించే డిజిటల్ సహచరుడు",
         "tab1": "🔍 స్మార్ట్ బిజినెస్ సెర్చ్",
-        "tab2": "👥 సభ్యుల డైరెక్టరీ (రక్షితం)",
-        "tab3": "📝 30-సెకన్ల పిచ్",
+        "tab2": "📝 30-సెకన్ల పిచ్",
         "auth_title": "🔐 సభ్యుల లాగిన్",
         "auth_caption": "రిఫరల్స్ కోసం రిజిస్ట్రేషన్ తప్పనిసరి.",
         "input_label": "మొబైల్ నంబర్ నమోదు చేయండి:",
@@ -227,13 +180,6 @@ LANG_DATA = {
         "search_btn": "కనుగొనండి",
         "search_hint": "💡 సెర్చ్ చేయడానికి నంబర్ నమోదు చేయండి.",
         "spinner_search": "AI శోధిస్తోంది...",
-        "dir_locked_title": "🔒 డైరెక్టరీ అడ్మిన్ రక్షితం",
-        "dir_locked_desc": "సభ్యుల గోప్యత కొరకు అడ్మిన్ అనుమతితోనే డైరెక్టరీ చూడవచ్చు.",
-        "dir_pass_label": "అడ్మిన్ పాస్‌కోడ్:",
-        "dir_unlock_btn": "అన్‌లాక్ చేయండి",
-        "dir_request_btn": "💬 అడ్మిన్‌ను సంప్రదించండి (WhatsApp)",
-        "dir_title": "సభ్యుల జాబితా",
-        "filter_placeholder": "వెతకండి:",
         "pitch_title": "పిచ్ రూపొందించండి",
         "pitch_comp": "కంపెనీ:",
         "pitch_serv": "సేవలు:",
@@ -249,8 +195,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "ಉದ್ಯಮಿಗಳಿಗೆ ನಿಖರವಾದ ಉಲ್ಲೇಖಗಳನ್ನು ಒದಗಿಸುವ ಡಿಜಿಟಲ್ ಸಹಾಯಕ",
         "tab1": "🔍 ಸ್ಮಾರ್ಟ್ ಬಿಸಿನೆಸ್ ಹುಡುಕಾಟ",
-        "tab2": "👥 ಸದಸ್ಯರ ಡೈರೆಕ್ಟರಿ (ಸುರಕ್ಷಿತ)",
-        "tab3": "📝 30-ಸೆಕೆಂಡ್ ಪಿಚ್",
+        "tab2": "📝 30-ಸೆಕೆಂಡ್ ಪಿಚ್",
         "auth_title": "🔐 ಸದಸ್ಯರ ಲಾಗಿನ್",
         "auth_caption": "ರೆಫರಲ್‌ಗಳಿಗಾಗಿ ನೋಂದಣಿ ಅಗತ್ಯವಿದೆ.",
         "input_label": "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ:",
@@ -264,13 +209,6 @@ LANG_DATA = {
         "search_btn": "ಹುಡುಕಿ",
         "search_hint": "💡 ಹುಡುಕಲು ಸಂಖ್ಯೆ ನಮೂದಿಸಿ.",
         "spinner_search": "AI ಹುಡುಕುತ್ತಿದೆ...",
-        "dir_locked_title": "🔒 ಡೈರೆಕ್ಟರಿಯನ್ನು ನಿರ್ವಾಹಕರು ರಕ್ಷಿಸಿದ್ದಾರೆ",
-        "dir_locked_desc": "ಸದಸ್ಯರ ಗೌಪ್ಯತೆಗಾಗಿ ಅಡ್ಮಿನ್ ಅನುಮತಿ ಕಡ್ಡಾಯವಾಗಿದೆ.",
-        "dir_pass_label": "ಅಡ್ಮಿನ್ ಪಾಸ್‌ಕೋಡ್:",
-        "dir_unlock_btn": "ಅನ್‌ಲಾಕ್ ಮಾಡಿ",
-        "dir_request_btn": "💬 ಅಡ್ಮಿನ್ ಸಂಪರ್ಕಿಸಿ (WhatsApp)",
-        "dir_title": "ಉದ್ಯಮಿಗಳ ಡೈರೆಕ್ಟರಿ",
-        "filter_placeholder": "ಹುಡುಕಿ:",
         "pitch_title": "ಪಿಚ್ ರಚಿಸಿ",
         "pitch_comp": "ಕಂಪನಿ:",
         "pitch_serv": "ಸೇವೆಗಳು:",
@@ -286,8 +224,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "ബിസിനസ് റഫറലുകൾ നൽകുന്ന ഡിജിറ്റൽ സഹായി",
         "tab1": "🔍 സ്മാർട്ട് ബിസിനസ് തിരയൽ",
-        "tab2": "👥 ഡയറക്ടറി (സുരക്ഷിതം)",
-        "tab3": "📝 30-സെക്കൻഡ് പിച്ച്",
+        "tab2": "📝 30-സെക്കൻഡ് പിച്ച്",
         "auth_title": "🔐 ലോഗിൻ & സ്ഥിരീകരണം",
         "auth_caption": "റഫറലുകൾ ലഭിക്കാൻ രജിസ്ട്രേഷൻ ആവശ്യമാണ്.",
         "input_label": "മൊബൈൽ നമ്പർ നൽകുക:",
@@ -301,13 +238,6 @@ LANG_DATA = {
         "search_btn": "കണ്ടെത്തുക",
         "search_hint": "💡 നമ്പർ നൽകുക.",
         "spinner_search": "AI തിരയുന്നു...",
-        "dir_locked_title": "🔒 ഡയറക്ടറി അഡ്മിൻ സംരക്ഷിതമാണ്",
-        "dir_locked_desc": "ഡാറ്റാ സുരക്ഷക്കായി അഡ്മിൻ അനുമതി ആവശ്യമാണ്.",
-        "dir_pass_label": "അഡ്മിൻ പാസ്‌കോഡ്:",
-        "dir_unlock_btn": "തുറക്കുക",
-        "dir_request_btn": "💬 അഡ്മിനുമായി ബന്ധപ്പെടുക (WhatsApp)",
-        "dir_title": "അംഗങ്ങളുടെ ഡയറക്ടറി",
-        "filter_placeholder": "തിരയുക:",
         "pitch_title": "പിച്ച് തയ്യാറാക്കുക",
         "pitch_comp": "കമ്പനി:",
         "pitch_serv": "സേവനങ്ങൾ:",
@@ -323,8 +253,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "ব্যবসায়ীদের সঠিক রেফারেল খুঁজে দেওয়ার ডিজিটাল সাথী",
         "tab1": "🔍 স্মার্ট বিজনেস সার্চ",
-        "tab2": "👥 সদস্য ডিরেক্টরি (সুরক্ষিত)",
-        "tab3": "📝 ৩০-সেকেন্ড পিচ",
+        "tab2": "📝 ৩০-সেকেন্ড পিচ",
         "auth_title": "🔐 সদস্য লগইন",
         "auth_caption": "রেফারেল খুঁজতে নিবন্ধন আবশ্যক।",
         "input_label": "মোবাইল নম্বর দিন:",
@@ -338,13 +267,6 @@ LANG_DATA = {
         "search_btn": "খুঁজুন",
         "search_hint": "💡 অনুসন্ধানের জন্য নম্বর লিখুন।",
         "spinner_search": "AI রেফারেল খুঁজছে...",
-        "dir_locked_title": "🔒 ডিরেক্টরি অ্যাডমিন দ্বারা সংরক্ষিত",
-        "dir_locked_desc": "সদস্যদের গোপনীয়তা রক্ষার স্বার্থে অ্যাডমিনের অনুমতি প্রয়োজন।",
-        "dir_pass_label": "অ্যাডমিন পাসকোড:",
-        "dir_unlock_btn": "আনলক করুন",
-        "dir_request_btn": "💬 অ্যাডমিনের সাথে যোগাযোগ করুন (WhatsApp)",
-        "dir_title": "সদস্য ডিরেক্টরি",
-        "filter_placeholder": "অনুসন্ধান করুন:",
         "pitch_title": "পিচ তৈরি করুন",
         "pitch_comp": "কোম্পানি:",
         "pitch_serv": "পরিষেবা:",
@@ -360,8 +282,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "ਕਾਰੋਬਾਰੀਆਂ ਨੂੰ ਸਹੀ ਰੈਫਰਲ ਦਿਵਾਉਣ ਵਾਲਾ ਡਿਜੀਟਲ ਸਾਥੀ",
         "tab1": "🔍 ਸਮਾਰਟ ਬਿਜ਼ਨਸ ਸਰਚ",
-        "tab2": "👥 ਡਾਇਰੈਕਟਰੀ (ਐਡਮਿਨ ਸੁਰੱਖਿਅਤ)",
-        "tab3": "📝 30-ਸਕਿੰਟ ਪਿੱਚ",
+        "tab2": "📝 30-ਸਕਿੰਟ ਪਿੱਚ",
         "auth_title": "🔐 ਮੈਂਬਰ ਲੌਗਇਨ",
         "auth_caption": "ਰੈਫਰਲ ਲੱਭਣ ਲਈ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਲਾਜ਼ਮੀ ਹੈ।",
         "input_label": "ਮੋਬਾਈਲ ਨੰਬਰ ਦਰਜ ਕਰੋ:",
@@ -375,13 +296,6 @@ LANG_DATA = {
         "search_btn": "ਲੱਭੋ",
         "search_hint": "💡 ਖੋਜ ਕਰਨ ਲਈ ਨੰਬਰ ਦਰਜ ਕਰੋ।",
         "spinner_search": "AI ਰੈਫਰਲ ਲੱਭ ਰਿਹਾ ਹੈ...",
-        "dir_locked_title": "🔒 ਡਾਇਰੈਕਟਰੀ ਐਡਮਿਨ ਦੁਆਰਾ ਸੁਰੱਖਿਅਤ ਹੈ",
-        "dir_locked_desc": "ਡੇਟਾ ਸੁਰੱਖਿਆ ਲਈ ਪੂਰੀ ਡਾਇਰੈਕਟਰੀ ਸਿਰਫ਼ ਐਡਮਿਨ ਦੀ ਮਨਜ਼ੂਰੀ ਨਾਲ ਹੀ ਖੁੱਲ੍ਹੇਗੀ।",
-        "dir_pass_label": "ਐਡਮਿਨ ਪਾਸਕੋਡ:",
-        "dir_unlock_btn": "ਅਨਲੌਕ ਕਰੋ",
-        "dir_request_btn": "💬 ਐਡਮਿਨ ਨਾਲ ਸੰਪਰਕ ਕਰੋ (WhatsApp)",
-        "dir_title": "ਰਜਿਸਟਰਡ ਡਾਇਰੈਕਟਰੀ",
-        "filter_placeholder": "ਲੱਭੋ:",
         "pitch_title": "ਪਿੱਚ ਤਿਆਰ ਕਰੋ",
         "pitch_comp": "ਕੰਪਨੀ:",
         "pitch_serv": "ਸੇਵਾਵਾਂ:",
@@ -464,20 +378,18 @@ def call_gemini(prompt_text, api_key):
 
     return "Server is busy right now. Please try again."
 
-# हेडर
+# मुख्य हेडर
 st.markdown(f"**{t['initiative']}**")
 st.title(t["title"])
 st.subheader(t["subtitle"])
 st.caption(t["caption"])
 
-tab1, tab2, tab3 = st.tabs([t["tab1"], t["tab2"], t["tab3"]])
+# आता फक्त २ टॅब्स (डिरेक्टरी टॅब पूर्णपणे हटवला आहे)
+tab1, tab2 = st.tabs([t["tab1"], t["tab2"]])
 
-# लॉगिन व ॲडमिन स्टेट मॅनेजमेंट
+# लॉगिन स्टेट
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = None
-
-if "admin_unlocked" not in st.session_state:
-    st.session_state.admin_unlocked = False
 
 # टॅब १: सर्च व लॉगिन
 with tab1:
@@ -541,51 +453,8 @@ with tab1:
         if not user_contact:
             st.info(t["search_hint"])
 
-# टॅब २: ॲडमिन संरक्षित डिरेक्टरी (Admin Controlled)
+# टॅब २: पिच मेकर
 with tab2:
-    if not st.session_state.admin_unlocked:
-        st.warning(f"### {t['dir_locked_title']}")
-        st.write(t["dir_locked_desc"])
-        
-        col1, col2 = st.columns([2, 1])
-        with col1:
-            entered_code = st.text_input(t["dir_pass_label"], type="password", placeholder="Enter Passcode")
-            if st.button(t["dir_unlock_btn"], type="primary"):
-                if entered_code == ADMIN_PASSCODE:
-                    st.session_state.admin_unlocked = True
-                    st.success("✅ ॲडमिन मंजुरी यशस्वी! डिरेक्टरी अनलॉक झाली आहे.")
-                    st.rerun()
-                else:
-                    st.error("❌ चुकीचा पासकोड! कृपया अधिकृत ॲडमिनकडून पासकोड मिळवा.")
-                    
-        with col2:
-            req_msg = f"नमस्कार, मला AI Business Sarathi मधील संपूर्ण डिरेक्टरी ॲक्सेस करण्यासाठी सिक्युरिटी पासकोड हवा आहे."
-            whatsapp_url = f"https://wa.me/{ADMIN_WHATSAPP}?text={requests.utils.quote(req_msg)}"
-            st.markdown("<br>", unsafe_allow_html=True)
-            st.link_button(t["dir_request_btn"], whatsapp_url)
-    else:
-        st.write(f"### {t['dir_title']}")
-        col_a, col_b = st.columns([4, 1])
-        with col_b:
-            if st.button("🔒 डिरेक्टरी पुन्हा लॉक करा"):
-                st.session_state.admin_unlocked = False
-                st.rerun()
-                
-        if not df.empty:
-            search_filter = st.text_input(t["filter_placeholder"])
-            display_cols = [c for c in df.columns if "Timestamp" not in c and "टाइम" not in c]
-            safe_df = df[display_cols] if display_cols else df
-            
-            if search_filter:
-                filtered = safe_df[safe_df.apply(lambda row: search_filter.lower() in row.astype(str).str.lower().values, axis=1)]
-                st.dataframe(filtered, use_container_width=True)
-            else:
-                st.dataframe(safe_df, use_container_width=True)
-        else:
-            st.info("No records.")
-
-# टॅब ३: पिच मेकर
-with tab3:
     st.write(f"### {t['pitch_title']}")
     b_name = st.text_input(t["pitch_comp"])
     b_serv = st.text_area(t["pitch_serv"])
@@ -607,7 +476,7 @@ with tab3:
                 pitch_reply = call_gemini(pitch_prompt, GEMINI_API_KEY)
                 st.success(pitch_reply)
 
-# तळटीप
+# अधिकृत तळटीप (Footer)
 st.markdown("---")
 st.markdown(
     f"""
