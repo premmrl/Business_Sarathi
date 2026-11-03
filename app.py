@@ -21,7 +21,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "सर्व व्यावसायिक आणि नेटवर्किंग समूहांमधील सदस्यांना अचूक संदर्भ मिळवून देणारा डिजिटल साथीदार",
         "tab1": "🔍 स्मार्ट बिझनेस सर्च",
-        "tab2": "📝 30-Sec Pitch Generator",
+        "tab2": "📝 30-Sec Pitch & Stimulation Generator",
         "auth_title": "🔐 सदस्य लॉगिन व पडताळणी",
         "auth_caption": "नेटवर्किंगचा लाभ घेण्यासाठी आणि संदर्भ शोधण्यासाठी तुमची नोंदणी असणे आवश्यक आहे.",
         "input_label": "तुमचा नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल टाका:",
@@ -35,12 +35,14 @@ LANG_DATA = {
         "search_btn": "संदर्भ शोधा",
         "search_hint": "💡 संदर्भ शोधण्यासाठी कृपया वर तुमचा नोंदणीकृत मोबाईल नंबर किंवा ईमेल टाका.",
         "spinner_search": "AI डेटाबेसमधून योग्य संदर्भ तपासत आहे...",
-        "pitch_title": "नेटवर्किंग मिटिंगसाठी व्यवसाय ओळख (Pitch) बनवा",
+        "pitch_title": "नेटवर्किंग मिटिंगसाठी 30-सेकंद पिच व स्टिम्युलेशन (Stimulation)",
         "pitch_comp": "तुमची कंपनी / ब्रँड:",
         "pitch_serv": "तुमची मुख्य उत्पादने किंवा सेवा:",
+        "pitch_stim": "स्टिम्युलेशन / ट्रिगर थीम (उदा. ग्राहकांचे बोलणे, समस्या, प्रसंग किंवा ऑफर - ऐच्छिक):",
+        "pitch_stim_hint": "उदा. 'सोने महाग झाले आहे', 'मुलीच्या लग्नासाठी सोन्याचे नियोजन', 'MDRT एजंट्सचे इन्कम मॉडेल'",
         "pitch_ask": "या आठवड्यात तुम्हाला कोणाशी कनेक्ट व्हायचे आहे (Ask)?",
-        "pitch_btn": "पिच तयार करा",
-        "spinner_pitch": "तुमचा प्रभावी पिच तयार होत आहे...",
+        "pitch_btn": "प्रभावी पिच आणि स्टिम्युलेशन बनवा",
+        "spinner_pitch": "तुमचा प्रभावी पिच आणि स्टिम्युलेशन ट्रिगर्स तयार होत आहेत...",
         "about": "विघ्नहर्ता गोल्ड फाउंडेशन उद्योजकांच्या सशक्तीकरणासाठी व व्यवसाय नेटवर्किंगसाठी कार्यरत आहे.",
         "footer": "संकल्पना व निर्मिती: विघ्नहर्ता गोल्ड फाउंडेशन | अधिक माहितीसाठी:"
     },
@@ -50,7 +52,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "सभी व्यावसायिक और नेटवर्किंग समूहों के सदस्यों को सटीक रेफ़रल दिलाने वाला डिजिटल साथी",
         "tab1": "🔍 स्मार्ट बिज़नेस सर्च",
-        "tab2": "📝 30-Sec Pitch Generator",
+        "tab2": "📝 30-Sec Pitch & Stimulation Generator",
         "auth_title": "🔐 सदस्य लॉगिन व सत्यापन",
         "auth_caption": "नेटवर्किंग का लाभ उठाने और संदर्भ खोजने के लिए डायरेक्टरी में पंजीकरण आवश्यक है।",
         "input_label": "अपना पंजीकृत 10 अंकों का मोबाइल नंबर या ईमेल दर्ज करें:",
@@ -64,12 +66,14 @@ LANG_DATA = {
         "search_btn": "रेफ़रल खोजें",
         "search_hint": "💡 रेफ़रल खोजने के लिए कृपया ऊपर पंजीकृत मोबाइल नंबर दर्ज करें।",
         "spinner_search": "AI उपयुक्त रेफ़रल खोज रहा है...",
-        "pitch_title": "नेटवर्किंग मीटिंग के लिए व्यावसायिक परिचय (Pitch) बनाएं",
+        "pitch_title": "नेटवर्किंग मीटिंग के लिए 30-सेकंड पिच और स्टिम्युलेशन (Stimulation)",
         "pitch_comp": "आपकी कंपनी / ब्रांड:",
         "pitch_serv": "मुख्य उत्पाद या सेवाएं:",
+        "pitch_stim": "स्टिम्युलेशन / ट्रिगर थीम (वैकल्पिक):",
+        "pitch_stim_hint": "उदा. 'सोना महंगा हो गया है', 'भविष्य के लिए सोने की बचत'",
         "pitch_ask": "इस सप्ताह आपकी क्या आवश्यकता है (Ask)?",
-        "pitch_btn": "पिच तैयार करें",
-        "spinner_pitch": "पिच तैयार हो रही है...",
+        "pitch_btn": "पिच और स्टिम्युलेशन तैयार करें",
+        "spinner_pitch": "पिच और स्टिम्युलेशन ट्रिगर्स तैयार हो रहे हैं...",
         "about": "विघ्नहर्ता गोल्ड फाउंडेशन उद्यमियों के सशक्तिकरण और नेटवर्किंग के लिए समर्पित है।",
         "footer": "संकल्पना एवं निर्माण: विघ्नहर्ता गोल्ड फाउंडेशन | वेबसाइट:"
     },
@@ -79,7 +83,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "Your AI digital companion connecting entrepreneurs with high-trust referrals",
         "tab1": "🔍 Smart Business Search",
-        "tab2": "📝 30-Sec Pitch Generator",
+        "tab2": "📝 30-Sec Pitch & Stimulation Generator",
         "auth_title": "🔐 Member Login & Verification",
         "auth_caption": "To search referrals and access the network, your business must be registered.",
         "input_label": "Enter your registered 10-digit mobile number or email:",
@@ -93,12 +97,14 @@ LANG_DATA = {
         "search_btn": "Find Referral",
         "search_hint": "💡 Please enter your registered contact above to unlock referral search.",
         "spinner_search": "AI is matching the best referral contacts...",
-        "pitch_title": "Create a 30 to 60-Second Business Introduction Pitch",
+        "pitch_title": "Create a 30-Sec Business Pitch with Stimulation & Triggers",
         "pitch_comp": "Your Company / Brand:",
         "pitch_serv": "Core Products or Services:",
+        "pitch_stim": "Stimulation / Trigger Point (Optional):",
+        "pitch_stim_hint": "e.g., 'When someone says gold is too expensive', 'Child marriage planning'",
         "pitch_ask": "Who do you want to connect with this week (Ask)?",
-        "pitch_btn": "Generate Pitch",
-        "spinner_pitch": "Generating your pitch...",
+        "pitch_btn": "Generate Pitch & Stimulation",
+        "spinner_pitch": "Crafting high-impact pitch and referral triggers...",
         "about": "Vighnaharta Gold Foundation empowers businesses through financial literacy and networking.",
         "footer": "Conceptualized & Developed by Vighnaharta Gold Foundation | Visit:"
     },
@@ -108,7 +114,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "વ્યવસાયિકોને સચોટ રેફરલ્સ મેળવવામાં મદદ કરતો ડિજિટલ સાથી",
         "tab1": "🔍 સ્માર્ટ બિઝનેસ સર્ચ",
-        "tab2": "📝 30-સેકન્ડ પિચ જનરેટર",
+        "tab2": "📝 30-સેકન્ડ પિચ અને સ્ટિમ્યુલેશન જનરેટર",
         "auth_title": "🔐 સભ્ય લૉગિન અને ચકાસણી",
         "auth_caption": "રેફરલ્સ શોધવા માટે તમારી નોંધણી હોવી જરૂરી છે.",
         "input_label": "તમારો નોંધાયેલ 10 અંકનો મોબાઇલ નંબર અથવા ઇમેઇલ દાખલ કરો:",
@@ -122,9 +128,11 @@ LANG_DATA = {
         "search_btn": "રેફરલ શોધો",
         "search_hint": "💡 શોધવા માટે કૃપા કરીને ઉપર તમારો નંબર દાખલ કરો.",
         "spinner_search": "AI શ્રેષ્ઠ સંપર્કો શોધી રહ્યું છે...",
-        "pitch_title": "મીટિંગ માટે 30 સેકન્ડની પિચ બનાવો",
+        "pitch_title": "મીટિંગ માટે 30-સેકન્ડ પિચ અને સ્ટિમ્યુલેશન બનાવો",
         "pitch_comp": "કંપની / બ્રાન્ડ:",
         "pitch_serv": "મુખ્ય સેવાઓ:",
+        "pitch_stim": "સ્ટિમ્યુલેશન / ટ્રિગર (વૈકલ્પિક):",
+        "pitch_stim_hint": "દા.ત. 'સોનાના ભાવ વધ્યા છે'",
         "pitch_ask": "તમારી જરૂરિયાત (Ask):",
         "pitch_btn": "પિચ બનાવો",
         "spinner_pitch": "પિચ તૈયાર થઈ રહી છે...",
@@ -137,7 +145,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "தொழில்முனைவோருக்கு துல்லியமான பரிந்துரைகளை வழங்கும் டிஜிட்டல் உதவியாளர்",
         "tab1": "🔍 ஸ்மார்ட் பிசினஸ் தேடல்",
-        "tab2": "📝 30-வினாடி பிட்ச்",
+        "tab2": "📝 30-வினாடி பிட்ச் & ஸ்டிமுலேஷன்",
         "auth_title": "🔐 உறுப்பினர் உள்நுழைவு",
         "auth_caption": "பரிந்துரைகளைத் தேட பதிவு அவசியம்.",
         "input_label": "பதிவுசெய்த மொபைல் எண் உள்ளிடவும்:",
@@ -151,10 +159,12 @@ LANG_DATA = {
         "search_btn": "பரிந்துரையைத் தேடு",
         "search_hint": "💡 தேடலுக்கு மேலே எண் உள்ளிடவும்.",
         "spinner_search": "AI தேடுகிறது...",
-        "pitch_title": "பிட்ச் உருவாக்கவும்",
+        "pitch_title": "வணிக அறிமுக பிட்ச் & ஸ்டிமுலேஷன்",
         "pitch_comp": "நிறுவனம்:",
         "pitch_serv": "சேவைகள்:",
-        "pitch_ask": "தேவை:",
+        "pitch_stim": "ஸ்டிமுலேஷன் / தூண்டுதல்:",
+        "pitch_stim_hint": "எ.கா. 'தங்கம் விலை உயர்வு'",
+        "pitch_ask": "தேவை (Ask):",
         "pitch_btn": "உருவாக்கு",
         "spinner_pitch": "தயாராகிறது...",
         "about": "விக்னஹர்தா கோல்ட் அறக்கட்டளை தொழில்முனைவோரை மேம்படுத்துகிறது.",
@@ -166,7 +176,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "వ్యాపారవేత్తలకు ఖచ్చితమైన రిఫరల్స్ అందించే డిజిటల్ సహచరుడు",
         "tab1": "🔍 స్మార్ట్ బిజినెస్ సెర్చ్",
-        "tab2": "📝 30-సెకన్ల పిచ్",
+        "tab2": "📝 30-సెకన్ల పిచ్ & స్టిమ్యులేషన్",
         "auth_title": "🔐 సభ్యుల లాగిన్",
         "auth_caption": "రిఫరల్స్ కోసం రిజిస్ట్రేషన్ తప్పనిసరి.",
         "input_label": "మొబైల్ నంబర్ నమోదు చేయండి:",
@@ -180,10 +190,12 @@ LANG_DATA = {
         "search_btn": "కనుగొనండి",
         "search_hint": "💡 సెర్చ్ చేయడానికి నంబర్ నమోదు చేయండి.",
         "spinner_search": "AI శోధిస్తోంది...",
-        "pitch_title": "పిచ్ రూపొందించండి",
+        "pitch_title": "30 సెకన్ల పిచ్ మరియు స్టిమ్యులేషన్",
         "pitch_comp": "కంపెనీ:",
         "pitch_serv": "సేవలు:",
-        "pitch_ask": "అవసరం:",
+        "pitch_stim": "స్టిమ్యులేషన్ / ట్రిగ్గర్:",
+        "pitch_stim_hint": "ఉదా. 'బంగారం ధరలు పెరిగాయి'",
+        "pitch_ask": "అవసరం (Ask):",
         "pitch_btn": "సిద్ధం చేయండి",
         "spinner_pitch": "తయారవుతోంది...",
         "about": "విఘ్నహర్త గోల్డ్ ఫౌండేషన్ వ్యాపారవేత్తలకు సాధికారత కల్పిస్తుంది.",
@@ -195,7 +207,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "ಉದ್ಯಮಿಗಳಿಗೆ ನಿಖರವಾದ ಉಲ್ಲೇಖಗಳನ್ನು ಒದಗಿಸುವ ಡಿಜಿಟಲ್ ಸಹಾಯಕ",
         "tab1": "🔍 ಸ್ಮಾರ್ಟ್ ಬಿಸಿನೆಸ್ ಹುಡುಕಾಟ",
-        "tab2": "📝 30-ಸೆಕೆಂಡ್ ಪಿಚ್",
+        "tab2": "📝 30-ಸೆಕೆಂಡ್ ಪಿಚ್ ಮತ್ತು ಸ್ಟಿಮ್ಯುಲೇಶನ್",
         "auth_title": "🔐 ಸದಸ್ಯರ ಲಾಗಿನ್",
         "auth_caption": "ರೆಫರಲ್‌ಗಳಿಗಾಗಿ ನೋಂದಣಿ ಅಗತ್ಯವಿದೆ.",
         "input_label": "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ:",
@@ -209,10 +221,12 @@ LANG_DATA = {
         "search_btn": "ಹುಡುಕಿ",
         "search_hint": "💡 ಹುಡುಕಲು ಸಂಖ್ಯೆ ನಮೂದಿಸಿ.",
         "spinner_search": "AI ಹುಡುಕುತ್ತಿದೆ...",
-        "pitch_title": "ಪಿಚ್ ರಚಿಸಿ",
+        "pitch_title": "ವ್ಯವಹಾರ ಪಿಚ್ ಮತ್ತು ಸ್ಟಿಮ್ಯುಲೇಶನ್ ರಚಿಸಿ",
         "pitch_comp": "ಕಂಪನಿ:",
         "pitch_serv": "ಸೇವೆಗಳು:",
-        "pitch_ask": "ಅಗತ್ಯತೆ:",
+        "pitch_stim": "ಸ್ಟಿಮ್ಯುಲೇಶನ್ / ಟ್ರಿಗ್ಗರ್:",
+        "pitch_stim_hint": "ಉದಾ. 'ಚಿನ್ನದ ದರ ಏರಿಕೆ'",
+        "pitch_ask": "ಅಗತ್ಯತೆ (Ask):",
         "pitch_btn": "ರಚಿಸಿ",
         "spinner_pitch": "ಸಿದ್ಧವಾಗುತ್ತಿದೆ...",
         "about": "ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್ ಉದ್ಯಮಿಗಳ ಬೆಂಬಲಕ್ಕಾಗಿ ಶ್ರಮಿಸುತ್ತದೆ.",
@@ -224,7 +238,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "ബിസിനസ് റഫറലുകൾ നൽകുന്ന ഡിജിറ്റൽ സഹായി",
         "tab1": "🔍 സ്മാർട്ട് ബിസിനസ് തിരയൽ",
-        "tab2": "📝 30-സെക്കൻഡ് പിച്ച്",
+        "tab2": "📝 30-സെക്കൻഡ് പിച്ചും സ്റ്റിമുലേഷനും",
         "auth_title": "🔐 ലോഗിൻ & സ്ഥിരീകരണം",
         "auth_caption": "റഫറലുകൾ ലഭിക്കാൻ രജിസ്ട്രേഷൻ ആവശ്യമാണ്.",
         "input_label": "മൊബൈൽ നമ്പർ നൽകുക:",
@@ -238,10 +252,12 @@ LANG_DATA = {
         "search_btn": "കണ്ടെത്തുക",
         "search_hint": "💡 നമ്പർ നൽകുക.",
         "spinner_search": "AI തിരയുന്നു...",
-        "pitch_title": "പിച്ച് തയ്യാറാക്കുക",
+        "pitch_title": "ബിസിനസ് പിച്ചും സ്റ്റിമുലേഷനും",
         "pitch_comp": "കമ്പനി:",
         "pitch_serv": "സേവനങ്ങൾ:",
-        "pitch_ask": "ആവശ്യം:",
+        "pitch_stim": "സ്റ്റിമുലേഷൻ / ട്രിഗർ:",
+        "pitch_stim_hint": "ഉദാ. 'സ്വർണ്ണവില വർദ്ധനവ്'",
+        "pitch_ask": "ആവശ്യം (Ask):",
         "pitch_btn": "തയ്യാറാക്കുക",
         "spinner_pitch": "തയ്യാറാകുന്നു...",
         "about": "വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷൻ സംരംഭകരുടെ വളർച്ചയ്ക്കായി നിലകൊള്ളുന്നു.",
@@ -253,7 +269,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "ব্যবসায়ীদের সঠিক রেফারেল খুঁজে দেওয়ার ডিজিটাল সাথী",
         "tab1": "🔍 স্মার্ট বিজনেস সার্চ",
-        "tab2": "📝 ৩০-সেকেন্ড পিচ",
+        "tab2": "📝 ৩০-সেকেন্ড পিচ ও স্টিমুলেশন",
         "auth_title": "🔐 সদস্য লগইন",
         "auth_caption": "রেফারেল খুঁজতে নিবন্ধন আবশ্যক।",
         "input_label": "মোবাইল নম্বর দিন:",
@@ -267,10 +283,12 @@ LANG_DATA = {
         "search_btn": "খুঁজুন",
         "search_hint": "💡 অনুসন্ধানের জন্য নম্বর লিখুন।",
         "spinner_search": "AI রেফারেল খুঁজছে...",
-        "pitch_title": "পিচ তৈরি করুন",
+        "pitch_title": "ব্যবসায়িক পিচ এবং স্টিমুলেশন তৈরি করুন",
         "pitch_comp": "কোম্পানি:",
         "pitch_serv": "পরিষেবা:",
-        "pitch_ask": "চাহিদা:",
+        "pitch_stim": "স্টিমুলেশন / রেফারেল ট্রিগার:",
+        "pitch_stim_hint": "যেমন: 'সোনার দাম বেড়েছে'",
+        "pitch_ask": "চাহিদা (Ask):",
         "pitch_btn": "তৈরি করুন",
         "spinner_pitch": "তৈরি হচ্ছে...",
         "about": "বিঘ্নহর্তা গোল্ড ফাউন্ডেশন ব্যবসায়ীদের জন্য কাজ করে।",
@@ -282,7 +300,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "ਕਾਰੋਬਾਰੀਆਂ ਨੂੰ ਸਹੀ ਰੈਫਰਲ ਦਿਵਾਉਣ ਵਾਲਾ ਡਿਜੀਟਲ ਸਾਥੀ",
         "tab1": "🔍 ਸਮਾਰਟ ਬਿਜ਼ਨਸ ਸਰਚ",
-        "tab2": "📝 30-ਸਕਿੰਟ ਪਿੱਚ",
+        "tab2": "📝 30-ਸਕਿੰਟ ਪਿੱਚ ਅਤੇ ਸਟਿਮੂਲੇਸ਼ਨ",
         "auth_title": "🔐 ਮੈਂਬਰ ਲੌਗਇਨ",
         "auth_caption": "ਰੈਫਰਲ ਲੱਭਣ ਲਈ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਲਾਜ਼ਮੀ ਹੈ।",
         "input_label": "ਮੋਬਾਈਲ ਨੰਬਰ ਦਰਜ ਕਰੋ:",
@@ -296,10 +314,12 @@ LANG_DATA = {
         "search_btn": "ਲੱਭੋ",
         "search_hint": "💡 ਖੋਜ ਕਰਨ ਲਈ ਨੰਬਰ ਦਰਜ ਕਰੋ।",
         "spinner_search": "AI ਰੈਫਰਲ ਲੱਭ ਰਿਹਾ ਹੈ...",
-        "pitch_title": "ਪਿੱਚ ਤਿਆਰ ਕਰੋ",
+        "pitch_title": "ਕਾਰੋਬਾਰੀ ਪਿੱਚ ਅਤੇ ਸਟਿਮੂਲੇਸ਼ਨ",
         "pitch_comp": "ਕੰਪਨੀ:",
         "pitch_serv": "ਸੇਵਾਵਾਂ:",
-        "pitch_ask": "ਲੋੜ:",
+        "pitch_stim": "ਸਟਿਮੂਲੇਸ਼ਨ / ਟ੍ਰਿਗਰ:",
+        "pitch_stim_hint": "ਜਿਵੇਂ: 'ਸੋਨੇ ਦੇ ਭਾਅ ਵਧੇ ਹਨ'",
+        "pitch_ask": "ਲੋੜ (Ask):",
         "pitch_btn": "ਤਿਆਰ ਕਰੋ",
         "spinner_pitch": "ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ...",
         "about": "ਵਿਘਨਹਰਤਾ ਗੋਲਡ ਫਾਊਂਡੇਸ਼ਨ ਕਾਰੋਬਾਰਾਂ ਦੇ ਵਿਕਾਸ ਲਈ ਕੰਮ ਕਰਦੀ ਹੈ।",
@@ -384,7 +404,6 @@ st.title(t["title"])
 st.subheader(t["subtitle"])
 st.caption(t["caption"])
 
-# आता फक्त २ टॅब्स (डिरेक्टरी टॅब पूर्णपणे हटवला आहे)
 tab1, tab2 = st.tabs([t["tab1"], t["tab2"]])
 
 # लॉगिन स्टेट
@@ -453,11 +472,12 @@ with tab1:
         if not user_contact:
             st.info(t["search_hint"])
 
-# टॅब २: पिच मेकर
+# टॅब २: 30-सेकंद पिच व स्टिम्युलेशन (Stimulation) जनरेटर
 with tab2:
     st.write(f"### {t['pitch_title']}")
     b_name = st.text_input(t["pitch_comp"])
     b_serv = st.text_area(t["pitch_serv"])
+    b_stim = st.text_input(t["pitch_stim"], placeholder=t["pitch_stim_hint"])
     b_ask = st.text_input(t["pitch_ask"])
     
     if st.button(t["pitch_btn"]):
@@ -466,15 +486,32 @@ with tab2:
         elif b_name and b_serv:
             with st.spinner(t["spinner_pitch"]):
                 pitch_prompt = f"""
-                Company: {b_name}
-                Services: {b_serv}
-                Ask: {b_ask}
-                Language: {selected_lang}
+                You are an expert executive networking coach for BNI and professional business chapters, under Vighnaharta Gold Foundation.
+                Language to respond: {selected_lang}
                 
-                Generate a confident 30-sec pitch for business networking meet in {selected_lang}.
+                Input Details:
+                - Company / Brand: {b_name}
+                - Core Products / Services: {b_serv}
+                - Stimulation Theme / Specific Trigger: {b_stim if b_stim else "General customer pain point / conversation trigger"}
+                - Specific Ask: {b_ask}
+                
+                Please generate a high-impact, professional networking presentation containing:
+                1. **30-Second Speaking Pitch (३०-सेकंदांचा प्रभावी पिच)**:
+                   - An attention-grabbing Opening Hook.
+                   - Clear core value proposition in 2 lines.
+                   - The clear Weekly Ask.
+                   - Strong Memory Hook / Catchy Closing Tagline.
+                   - Estimated timing: approx. 60-70 words.
+                   
+                2. **Referral Stimulation / Triggers (स्टिम्युलेशन - सदस्यांना तुमचे नाव कधी आठवावे?)**:
+                   - "When you hear..." (जेव्हा तुम्ही मित्रांच्या/ग्राहकांच्या तोंडून हे शब्द ऐकाल...): Give 2-3 exact sentences people say in daily life.
+                   - "Look for people who..." (अशा व्यक्ती शोधा ज्या...): 2 exact scenarios.
+                   - "How to connect them to me" (त्यांना माझ्याशी कसे जोडावे - 1 simple intro tip).
+                
+                Format neatly using clear bullet points and bold headers in {selected_lang}.
                 """
                 pitch_reply = call_gemini(pitch_prompt, GEMINI_API_KEY)
-                st.success(pitch_reply)
+                st.markdown(pitch_reply)
 
 # अधिकृत तळटीप (Footer)
 st.markdown("---")
