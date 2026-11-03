@@ -13,6 +13,12 @@ st.set_page_config(
 # Google Form नोंदणी लिंक
 FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSffLyVq9szubqpQaeVX2KH3u_QOfF7ra_LUr9-WT7wN8w4FBg/viewform?usp=sharing"
 
+# ॲडमिन सिक्युरिटी पासकोड (हा कोड फक्त अधिकृत सदस्यांना द्यायचा)
+ADMIN_PASSCODE = st.secrets.get("ADMIN_PASSCODE", "VGOLD2026")
+
+# ॲडमिन संपर्क (परवानगी मागण्यासाठी व्हॉट्सॲप)
+ADMIN_WHATSAPP = "918087699949"
+
 # भारतातील प्रमुख १० भाषांची रचना
 LANG_DATA = {
     "मराठी": {
@@ -21,7 +27,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "सर्व व्यावसायिक आणि नेटवर्किंग समूहांमधील सदस्यांना अचूक संदर्भ मिळवून देणारा डिजिटल साथीदार",
         "tab1": "🔍 स्मार्ट बिझनेस सर्च",
-        "tab2": "👥 सदस्य डिरेक्टरी (संरक्षित)",
+        "tab2": "👥 सदस्य डिरेक्टरी (ॲडमिन संरक्षित)",
         "tab3": "📝 30-Sec Pitch Generator",
         "auth_title": "🔐 सदस्य लॉगिन व पडताळणी",
         "auth_caption": "नेटवर्किंगचा लाभ घेण्यासाठी आणि संदर्भ शोधण्यासाठी तुमची नोंदणी असणे आवश्यक आहे.",
@@ -36,7 +42,11 @@ LANG_DATA = {
         "search_btn": "संदर्भ शोधा",
         "search_hint": "💡 संदर्भ शोधण्यासाठी कृपया वर तुमचा नोंदणीकृत मोबाईल नंबर किंवा ईमेल टाका.",
         "spinner_search": "AI डेटाबेसमधून योग्य संदर्भ तपासत आहे...",
-        "dir_locked": "🔒 डिरेक्टरी पाहण्यासाठी कृपया पहिल्या टॅबमध्ये जाऊन नोंदणीकृत मोबाईल नंबरने लॉगिन करा.",
+        "dir_locked_title": "🔒 डिरेक्टरी ॲडमिनद्वारे संरक्षित आहे",
+        "dir_locked_desc": "सदस्यांच्या गोपनीयतेसाठी आणि डेटा सुरक्षेसाठी संपूर्ण डिरेक्टरी उघडी ठेवली जात नाही. केवळ अधिकृत सदस्यांना ॲडमिनच्या परवानगीनेच ही यादी उपलब्ध होते.",
+        "dir_pass_label": "ॲडमिन सिक्युरिटी पासकोड प्रविष्ट करा:",
+        "dir_unlock_btn": "डिरेक्टरी अनलॉक करा",
+        "dir_request_btn": "💬 ॲडमिनकडे डिरेक्टरी ॲक्सेसची मागणी करा (WhatsApp)",
         "dir_title": "नोंदणीकृत उद्योजक व व्यावसायिक डिरेक्टरी",
         "filter_placeholder": "नाव, शहर किंवा उद्योगानुसार शोधा:",
         "pitch_title": "नेटवर्किंग मिटिंगसाठी व्यवसाय ओळख (Pitch) बनवा",
@@ -46,7 +56,7 @@ LANG_DATA = {
         "pitch_btn": "पिच तयार करा",
         "spinner_pitch": "तुमचा प्रभावी पिच तयार होत आहे...",
         "about": "विघ्नहर्ता गोल्ड फाउंडेशन उद्योजकांच्या सशक्तीकरणासाठी व व्यवसाय नेटवर्किंगसाठी कार्यरत आहे.",
-        "footer": "संकल्पना व निर्मिती: विघ्नहर्ता गोल्ड फाउंडेशन | भेट द्या:"
+        "footer": "संकल्पना व निर्मिती: विघ्नहर्ता गोल्ड फाउंडेशन | अधिक माहितीसाठी:"
     },
     "हिंदी": {
         "initiative": "🌟 विघ्नहर्ता गोल्ड फाउंडेशन की व्यावसायिक पहल",
@@ -54,7 +64,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "सभी व्यावसायिक और नेटवर्किंग समूहों के सदस्यों को सटीक रेफ़रल दिलाने वाला डिजिटल साथी",
         "tab1": "🔍 स्मार्ट बिज़नेस सर्च",
-        "tab2": "👥 सदस्य डायरेक्टरी (सुरक्षित)",
+        "tab2": "👥 सदस्य डायरेक्टरी (एडमिन सुरक्षित)",
         "tab3": "📝 30-Sec Pitch Generator",
         "auth_title": "🔐 सदस्य लॉगिन व सत्यापन",
         "auth_caption": "नेटवर्किंग का लाभ उठाने और संदर्भ खोजने के लिए डायरेक्टरी में पंजीकरण आवश्यक है।",
@@ -69,7 +79,11 @@ LANG_DATA = {
         "search_btn": "रेफ़रल खोजें",
         "search_hint": "💡 रेफ़रल खोजने के लिए कृपया ऊपर पंजीकृत मोबाइल नंबर दर्ज करें।",
         "spinner_search": "AI उपयुक्त रेफ़रल खोज रहा है...",
-        "dir_locked": "🔒 डायरेक्टरी देखने के लिए कृपया पहले टैब में पंजीकृत नंबर से लॉगिन करें।",
+        "dir_locked_title": "🔒 डायरेक्टरी एडमिन द्वारा सुरक्षित है",
+        "dir_locked_desc": "डेटा सुरक्षा और सदस्यों की गोपनीयता हेतु पूरी सूची केवल एडमिन की अनुमति से ही देखी जा सकती है।",
+        "dir_pass_label": "एडमिन सुरक्षा पासकोड दर्ज करें:",
+        "dir_unlock_btn": "डायरेक्टरी अनलॉक करें",
+        "dir_request_btn": "💬 एडमिन से एक्सेस का अनुरोध करें (WhatsApp)",
         "dir_title": "पंजीकृत उद्यमी व पेशेवर डायरेक्टरी",
         "filter_placeholder": "नाम, शहर या उद्योग अनुसार खोजें:",
         "pitch_title": "नेटवर्किंग मीटिंग के लिए व्यावसायिक परिचय (Pitch) बनाएं",
@@ -87,7 +101,7 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "Your AI digital companion connecting entrepreneurs with high-trust referrals",
         "tab1": "🔍 Smart Business Search",
-        "tab2": "👥 Member Directory (Protected)",
+        "tab2": "👥 Member Directory (Admin Protected)",
         "tab3": "📝 30-Sec Pitch Generator",
         "auth_title": "🔐 Member Login & Verification",
         "auth_caption": "To search referrals and access the network, your business must be registered.",
@@ -102,7 +116,11 @@ LANG_DATA = {
         "search_btn": "Find Referral",
         "search_hint": "💡 Please enter your registered contact above to unlock referral search.",
         "spinner_search": "AI is matching the best referral contacts...",
-        "dir_locked": "🔒 Directory is protected. Please verify your registered contact in Tab 1 to access.",
+        "dir_locked_title": "🔒 Directory is Protected by Admin",
+        "dir_locked_desc": "To prevent data scraping and protect member privacy, the full directory is strictly accessible only with Admin clearance.",
+        "dir_pass_label": "Enter Admin Clearance Passcode:",
+        "dir_unlock_btn": "Unlock Directory",
+        "dir_request_btn": "💬 Request Access from Admin (WhatsApp)",
         "dir_title": "Registered Member Directory",
         "filter_placeholder": "Search by name, city, or category:",
         "pitch_title": "Create a 30 to 60-Second Business Introduction Pitch",
@@ -120,24 +138,28 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "વ્યવસાયિકોને સચોટ રેફરલ્સ મેળવવામાં મદદ કરતો ડિજિટલ સાથી",
         "tab1": "🔍 સ્માર્ટ બિઝનેસ સર્ચ",
-        "tab2": "👥 સભ્ય ડિરેક્ટરી (સુરક્ષિત)",
+        "tab2": "👥 સભ્ય ડિરેક્ટરી (એડમિન સુરક્ષિત)",
         "tab3": "📝 30-સેકન્ડ પિચ જનરેટર",
         "auth_title": "🔐 સભ્ય લૉગિન અને ચકાસણી",
         "auth_caption": "રેફરલ્સ શોધવા માટે તમારી નોંધણી હોવી જરૂરી છે.",
         "input_label": "તમારો નોંધાયેલ 10 અંકનો મોબાઇલ નંબર અથવા ઇમેઇલ દાખલ કરો:",
         "input_placeholder": "દા.ત. 8087699949",
-        "welcome": "સ્વાગત છે, **{name}**! તમારી નોંધણી સક્રિય છે.",
+        "welcome": "સ્વાગત છે, **{name}**!",
         "not_registered": "⚠️ આ મોબાઇલ નંબર ડિરેક્ટરીમાં નોંધાયેલ નથી.",
-        "register_prompt": "👉 નેટવર્કિંગનો લાભ લેવા કૃપા કરીને પહેલા 1 મિનિટનું ફોર્મ ભરો:",
+        "register_prompt": "👉 નેટવર્કિંગનો લાભ લેવા કૃપા કરીને પહેલા ફોર્મ ભરો:",
         "register_btn": "📝 નોંધણી કરવા માટે અહીં ક્લિક કરો (Google Form)",
         "search_title": "તમે કયા વ્યવસાય અથવા સેવા સાથે જોડાવા માંગો છો?",
         "search_placeholder": "દા.ત. 'પુણેમાં સોનામાં રોકાણ માટે કોનો સંપર્ક કરવો?'",
         "search_btn": "રેફરલ શોધો",
         "search_hint": "💡 શોધવા માટે કૃપા કરીને ઉપર તમારો નંબર દાખલ કરો.",
         "spinner_search": "AI શ્રેષ્ઠ સંપર્કો શોધી રહ્યું છે...",
-        "dir_locked": "🔒 ડિરેક્ટરી જોવા માટે કૃપા કરીને પહેલા ટેબમાં લૉગિન કરો.",
+        "dir_locked_title": "🔒 ડિરેક્ટરી એડમિન દ્વારા સુરક્ષિત છે",
+        "dir_locked_desc": "સભ્યોની ગોપનીયતા માટે સંપૂર્ણ ડિરેક્ટરી એડમિન પરવાનગી પછી જ ઉપલબ્ધ છે.",
+        "dir_pass_label": "એડમિન પાસકોડ દાખલ કરો:",
+        "dir_unlock_btn": "અનલૉક કરો",
+        "dir_request_btn": "💬 એડમિન પાસેથી ઍક્સેસ મેળવો (WhatsApp)",
         "dir_title": "નોંધાયેલ સભ્યોની ડિરેક્ટરી",
-        "filter_placeholder": "નામ, શહેર અથવા કેટેગરી દ્વારા શોધો:",
+        "filter_placeholder": "નામ અથવા શહેર દ્વારા શોધો:",
         "pitch_title": "મીટિંગ માટે 30 સેકન્ડની પિચ બનાવો",
         "pitch_comp": "કંપની / બ્રાન્ડ:",
         "pitch_serv": "મુખ્ય સેવાઓ:",
@@ -154,31 +176,35 @@ LANG_DATA = {
         "caption": "தொழில்முனைவோருக்கு துல்லியமான பரிந்துரைகளை வழங்கும் டிஜிட்டல் உதவியாளர்",
         "tab1": "🔍 ஸ்மார்ட் பிசினஸ் தேடல்",
         "tab2": "👥 உறுப்பினர் பட்டியல் (பாதுகாக்கப்பட்டது)",
-        "tab3": "📝 30-வினாடி பிட்ச் உருவாக்குநர்",
+        "tab3": "📝 30-வினாடி பிட்ச்",
         "auth_title": "🔐 உறுப்பினர் உள்நுழைவு",
-        "auth_caption": "பரிந்துரைகளைத் தேட பதிவு செய்திருக்க வேண்டும்.",
-        "input_label": "பதிவுசெய்த மொபைல் எண் அல்லது மின்னஞ்சலை உள்ளிடவும்:",
+        "auth_caption": "பரிந்துரைகளைத் தேட பதிவு அவசியம்.",
+        "input_label": "பதிவுசெய்த மொபைல் எண் உள்ளிடவும்:",
         "input_placeholder": "எ.கா. 8087699949",
         "welcome": "வரவேற்கிறோம், **{name}**!",
-        "not_registered": "⚠️ இந்த எண் பட்டியலில் பதிவு செய்யப்படவில்லை.",
-        "register_prompt": "👉 பதிவு செய்ய கீழேயுள்ள படிவத்தைப் பூர்த்தி செய்யவும்:",
-        "register_btn": "📝 பதிவு செய்ய இங்கே கிளிக் செய்யவும் (Google Form)",
+        "not_registered": "⚠️ எண் பட்டியலில் இல்லை.",
+        "register_prompt": "👉 பதிவு செய்ய படிவத்தைப் பூர்த்தி செய்யவும்:",
+        "register_btn": "📝 பதிவு செய்ய கிளிக் செய்யவும் (Google Form)",
         "search_title": "நீங்கள் எந்த தொழிலுடன் இணைய விரும்புகிறீர்கள்?",
         "search_placeholder": "எ.கா. 'தங்க முதலீடு ஆலோசகர் தேவை'",
         "search_btn": "பரிந்துரையைத் தேடு",
-        "search_hint": "💡 தேடலைத் திறக்க மேலே பதிவுசெய்த எண்ணை உள்ளிடவும்.",
+        "search_hint": "💡 தேடலுக்கு மேலே எண் உள்ளிடவும்.",
         "spinner_search": "AI தேடுகிறது...",
-        "dir_locked": "🔒 பட்டியலைப் பார்க்க முதல் பக்கத்தில் உள்நுழையவும்.",
-        "dir_title": "பதிவுசெய்த உறுப்பினர்கள் பட்டியல்",
-        "filter_placeholder": "பெயர் அல்லது நகரம் மூலம் தேடவும்:",
-        "pitch_title": "வணிக அறிமுக பிட்ச் உருவாக்கவும்",
-        "pitch_comp": "நிறுவனத்தின் பெயர்:",
+        "dir_locked_title": "🔒 பட்டியல் நிர்வாகியால் பாதுகாக்கப்படுகிறது",
+        "dir_locked_desc": "உறுப்பினர்களின் தகவல்களைப் பாதுகாக்க நிர்வாகி அனுமதி தேவை.",
+        "dir_pass_label": "நிர்வாக பாஸ்கோடு உள்ளிடவும்:",
+        "dir_unlock_btn": "திறக்கவும்",
+        "dir_request_btn": "💬 நிர்வாகியிடம் அனுமதி கோரவும் (WhatsApp)",
+        "dir_title": "உறுப்பினர்கள் பட்டியல்",
+        "filter_placeholder": "தேடவும்:",
+        "pitch_title": "பிட்ச் உருவாக்கவும்",
+        "pitch_comp": "நிறுவனம்:",
         "pitch_serv": "சேவைகள்:",
-        "pitch_ask": "தேவை (Ask):",
+        "pitch_ask": "தேவை:",
         "pitch_btn": "உருவாக்கு",
-        "spinner_pitch": "பிட்ச் தயாராகிறது...",
+        "spinner_pitch": "தயாராகிறது...",
         "about": "விக்னஹர்தா கோல்ட் அறக்கட்டளை தொழில்முனைவோரை மேம்படுத்துகிறது.",
-        "footer": "வடிவமைப்பு: விக்னஹர்தா கோல்ட் அறக்கட்டளை | தளம்:"
+        "footer": "வடிவமைப்பு: விக்னஹர்தா கோல்ட் அறக்கட்டளை"
     },
     "తెలుగు": {
         "initiative": "🌟 విఘ్నహర్త గోల్డ్ ఫౌండేషన్ చొరవ",
@@ -187,31 +213,35 @@ LANG_DATA = {
         "caption": "వ్యాపారవేత్తలకు ఖచ్చితమైన రిఫరల్స్ అందించే డిజిటల్ సహచరుడు",
         "tab1": "🔍 స్మార్ట్ బిజినెస్ సెర్చ్",
         "tab2": "👥 సభ్యుల డైరెక్టరీ (రక్షితం)",
-        "tab3": "📝 30-సెకన్ల పిచ్ జనరేటర్",
-        "auth_title": "🔐 సభ్యుల లాగిన్ & ధృవీకరణ",
-        "auth_caption": "రిఫరల్స్ పొందడానికి రిజిస్ట్రేషన్ తప్పనిసరి.",
-        "input_label": "నమోదిత మొబైల్ నంబర్ లేదా ఇమెయిల్ నమోదు చేయండి:",
+        "tab3": "📝 30-సెకన్ల పిచ్",
+        "auth_title": "🔐 సభ్యుల లాగిన్",
+        "auth_caption": "రిఫరల్స్ కోసం రిజిస్ట్రేషన్ తప్పనిసరి.",
+        "input_label": "మొబైల్ నంబర్ నమోదు చేయండి:",
         "input_placeholder": "ఉదా. 8087699949",
         "welcome": "స్వాగతం, **{name}**!",
-        "not_registered": "⚠️ ఈ నంబర్ డైరెక్టరీలో నమోదు కాలేదు.",
-        "register_prompt": "👉 నెట్‌వర్కింగ్‌లో చేరడానికి దయచేసి ఫారమ్ నింపండి:",
-        "register_btn": "📝 నమోదు కొరకు ఇక్కడ క్లిక్ చేయండి (Google Form)",
-        "search_title": "మీరు ఏ వ్యాపారంతో కనెక్ట్ కావాలనుకుంటున్నారు?",
-        "search_placeholder": "ఉదా. 'బంగారు పెట్టుబడి సలహాదారు కావాలి'",
-        "search_btn": "రిఫరల్ కనుగొనండి",
-        "search_hint": "💡 సెర్చ్ చేయడానికి మీ నంబర్ నమోదు చేయండి.",
-        "spinner_search": "AI రిఫరల్స్ కోసం శోధిస్తోంది...",
-        "dir_locked": "🔒 డైరెక్టరీ చూడటానికి మొదటి ట్యాబ్‌లో లాగిన్ చేయండి.",
-        "dir_title": "రిజిస్టర్డ్ సభ్యుల జాబితా",
-        "filter_placeholder": "పేరు లేదా నగరం ద్వారా వెతకండి:",
-        "pitch_title": "30 సెకన్ల బిజినెస్ పిచ్ రూపొందించండి",
-        "pitch_comp": "కంపెనీ పేరు:",
+        "not_registered": "⚠️ నంబర్ డైరెక్టరీలో లేదు.",
+        "register_prompt": "👉 నమోదు కొరకు ఫారమ్ నింపండి:",
+        "register_btn": "📝 నమోదు చేయండి (Google Form)",
+        "search_title": "ఏ వ్యాపారంతో కనెక్ట్ కావాలనుకుంటున్నారు?",
+        "search_placeholder": "ఉదా. 'బంగారు పెట్టుబడి సలహాదారు'",
+        "search_btn": "కనుగొనండి",
+        "search_hint": "💡 సెర్చ్ చేయడానికి నంబర్ నమోదు చేయండి.",
+        "spinner_search": "AI శోధిస్తోంది...",
+        "dir_locked_title": "🔒 డైరెక్టరీ అడ్మిన్ రక్షితం",
+        "dir_locked_desc": "సభ్యుల గోప్యత కొరకు అడ్మిన్ అనుమతితోనే డైరెక్టరీ చూడవచ్చు.",
+        "dir_pass_label": "అడ్మిన్ పాస్‌కోడ్:",
+        "dir_unlock_btn": "అన్‌లాక్ చేయండి",
+        "dir_request_btn": "💬 అడ్మిన్‌ను సంప్రదించండి (WhatsApp)",
+        "dir_title": "సభ్యుల జాబితా",
+        "filter_placeholder": "వెతకండి:",
+        "pitch_title": "పిచ్ రూపొందించండి",
+        "pitch_comp": "కంపెనీ:",
         "pitch_serv": "సేవలు:",
-        "pitch_ask": "అవసరం (Ask):",
-        "pitch_btn": "పిచ్ సిద్ధం చేయండి",
-        "spinner_pitch": "పిచ్ తయారవుతోంది...",
+        "pitch_ask": "అవసరం:",
+        "pitch_btn": "సిద్ధం చేయండి",
+        "spinner_pitch": "తయారవుతోంది...",
         "about": "విఘ్నహర్త గోల్డ్ ఫౌండేషన్ వ్యాపారవేత్తలకు సాధికారత కల్పిస్తుంది.",
-        "footer": "రూపకల్పన: విఘ్నహర్త గోల్డ్ ఫౌండేషన్ | వెబ్‌సైట్:"
+        "footer": "రూపకల్పన: విఘ్నహర్త గోల్డ్ ఫౌండేషన్"
     },
     "ಕನ್ನಡ": {
         "initiative": "🌟 ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್ ಉಪಕ್ರಮ",
@@ -220,64 +250,72 @@ LANG_DATA = {
         "caption": "ಉದ್ಯಮಿಗಳಿಗೆ ನಿಖರವಾದ ಉಲ್ಲೇಖಗಳನ್ನು ಒದಗಿಸುವ ಡಿಜಿಟಲ್ ಸಹಾಯಕ",
         "tab1": "🔍 ಸ್ಮಾರ್ಟ್ ಬಿಸಿನೆಸ್ ಹುಡುಕಾಟ",
         "tab2": "👥 ಸದಸ್ಯರ ಡೈರೆಕ್ಟರಿ (ಸುರಕ್ಷಿತ)",
-        "tab3": "📝 30-ಸೆಕೆಂಡ್ ಪಿಚ್ ರಚನೆ",
-        "auth_title": "🔐 ಸದಸ್ಯರ ಲಾಗಿನ್ ಮತ್ತು ಪರಿಶೀಲನೆ",
-        "auth_caption": "ರೆಫರಲ್‌ಗಳನ್ನು ಹುಡುಕಲು ನೋಂದಣಿ ಅಗತ್ಯವಿದೆ.",
-        "input_label": "ನೋಂದಾಯಿತ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಥವಾ ಇಮೇಲ್ ನಮೂದಿಸಿ:",
+        "tab3": "📝 30-ಸೆಕೆಂಡ್ ಪಿಚ್",
+        "auth_title": "🔐 ಸದಸ್ಯರ ಲಾಗಿನ್",
+        "auth_caption": "ರೆಫರಲ್‌ಗಳಿಗಾಗಿ ನೋಂದಣಿ ಅಗತ್ಯವಿದೆ.",
+        "input_label": "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ:",
         "input_placeholder": "ಉದಾ. 8087699949",
         "welcome": "ಸ್ವಾಗತ, **{name}**!",
-        "not_registered": "⚠️ ಈ ಸಂಖ್ಯೆ ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ ನೋಂದಣಿಯಾಗಿಲ್ಲ.",
-        "register_prompt": "👉 ನೋಂದಾಯಿಸಲು ದಯವಿಟ್ಟು ಫಾರ್ಮ್ ಭರ್ತಿ ಮಾಡಿ:",
-        "register_btn": "📝 ನೋಂದಾಯಿಸಲು ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ (Google Form)",
-        "search_title": "ನೀವು ಯಾವ ವ್ಯವಹಾರದೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಲು ಬಯಸುತ್ತೀರಿ?",
-        "search_placeholder": "ಉದಾ. 'ಚಿನ್ನದ ಹೂಡಿಕೆ ಸಲಹೆಗಾರ ಬೇಕು'",
+        "not_registered": "⚠️ ಈ ಸಂಖ್ಯೆ ನೋಂದಣಿಯಾಗಿಲ್ಲ.",
+        "register_prompt": "👉 ನೋಂದಾಯಿಸಲು ಫಾರ್ಮ್ ಭರ್ತಿ ಮಾಡಿ:",
+        "register_btn": "📝 ನೋಂದಾಯಿಸಿ (Google Form)",
+        "search_title": "ಯಾವ ವ್ಯವಹಾರದೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಲು ಬಯಸುತ್ತೀರಿ?",
+        "search_placeholder": "ಉದಾ. 'ಚಿನ್ನದ ಹೂಡಿಕೆ'",
         "search_btn": "ಹುಡುಕಿ",
-        "search_hint": "💡 ಹುಡುಕಲು ದಯವಿಟ್ಟು ನೋಂದಾಯಿತ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.",
+        "search_hint": "💡 ಹುಡುಕಲು ಸಂಖ್ಯೆ ನಮೂದಿಸಿ.",
         "spinner_search": "AI ಹುಡುಕುತ್ತಿದೆ...",
-        "dir_locked": "🔒 ಡೈರೆಕ್ಟರಿ ನೋಡಲು ಮೊದಲ ಟ್ಯಾಬ್‌ನಲ್ಲಿ ಲಾಗಿನ್ ಮಾಡಿ.",
-        "dir_title": "ನೋಂದಾಯಿತ ಉದ್ಯಮಿಗಳ ಡೈರೆಕ್ಟರಿ",
-        "filter_placeholder": "ಹೆಸರು ಅಥವಾ ನಗರದಿಂದ ಹುಡುಕಿ:",
-        "pitch_title": "ವ್ಯವಹಾರ ಪರಿಚಯ ಪಿಚ್ ರಚಿಸಿ",
-        "pitch_comp": "ಕಂಪನಿ ಹೆಸರು:",
+        "dir_locked_title": "🔒 ಡೈರೆಕ್ಟರಿಯನ್ನು ನಿರ್ವಾಹಕರು ರಕ್ಷಿಸಿದ್ದಾರೆ",
+        "dir_locked_desc": "ಸದಸ್ಯರ ಗೌಪ್ಯತೆಗಾಗಿ ಅಡ್ಮಿನ್ ಅನುಮತಿ ಕಡ್ಡಾಯವಾಗಿದೆ.",
+        "dir_pass_label": "ಅಡ್ಮಿನ್ ಪಾಸ್‌ಕೋಡ್:",
+        "dir_unlock_btn": "ಅನ್‌ಲಾಕ್ ಮಾಡಿ",
+        "dir_request_btn": "💬 ಅಡ್ಮಿನ್ ಸಂಪರ್ಕಿಸಿ (WhatsApp)",
+        "dir_title": "ಉದ್ಯಮಿಗಳ ಡೈರೆಕ್ಟರಿ",
+        "filter_placeholder": "ಹುಡುಕಿ:",
+        "pitch_title": "ಪಿಚ್ ರಚಿಸಿ",
+        "pitch_comp": "ಕಂಪನಿ:",
         "pitch_serv": "ಸೇವೆಗಳು:",
-        "pitch_ask": "ಅಗತ್ಯತೆ (Ask):",
+        "pitch_ask": "ಅಗತ್ಯತೆ:",
         "pitch_btn": "ರಚಿಸಿ",
-        "spinner_pitch": "ಪಿಚ್ ಸಿದ್ಧವಾಗುತ್ತಿದೆ...",
+        "spinner_pitch": "ಸಿದ್ಧವಾಗುತ್ತಿದೆ...",
         "about": "ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್ ಉದ್ಯಮಿಗಳ ಬೆಂಬಲಕ್ಕಾಗಿ ಶ್ರಮಿಸುತ್ತದೆ.",
-        "footer": "ವಿನ್ಯಾಸ: ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್ | ವೆಬ್‌ಸೈಟ್:"
+        "footer": "ವಿನ್ಯಾಸ: ವಿಘ್ನಹರ್ತ ಗೋಲ್ಡ್ ಫೌಂಡೇಶನ್"
     },
     "മലയാളം": {
-        "initiative": "🌟 വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷന്റെ സംരംഭം",
+        "initiative": "🌟 വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷൻ സംരംഭം",
         "title": "🤝 AI Business Sarathi",
         "subtitle": "Universal Networking & Referral Matcher",
-        "caption": "ബിസിനസ് റഫറലുകൾ കൃത്യമായി കണ്ടെത്തുന്ന ഡിജിറ്റൽ സഹായി",
+        "caption": "ബിസിനസ് റഫറലുകൾ നൽകുന്ന ഡിജിറ്റൽ സഹായി",
         "tab1": "🔍 സ്മാർട്ട് ബിസിനസ് തിരയൽ",
-        "tab2": "👥 അംഗങ്ങളുടെ ഡയറക്ടറി (സുരക്ഷിതം)",
-        "tab3": "📝 30-സെക്കൻഡ് പിച്ച് ജനറേറ്റർ",
+        "tab2": "👥 ഡയറക്ടറി (സുരക്ഷിതം)",
+        "tab3": "📝 30-സെക്കൻഡ് പിച്ച്",
         "auth_title": "🔐 ലോഗിൻ & സ്ഥിരീകരണം",
         "auth_caption": "റഫറലുകൾ ലഭിക്കാൻ രജിസ്ട്രേഷൻ ആവശ്യമാണ്.",
-        "input_label": "രജിസ്റ്റർ ചെയ്ത മൊബൈൽ നമ്പറോ ഇമെയിലോ നൽകുക:",
+        "input_label": "മൊബൈൽ നമ്പർ നൽകുക:",
         "input_placeholder": "ഉദാ. 8087699949",
         "welcome": "സ്വാഗതം, **{name}**!",
-        "not_registered": "⚠️ ഈ നമ്പർ ഡയറക്ടറിയിൽ ലഭ്യമല്ല.",
+        "not_registered": "⚠️ നമ്പർ ലഭ്യമല്ല.",
         "register_prompt": "👉 രജിസ്റ്റർ ചെയ്യാൻ ഫോം പൂരിപ്പിക്കുക:",
-        "register_btn": "📝 രജിസ്റ്റർ ചെയ്യാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക (Google Form)",
+        "register_btn": "📝 രജിസ്റ്റർ ചെയ്യുക (Google Form)",
         "search_title": "ഏത് ബിസിനസ്സുമായാണ് ബന്ധപ്പെടേണ്ടത്?",
-        "search_placeholder": "ഉദാ. 'സ്വർണ്ണ നിക്ഷേപ ഉപദേശകൻ'",
-        "search_btn": "റഫറൽ കണ്ടെത്തുക",
-        "search_hint": "💡 തിരയാൻ ദയവായി നിങ്ങളുടെ നമ്പർ നൽകുക.",
+        "search_placeholder": "ഉദാ. 'സ്വർണ്ണ നിക്ഷേപം'",
+        "search_btn": "കണ്ടെത്തുക",
+        "search_hint": "💡 നമ്പർ നൽകുക.",
         "spinner_search": "AI തിരയുന്നു...",
-        "dir_locked": "🔒 ഡയറക്ടറി കാണാൻ ആദ്യ ടാബിൽ ലോഗിൻ ചെയ്യുക.",
-        "dir_title": "രജിസ്റ്റർ ചെയ്ത അംഗങ്ങളുടെ ഡയറക്ടറി",
-        "filter_placeholder": "പേരോ നഗരമോ അനുസരിച്ച് തിരയുക:",
-        "pitch_title": "ബിസിനസ് പിച്ച് തയ്യാറാക്കുക",
+        "dir_locked_title": "🔒 ഡയറക്ടറി അഡ്മിൻ സംരക്ഷിതമാണ്",
+        "dir_locked_desc": "ഡാറ്റാ സുരക്ഷക്കായി അഡ്മിൻ അനുമതി ആവശ്യമാണ്.",
+        "dir_pass_label": "അഡ്മിൻ പാസ്‌കോഡ്:",
+        "dir_unlock_btn": "തുറക്കുക",
+        "dir_request_btn": "💬 അഡ്മിനുമായി ബന്ധപ്പെടുക (WhatsApp)",
+        "dir_title": "അംഗങ്ങളുടെ ഡയറക്ടറി",
+        "filter_placeholder": "തിരയുക:",
+        "pitch_title": "പിച്ച് തയ്യാറാക്കുക",
         "pitch_comp": "കമ്പനി:",
         "pitch_serv": "സേവനങ്ങൾ:",
-        "pitch_ask": "ആവശ്യം (Ask):",
+        "pitch_ask": "ആവശ്യം:",
         "pitch_btn": "തയ്യാറാക്കുക",
-        "spinner_pitch": "പിച്ച് തയ്യാറാകുന്നു...",
+        "spinner_pitch": "തയ്യാറാകുന്നു...",
         "about": "വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷൻ സംരംഭകരുടെ വളർച്ചയ്ക്കായി നിലകൊള്ളുന്നു.",
-        "footer": "രൂപകൽപ്പന: വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷൻ | സൈറ്റ്:"
+        "footer": "രൂപകൽപ്പന: വിഘ്നഹർത്ത ഗോൾഡ് ഫൗണ്ടേഷൻ"
     },
     "বাংলা": {
         "initiative": "🌟 বিঘ্নহর্তা গোল্ড ফাউন্ডেশনের একটি উদ্যোগ",
@@ -286,31 +324,35 @@ LANG_DATA = {
         "caption": "ব্যবসায়ীদের সঠিক রেফারেল খুঁজে দেওয়ার ডিজিটাল সাথী",
         "tab1": "🔍 স্মার্ট বিজনেস সার্চ",
         "tab2": "👥 সদস্য ডিরেক্টরি (সুরক্ষিত)",
-        "tab3": "📝 ৩০-সেকেন্ড পিচ জেনারেটর",
-        "auth_title": "🔐 সদস্য লগইন ও যাচাইকরণ",
-        "auth_caption": "রেফারেল খুঁজতে আপনার নিবন্ধন থাকা আবশ্যক।",
-        "input_label": "আপনার নিবন্ধিত মোবাইল নম্বর বা ইমেল দিন:",
+        "tab3": "📝 ৩০-সেকেন্ড পিচ",
+        "auth_title": "🔐 সদস্য লগইন",
+        "auth_caption": "রেফারেল খুঁজতে নিবন্ধন আবশ্যক।",
+        "input_label": "মোবাইল নম্বর দিন:",
         "input_placeholder": "যেমন: 8087699949",
         "welcome": "স্বাগতম, **{name}**!",
-        "not_registered": "⚠️ এই নম্বরটি ডিরেক্টরিতে নিবন্ধিত নেই।",
-        "register_prompt": "👉 রেফারেল পেতে দয়া করে ফর্ম পূরণ করে নিবন্ধন করুন:",
-        "register_btn": "📝 নিবন্ধন করতে এখানে ক্লিক করুন (Google Form)",
+        "not_registered": "⚠️ এই নম্বরটি নিবন্ধিত নেই।",
+        "register_prompt": "👉 নিবন্ধন করতে ফর্ম পূরণ করুন:",
+        "register_btn": "📝 নিবন্ধন করুন (Google Form)",
         "search_title": "আপনি কোন ব্যবসার সাথে যুক্ত হতে চান?",
-        "search_placeholder": "যেমন: 'স্বর্ণে বিনিয়োগের পরামর্শদাতা চাই'",
-        "search_btn": "রেফারেল খুঁজুন",
-        "search_hint": "💡 অনুসন্ধানের জন্য উপরে আপনার নম্বর লিখুন।",
+        "search_placeholder": "যেমন: 'স্বর্ণে বিনিয়োগ'",
+        "search_btn": "খুঁজুন",
+        "search_hint": "💡 অনুসন্ধানের জন্য নম্বর লিখুন।",
         "spinner_search": "AI রেফারেল খুঁজছে...",
-        "dir_locked": "🔒 ডিরেক্টরি দেখতে প্রথম ট্যাবে লগইন করুন।",
-        "dir_title": "নিবন্ধিত সদস্যদের ডিরেক্টরি",
-        "filter_placeholder": "নাম বা শহর দিয়ে অনুসন্ধান করুন:",
-        "pitch_title": "ব্যবসায়িক পরিচয়ের পিচ তৈরি করুন",
+        "dir_locked_title": "🔒 ডিরেক্টরি অ্যাডমিন দ্বারা সংরক্ষিত",
+        "dir_locked_desc": "সদস্যদের গোপনীয়তা রক্ষার স্বার্থে অ্যাডমিনের অনুমতি প্রয়োজন।",
+        "dir_pass_label": "অ্যাডমিন পাসকোড:",
+        "dir_unlock_btn": "আনলক করুন",
+        "dir_request_btn": "💬 অ্যাডমিনের সাথে যোগাযোগ করুন (WhatsApp)",
+        "dir_title": "সদস্য ডিরেক্টরি",
+        "filter_placeholder": "অনুসন্ধান করুন:",
+        "pitch_title": "পিচ তৈরি করুন",
         "pitch_comp": "কোম্পানি:",
         "pitch_serv": "পরিষেবা:",
-        "pitch_ask": "চাহিদা (Ask):",
+        "pitch_ask": "চাহিদা:",
         "pitch_btn": "তৈরি করুন",
-        "spinner_pitch": "পিচ তৈরি হচ্ছে...",
-        "about": "বিঘ্নহর্তা গোল্ড ফাউন্ডেশন ব্যবসায়ীদের ক্ষমতায়নের জন্য কাজ করে।",
-        "footer": "পরিকল্পনা: বিঘ্নহর্তা গোল্ড ফাউন্ডেশন | ওয়েবসাইট:"
+        "spinner_pitch": "তৈরি হচ্ছে...",
+        "about": "বিঘ্নহর্তা গোল্ড ফাউন্ডেশন ব্যবসায়ীদের জন্য কাজ করে।",
+        "footer": "পরিকল্পনা: বিঘ্নহর্তা গোল্ড ফাউন্ডেশন"
     },
     "ਪੰਜਾਬੀ": {
         "initiative": "🌟 ਵਿਘਨਹਰਤਾ ਗੋਲਡ ਫਾਊਂਡੇਸ਼ਨ ਦਾ ਉਪਰਾਲਾ",
@@ -318,39 +360,43 @@ LANG_DATA = {
         "subtitle": "Universal Networking & Referral Matcher",
         "caption": "ਕਾਰੋਬਾਰੀਆਂ ਨੂੰ ਸਹੀ ਰੈਫਰਲ ਦਿਵਾਉਣ ਵਾਲਾ ਡਿਜੀਟਲ ਸਾਥੀ",
         "tab1": "🔍 ਸਮਾਰਟ ਬਿਜ਼ਨਸ ਸਰਚ",
-        "tab2": "👥 ਮੈਂਬਰ ਡਾਇਰੈਕਟਰੀ (ਸੁਰੱਖਿਅਤ)",
-        "tab3": "📝 30-ਸਕਿੰਟ ਪਿੱਚ ਜਨਰੇਟਰ",
-        "auth_title": "🔐 ਮੈਂਬਰ ਲੌਗਇਨ ਤੇ ਤਸਦੀਕ",
-        "auth_caption": "ਰੈਫਰਲ ਲੱਭਣ ਲਈ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਹੋਣੀ ਲਾਜ਼ਮੀ ਹੈ।",
-        "input_label": "ਆਪਣਾ ਰਜਿਸਟਰਡ ਮੋਬਾਈਲ ਨੰਬਰ ਜਾਂ ਈਮੇਲ ਦਰਜ ਕਰੋ:",
+        "tab2": "👥 ਡਾਇਰੈਕਟਰੀ (ਐਡਮਿਨ ਸੁਰੱਖਿਅਤ)",
+        "tab3": "📝 30-ਸਕਿੰਟ ਪਿੱਚ",
+        "auth_title": "🔐 ਮੈਂਬਰ ਲੌਗਇਨ",
+        "auth_caption": "ਰੈਫਰਲ ਲੱਭਣ ਲਈ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਲਾਜ਼ਮੀ ਹੈ।",
+        "input_label": "ਮੋਬਾਈਲ ਨੰਬਰ ਦਰਜ ਕਰੋ:",
         "input_placeholder": "ਜਿਵੇਂ: 8087699949",
         "welcome": "ਜੀ ਆਇਆਂ ਨੂੰ, **{name}**!",
-        "not_registered": "⚠️ ਇਹ ਨੰਬਰ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਦਰਜ ਨਹੀਂ ਹੈ।",
-        "register_prompt": "👉 ਨੈੱਟਵਰਕ ਨਾਲ ਜੁੜਨ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਫਾਰਮ ਭਰੋ:",
-        "register_btn": "📝 ਰਜਿਸਟਰ ਕਰਨ ਲਈ ਇੱਥੇ ਕਲਿੱਕ ਕਰੋ (Google Form)",
+        "not_registered": "⚠️ ਨੰਬਰ ਦਰਜ ਨਹੀਂ ਹੈ।",
+        "register_prompt": "👉 ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਫਾਰਮ ਭਰੋ:",
+        "register_btn": "📝 ਰਜਿਸਟਰ ਕਰੋ (Google Form)",
         "search_title": "ਤੁਸੀਂ ਕਿਸ ਕਾਰੋਬਾਰ ਨਾਲ ਜੁੜਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
-        "search_placeholder": "ਜਿਵੇਂ: 'ਸੋਨੇ ਦੇ ਨਿਵੇਸ਼ ਲਈ ਸੰਪਰਕ'",
-        "search_btn": "ਰੈਫਰਲ ਲੱਭੋ",
-        "search_hint": "💡 ਖੋਜ ਕਰਨ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਨੰਬਰ ਦਰਜ ਕਰੋ।",
+        "search_placeholder": "ਜਿਵੇਂ: 'ਸੋਨੇ ਦਾ ਨਿਵੇਸ਼'",
+        "search_btn": "ਲੱਭੋ",
+        "search_hint": "💡 ਖੋਜ ਕਰਨ ਲਈ ਨੰਬਰ ਦਰਜ ਕਰੋ।",
         "spinner_search": "AI ਰੈਫਰਲ ਲੱਭ ਰਿਹਾ ਹੈ...",
-        "dir_locked": "🔒 ਡਾਇਰੈਕਟਰੀ ਵੇਖਣ ਲਈ ਪਹਿਲੇ ਟੈਬ ਵਿੱਚ ਲੌਗਇਨ ਕਰੋ।",
-        "dir_title": "ਰਜਿਸਟਰਡ ਕਾਰੋਬਾਰੀ ਡਾਇਰੈਕਟਰੀ",
-        "filter_placeholder": "ਨਾਮ ਜਾਂ ਸ਼ਹਿਰ ਅਨੁਸਾਰ ਲੱਭੋ:",
-        "pitch_title": "ਕਾਰੋਬਾਰੀ ਪਿੱਚ ਤਿਆਰ ਕਰੋ",
+        "dir_locked_title": "🔒 ਡਾਇਰੈਕਟਰੀ ਐਡਮਿਨ ਦੁਆਰਾ ਸੁਰੱਖਿਅਤ ਹੈ",
+        "dir_locked_desc": "ਡੇਟਾ ਸੁਰੱਖਿਆ ਲਈ ਪੂਰੀ ਡਾਇਰੈਕਟਰੀ ਸਿਰਫ਼ ਐਡਮਿਨ ਦੀ ਮਨਜ਼ੂਰੀ ਨਾਲ ਹੀ ਖੁੱਲ੍ਹੇਗੀ।",
+        "dir_pass_label": "ਐਡਮਿਨ ਪਾਸਕੋਡ:",
+        "dir_unlock_btn": "ਅਨਲੌਕ ਕਰੋ",
+        "dir_request_btn": "💬 ਐਡਮਿਨ ਨਾਲ ਸੰਪਰਕ ਕਰੋ (WhatsApp)",
+        "dir_title": "ਰਜਿਸਟਰਡ ਡਾਇਰੈਕਟਰੀ",
+        "filter_placeholder": "ਲੱਭੋ:",
+        "pitch_title": "ਪਿੱਚ ਤਿਆਰ ਕਰੋ",
         "pitch_comp": "ਕੰਪਨੀ:",
         "pitch_serv": "ਸੇਵਾਵਾਂ:",
-        "pitch_ask": "ਲੋੜ (Ask):",
+        "pitch_ask": "ਲੋੜ:",
         "pitch_btn": "ਤਿਆਰ ਕਰੋ",
-        "spinner_pitch": "ਪਿੱਚ ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ...",
+        "spinner_pitch": "ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ...",
         "about": "ਵਿਘਨਹਰਤਾ ਗੋਲਡ ਫਾਊਂਡੇਸ਼ਨ ਕਾਰੋਬਾਰਾਂ ਦੇ ਵਿਕਾਸ ਲਈ ਕੰਮ ਕਰਦੀ ਹੈ।",
-        "footer": "ਨਿਰਮਾਣ: ਵਿਘਨਹਰਤਾ ਗੋਲਡ ਫਾਊਂਡੇਸ਼ਨ | ਵੈੱਬਸਾਈਟ:"
+        "footer": "ਨਿਰਮਾਣ: ਵਿਘਨਹਰਤਾ ਗੋਲਡ ਫਾਊਂਡੇਸ਼ਨ"
     }
 }
 
-# साइडबार - १० भाषांची निवड
+# साइडबार
 with st.sidebar:
     st.markdown("### 🏛️ **विघ्नहर्ता गोल्ड फाउंडेशन**")
-    st.caption("Empowering Entrepreneurs & Business Networking")
+    st.caption("Empowering Entrepreneurs & Business Growth")
     
     st.markdown("---")
     st.subheader("🌐 भाषा निवडा / Choose Language")
@@ -385,7 +431,7 @@ def load_data():
 
 df = load_data()
 
-# सुरक्षित Gemini कॉल
+# Gemini REST API फंक्शन
 def call_gemini(prompt_text, api_key):
     headers = {"Content-Type": "application/json"}
     payload = {"contents": [{"parts": [{"text": prompt_text}]}]}
@@ -416,7 +462,7 @@ def call_gemini(prompt_text, api_key):
         except Exception:
             continue
 
-    return "Server is busy. Please try again."
+    return "Server is busy right now. Please try again."
 
 # हेडर
 st.markdown(f"**{t['initiative']}**")
@@ -426,9 +472,12 @@ st.caption(t["caption"])
 
 tab1, tab2, tab3 = st.tabs([t["tab1"], t["tab2"], t["tab3"]])
 
-# लॉगिन स्टेट तपासणे
+# लॉगिन व ॲडमिन स्टेट मॅनेजमेंट
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = None
+
+if "admin_unlocked" not in st.session_state:
+    st.session_state.admin_unlocked = False
 
 # टॅब १: सर्च व लॉगिन
 with tab1:
@@ -492,18 +541,38 @@ with tab1:
         if not user_contact:
             st.info(t["search_hint"])
 
-# टॅब २: सुरक्षित डिरेक्टरी (Protected)
+# टॅब २: ॲडमिन संरक्षित डिरेक्टरी (Admin Controlled)
 with tab2:
-    st.write(f"### {t['dir_title']}")
-    
-    if st.session_state.logged_in_user is None:
-        st.warning(t["dir_locked"])
-        st.info("💡 डेटा सुरक्षिततेसाठी डिरेक्टरी फक्त अधिकृत सदस्यांनाच पाहता येते.")
+    if not st.session_state.admin_unlocked:
+        st.warning(f"### {t['dir_locked_title']}")
+        st.write(t["dir_locked_desc"])
+        
+        col1, col2 = st.columns([2, 1])
+        with col1:
+            entered_code = st.text_input(t["dir_pass_label"], type="password", placeholder="Enter Passcode")
+            if st.button(t["dir_unlock_btn"], type="primary"):
+                if entered_code == ADMIN_PASSCODE:
+                    st.session_state.admin_unlocked = True
+                    st.success("✅ ॲडमिन मंजुरी यशस्वी! डिरेक्टरी अनलॉक झाली आहे.")
+                    st.rerun()
+                else:
+                    st.error("❌ चुकीचा पासकोड! कृपया अधिकृत ॲडमिनकडून पासकोड मिळवा.")
+                    
+        with col2:
+            req_msg = f"नमस्कार, मला AI Business Sarathi मधील संपूर्ण डिरेक्टरी ॲक्सेस करण्यासाठी सिक्युरिटी पासकोड हवा आहे."
+            whatsapp_url = f"https://wa.me/{ADMIN_WHATSAPP}?text={requests.utils.quote(req_msg)}"
+            st.markdown("<br>", unsafe_allow_html=True)
+            st.link_button(t["dir_request_btn"], whatsapp_url)
     else:
+        st.write(f"### {t['dir_title']}")
+        col_a, col_b = st.columns([4, 1])
+        with col_b:
+            if st.button("🔒 डिरेक्टरी पुन्हा लॉक करा"):
+                st.session_state.admin_unlocked = False
+                st.rerun()
+                
         if not df.empty:
             search_filter = st.text_input(t["filter_placeholder"])
-            
-            # संवेदनशील माहिती (जसे Timestamp) वगळून डिरेक्टरी दाखवणे
             display_cols = [c for c in df.columns if "Timestamp" not in c and "टाइम" not in c]
             safe_df = df[display_cols] if display_cols else df
             
@@ -515,7 +584,7 @@ with tab2:
         else:
             st.info("No records.")
 
-# टॅब ३: पिच जनरेटर
+# टॅब ३: पिच मेकर
 with tab3:
     st.write(f"### {t['pitch_title']}")
     b_name = st.text_input(t["pitch_comp"])
@@ -538,7 +607,7 @@ with tab3:
                 pitch_reply = call_gemini(pitch_prompt, GEMINI_API_KEY)
                 st.success(pitch_reply)
 
-# तळटीप ब्रँडिंग
+# तळटीप
 st.markdown("---")
 st.markdown(
     f"""
