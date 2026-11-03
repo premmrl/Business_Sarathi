@@ -22,27 +22,28 @@ LANG_DATA = {
         "title": "🤝 AI Business Sarathi",
         "caption": "उद्योजकांना अचूक संदर्भ व व्यावसायिक सहकार्य मिळवून देणारा डिजिटल साथीदार",
         "btn_opt1": "🔍 स्मार्ट शोध",
-        "btn_opt2": "📝 नवीन नोंदणी",
+        "btn_opt2": "📝 नवीन नोंदणी / अपडेट",
         "btn_opt3": "🎙️ पिच व स्टिम्युलेशन",
         "auth_label": "नोंदणीकृत १० अंकी मोबाईल नंबर किंवा ईमेल:",
         "input_placeholder": "उदा. 8087699949 किंवा email",
         "welcome": "✅ स्वागत आहे, **{name}**!",
         "not_registered": "⚠️ हा नंबर डिरेक्टरीमध्ये नोंदणीकृत नाही.",
-        "register_prompt": "👉 संदर्भ शोधण्यासाठी आधी 'नवीन नोंदणी' बटणावर क्लिक करून नोंदणी पूर्ण करा:",
+        "register_prompt": "👉 संदर्भ शोधण्यासाठी आधी 'नवीन नोंदणी / अपडेट' बटणावर क्लिक करून नोंदणी पूर्ण करा:",
         "register_btn_text": "📝 येथे क्लिक करून १ मिनिटात नोंदणी करा",
         "search_label": "तुम्हाला कोणत्या व्यवसायाशी/सेवेशी जोडले जायचे आहे?",
         "search_placeholder": "उदा. 'पुण्यात सोन्यात गुंतवणुकीसाठी संपर्क'...",
         "search_hint": "💡 संदर्भ शोधण्यासाठी वर नोंदणीकृत नंबर टाकून बाणावर (➔) दाबा.",
         "spinner_search": "AI अचूक संदर्भ शोधत आहे...",
-        "reg_title": "बिझनेस नेटवर्कमध्ये नवीन सदस्य नोंदणी",
+        "reg_title": "बिझनेस नेटवर्कमध्ये नवीन नोंदणी / प्रोफाइल अपडेट",
+        "reg_note": "💡 जर तुम्ही आधी नोंदणी केली असेल, तर याच नंबरने पुन्हा फॉर्म भरून माहिती अपडेट करू शकता.",
         "reg_name": "पूर्ण नाव (Full Name):",
         "reg_comp": "कंपनी / ब्रँडचे नाव (Company Name):",
         "reg_phone": "मोबाईल / व्हॉट्सॲप नंबर (Mobile / WhatsApp):",
         "reg_email": "ईमेल आयडी (Email ID):",
         "reg_city": "शहर (City / Location):",
         "reg_serv": "मुख्य उत्पादने किंवा सेवा (Products / Services):",
-        "reg_btn": "नोंदणी पूर्ण करा ➔",
-        "reg_success": "🎉 अभिनंदन! तुमची नोंदणी यशस्वी झाली आहे. आता '🔍 स्मार्ट शोध' बटणावर क्लिक करून संदर्भ शोधा.",
+        "reg_btn": "नोंदणी / अपडेट पूर्ण करा ➔",
+        "reg_success": "🎉 अभिनंदन! तुमची माहिती यशस्वीरीत्या सेव्ह झाली आहे. आता '🔍 स्मार्ट शोध' बटणावर क्लिक करून संदर्भ शोधा.",
         "pitch_title": "३०-सेकंद पिच व स्टिम्युलेशन जनरेटर",
         "pitch_comp": "तुमची कंपनी / ब्रँड:",
         "pitch_serv": "मुख्य उत्पादने किंवा सेवा:",
@@ -59,27 +60,28 @@ LANG_DATA = {
         "title": "🤝 AI Business Sarathi",
         "caption": "उद्यमियों को सटीक रेफ़रल व व्यावसायिक सहयोग दिलाने वाला डिजिटल साथी",
         "btn_opt1": "🔍 स्मार्ट सर्च",
-        "btn_opt2": "📝 नया पंजीकरण",
+        "btn_opt2": "📝 नया पंजीकरण / अपडेट",
         "btn_opt3": "🎙️ पिच व स्टिम्युलेशन",
         "auth_label": "पंजीकृत 10 अंकों का मोबाइल नंबर या ईमेल:",
         "input_placeholder": "उदा. 8087699949 या email",
         "welcome": "✅ स्वागत है, **{name}**!",
         "not_registered": "⚠️ यह नंबर डायरेक्टरी में पंजीकृत नहीं है।",
-        "register_prompt": "👉 रेफ़रल खोजने के लिए पहले 'नया पंजीकरण' बटन दबाकर पंजीकरण करें:",
+        "register_prompt": "👉 रेफ़रल खोजने के लिए पहले 'नया पंजीकरण / अपडेट' बटन दबाकर पंजीकरण करें:",
         "register_btn_text": "📝 यहाँ क्लिक करके पंजीकरण करें",
         "search_label": "आप किस व्यवसाय या सेवा से जुड़ना चाहते हैं?",
         "search_placeholder": "उदा. 'मुझे पुणे में सोने में निवेश के लिए संपर्क'...",
         "search_hint": "💡 रेफ़रल खोजने के लिए ऊपर अपना पंजीकृत नंबर डालकर ➔ दबाएं।",
         "spinner_search": "AI उपयुक्त रेफ़रल खोज रहा है...",
-        "reg_title": "बिजनेस नेटवर्क में नया सदस्य पंजीकरण",
+        "reg_title": "बिजनेस नेटवर्क में पंजीकरण / प्रोफाइल अपडेट",
+        "reg_note": "💡 यदि आप पहले पंजीकृत हैं, तो उसी नंबर से पुनः फॉर्म भरकर जानकारी अपडेट कर सकते हैं।",
         "reg_name": "पूरा नाम (Full Name):",
         "reg_comp": "कंपनी / ब्रांड का नाम (Company Name):",
         "reg_phone": "मोबाइल / व्हाट्सएप नंबर (Mobile / WhatsApp):",
         "reg_email": "ईमेल आईडी (Email ID):",
         "reg_city": "शहर (City / Location):",
         "reg_serv": "मुख्य उत्पाद या सेवाएं (Products / Services):",
-        "reg_btn": "पंजीकरण पूरा करें ➔",
-        "reg_success": "🎉 बधाई! आपका पंजीकरण सफल हो गया है। अब '🔍 स्मार्ट सर्च' में जाकर खोजें।",
+        "reg_btn": "पंजीकरण / अपडेट पूरा करें ➔",
+        "reg_success": "🎉 बधाई! आपकी जानकारी सफलतापूर्वक अपडेट हो गई है। अब '🔍 स्मार्ट सर्च' में जाकर खोजें।",
         "pitch_title": "30-सेकंड पिच और स्टिम्युलेशन जनरेटर",
         "pitch_comp": "कंपनी / ब्रांड:",
         "pitch_serv": "मुख्य उत्पाद या सेवाएं:",
@@ -96,27 +98,28 @@ LANG_DATA = {
         "title": "🤝 AI Business Sarathi",
         "caption": "Connecting entrepreneurs with precise referrals and business collaborations",
         "btn_opt1": "🔍 Smart Search",
-        "btn_opt2": "📝 Registration",
+        "btn_opt2": "📝 Register / Update",
         "btn_opt3": "🎙️ Pitch & Triggers",
         "auth_label": "Registered 10-digit mobile number or email:",
         "input_placeholder": "e.g. 8087699949 or email",
         "welcome": "✅ Welcome, **{name}**!",
         "not_registered": "⚠️ This contact is not registered in our directory.",
-        "register_prompt": "👉 To access referrals, please complete your registration first:",
+        "register_prompt": "👉 To access referrals, please complete your registration or update first:",
         "register_btn_text": "📝 Click here to register",
         "search_label": "Which business or service are you looking to connect with?",
         "search_placeholder": "e.g. 'Looking for gold investment advisor'...",
         "search_hint": "💡 Please enter your registered contact above and tap ➔ arrow.",
         "spinner_search": "AI is finding the best matches...",
-        "reg_title": "Register Business in Directory",
+        "reg_title": "Register / Update Business Profile",
+        "reg_note": "💡 If already registered, submitting again with the same number updates your details automatically.",
         "reg_name": "Full Name:",
         "reg_comp": "Company / Brand Name:",
         "reg_phone": "Mobile / WhatsApp Number:",
         "reg_email": "Email ID:",
         "reg_city": "City / Location:",
         "reg_serv": "Core Products or Services:",
-        "reg_btn": "Submit Registration ➔",
-        "reg_success": "🎉 Congratulations! Registration complete. You can now use '🔍 Smart Search'.",
+        "reg_btn": "Submit / Update Profile ➔",
+        "reg_success": "🎉 Congratulations! Profile saved successfully. You can now use '🔍 Smart Search'.",
         "pitch_title": "30-Sec Pitch & Stimulation Generator",
         "pitch_comp": "Company / Brand:",
         "pitch_serv": "Core Products or Services:",
@@ -134,7 +137,7 @@ for l_key in ["ગુજરાતી", "தமிழ்", "తెలుగు", 
     if l_key not in LANG_DATA:
         LANG_DATA[l_key] = LANG_DATA["English"]
 
-# हाय-कॉन्ट्रास्ट व स्वच्छ रंगसंगती CSS
+# हाय-कॉन्ट्रास्ट स्वच्छ CSS
 st.markdown("""
     <style>
         .block-container {
@@ -169,7 +172,6 @@ st.markdown("""
             font-size: 0.8rem;
             color: #cbd5e1;
         }
-        /* इनपुट बॉक्सची अक्षरे पूर्ण पांढरी आणि स्पष्ट */
         .stTextInput input, .stTextArea textarea {
             color: #ffffff !important;
             font-size: 0.95rem !important;
@@ -194,7 +196,7 @@ with c_l2:
 t = LANG_DATA[selected_lang]
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
 
-# Google Sheet डेटा लोड
+# Google Sheet डेटा लोड (Duplicate Management सह)
 SHEET_ID = "1WibJTWH8NeHrESLNF24im10uAoF1GR3uRgnUhFmZQFE"
 CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
 
@@ -202,7 +204,18 @@ CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:cs
 def load_data():
     try:
         df = pd.read_csv(CSV_URL)
-        return df.fillna("")
+        df = df.fillna("")
+        
+        # मोबाईल नंबर कॉलम शोधून डुप्लिकेट्समधून सर्वात शेवटची (Latest) नोंद ठेवणे
+        phone_cols = [c for c in df.columns if "मोबाईल" in c or "Mobile" in c or "Phone" in c or "WhatsApp" in c]
+        if phone_cols:
+            p_col = phone_cols[0]
+            # नंबरमधील मोकळी जागा व नको असलेले कॅरेक्टर काढून एकसारखे करणे
+            df[p_col] = df[p_col].astype(str).str.strip()
+            # ज्या नोंदी रिक्त नाहीत, त्यातील सर्वात शेवटची नोंद सक्रिय ठेवणे
+            df = df.drop_duplicates(subset=[p_col], keep='last')
+            
+        return df
     except Exception:
         return pd.DataFrame()
 
@@ -242,7 +255,7 @@ if "current_view" not in st.session_state:
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = None
 
-# स्पष्ट आणि हाय-कॉन्ट्रास्ट ३ नेव्हिगेशन बटणे
+# हाय-कॉन्ट्रास्ट ३ नेव्हिगेशन बटणे
 nav_c1, nav_c2, nav_c3 = st.columns(3)
 with nav_c1:
     btn_type1 = "primary" if st.session_state.current_view == "search" else "secondary"
@@ -285,7 +298,8 @@ if st.session_state.current_view == "search":
         matches = df[mask.any(axis=1)]
         
         if not matches.empty:
-            st.session_state.logged_in_user = matches.iloc[0]
+            # सर्वात शेवटी आलेली नोंद घेणे
+            st.session_state.logged_in_user = matches.iloc[-1]
         else:
             st.session_state.logged_in_user = None
             st.warning(t["not_registered"])
@@ -326,7 +340,7 @@ if st.session_state.current_view == "search":
                     [Directory Data]:
                     {context_data}
                     
-                    [Searching Member Profile]:
+                    [Searching Member Profile (Latest Profile)]:
                     {st.session_state.logged_in_user.to_dict()}
                     
                     [Requirement]:
@@ -344,9 +358,10 @@ if st.session_state.current_view == "search":
         if not user_contact:
             st.info(t["search_hint"])
 
-# २. नवीन नोंदणी विभाग
+# २. नवीन नोंदणी / प्रोफाइल अपडेट विभाग
 elif st.session_state.current_view == "register":
     st.write(f"### {t['reg_title']}")
+    st.caption(t["reg_note"])
     
     with st.form("in_app_reg_form", clear_on_submit=False):
         r_name = st.text_input(t["reg_name"])
@@ -362,7 +377,7 @@ elif st.session_state.current_view == "register":
         if not r_name or not r_phone:
             st.error("⚠️ कृपया नाव आणि मोबाईल नंबर अवश्य प्रविष्ट करा.")
         else:
-            with st.spinner("नोंदणी सबमिट होत आहे..."):
+            with st.spinner("माहिती सेव्ह होत आहे..."):
                 try:
                     payload = {
                         "entry.123456789": r_name,
