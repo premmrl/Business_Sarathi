@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 import json
+import time
 
 st.set_page_config(page_title="AI Business Sarathi", layout="wide", page_icon="🤝")
 
@@ -27,7 +28,7 @@ def load_data():
 
 df = load_data()
 
-# Gemini REST API कॉल फंक्शन
+# Gemini REST API कॉल फंक्शन (Retry आणि 503 ऑटो-हँडलिंगसह)
 def call_gemini(prompt_text, api_key):
     headers = {"Content-Type": "application/json"}
     payload = {
@@ -38,23 +39,31 @@ def call_gemini(prompt_text, api_key):
         ]
     }
     
-    # गुगलने अनिवार्य केलेले मॉडेल (gemini-3.8-flash)
-    models = ["gemini-3.8-flash", "gemini-2.5-flash", "gemini-flash-latest"]
+    models = ["gemini-3.8-flash", "gemini-3.8-pro", "gemini-3.0-flash"]
     last_error = ""
     
     for model_name in models:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
-        try:
-            response = requests.post(url, headers=headers, json=payload, timeout=30)
-            if response.status_code == 200:
-                data = response.json()
-                return data["candidates"][0]["content"]["parts"][0]["text"]
-            else:
-                last_error = response.text
-        except Exception as e:
-            last_error = str(e)
-            
-    return f"API त्रुटी: {last_error}"
+        
+        # 503 लोड आल्यास २ वेळा रिट्राय करणे
+        for attempt in range(2):
+            try:
+                response = requests.post(url, headers=headers, json=payload, timeout=30)
+                if response.status_code == 200:
+                    data = response.json()
+                    return data["candidates"][0]["content"]["parts"][0]["text"]
+                elif response.status_code == 503:
+                    time.sleep(1.5)  # क्षणिक लोड असल्यास १.५ सेकंद थांबून पुन्हा प्रयत्न
+                    last_error = response.text
+                    continue
+                else:
+                    last_error = response.text
+                    break
+            except Exception as e:
+                last_error = str(e)
+                break
+                
+    return f"सर्व्हर व्यस्त आहे (503). कृपया १ सेकंदाने पुन्हा 'संदर्भ शोधा' बटण दाबा."
 
 st.title("🤝 AI Business Sarathi")
 st.subheader("Universal Networking & Referral Matcher")
